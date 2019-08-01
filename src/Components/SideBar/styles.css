@@ -1,0 +1,87 @@
+.sidebar {
+  position: absolute;
+  width: 100%;
+  max-width: 360px;
+  background: #232323;
+  border-right: 1px solid #cccccc;
+  height: 100%;
+}
+
+.sidebar .information-company {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  border-bottom: 1px solid #fafafa;
+  padding: 0 10px 0;
+}
+
+.sidebar .information-company .information-company-area {
+  margin-right: 15px;
+}
+
+.sidebar .information-company .information-company-area img {
+  width: 65px;
+  height: 65px;
+  border-radius: 5px;
+}
+
+.sidebar .information-company .information-company-content {
+  color: #fff;
+  height: 70px;
+  width: 100%;
+}
+
+.sidebar .information-company .information-company-content .info-company-title {
+  font-size: 14px;
+  margin-top: 5px;
+  text-overflow: ellipsis;
+  /* Set here max width of the text */
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 16px;
+  line-height: 16px;
+}
+
+.sidebar .information-company .information-company-content .info-company-paws {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #fff;
+  display: flex;
+}
+
+.sidebar .information-company .information-company-content .info-company-paws span {
+  color: #4ca3dd;
+}
+
+.sidebar .company-list-menu {
+  height: 100%;
+}
+
+.sidebar .company-list-menu .list-area {
+  margin-top: 25px;
+  width: 100%;
+  list-style: none;
+}
+
+.sidebar .company-list-menu .list-area a {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  height: 35px;
+  color: #fff;
+  transition: 100ms;
+  margin-bottom: 2px;
+}
+
+.sidebar .company-list-menu .list-area a:hover {
+  background: #dddddd;
+}
+
+.sidebar .company-list-menu .transition h1 {
+  margin-left: 25px;
+  color: #fff;
+  font-size: 16px;
+}
