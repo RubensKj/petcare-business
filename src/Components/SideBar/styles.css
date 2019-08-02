@@ -1,97 +1,130 @@
+.faw-rating {
+  color: #dabb72 !important;
+}
+
+#sidebar-menu-left::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 50%;
+}
+
+#sidebar-menu-left::-webkit-scrollbar-track {
+  background: #1c1b20; 
+}
+
+#sidebar-menu-left::-webkit-scrollbar-thumb {
+  background: #aaaaaa; 
+}
+
+#sidebar-menu-left::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+
 .sidebar {
   position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  /* background-image: linear-gradient(to bottom,#191e28 0,#394458 100%); */
+  background: #1c1b20;
+  max-width: 310px;
   width: 100%;
-  max-width: 360px;
-  background: #2e2930;
-  border-right: 1px solid #cccccc;
-  height: 100%;
-  box-shadow: 0 0 0 rgba(12,13,14,0.05);
-}
-
-.sidebar .information-company {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 120px;
-  border-bottom: 1px solid #fafafa;
-  padding: 0 10px 0;
-  background: #0e0e0e;
-}
-
-.sidebar .information-company .information-company-area {
-  margin-right: 15px;
-}
-
-.sidebar .information-company .information-company-area img {
-  width: 65px;
-  height: 65px;
-  border-radius: 5px;
-}
-
-.sidebar .information-company .information-company-content {
-  color: #fff;
-  height: 70px;
-  width: 100%;
-}
-
-.sidebar .information-company .information-company-content .info-company-title {
-  font-size: 14px;
-  margin-top: 5px;
-  text-overflow: ellipsis;
-  /* Set here max width of the text */
-  word-wrap: break-word;
-  overflow: hidden;
-  max-height: 16px;
-  line-height: 16px;
-}
-
-.sidebar .information-company .information-company-content .info-company-paws {
-  margin-top: 15px;
-  font-size: 14px;
-  color: #fff;
-  display: flex;
-}
-
-.sidebar .information-company .information-company-content .info-company-paws span {
-  color: #4ca3dd;
-}
-
-.sidebar .company-list-menu {
-  height: 82.099%;
-}
-
-.sidebar .company-list-menu .list-area {
-  margin-top: 10px;
-  width: 100%;
-  list-style: none;
-  height: 100%;
   overflow-y: auto;
 }
 
-.sidebar .company-list-menu .list-area a {
+.sidebar .container-sidebar-left {
   width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+}
+
+.sidebar .container-sidebar-left .information-company {
+  height: 110px;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  padding: 0 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar .container-sidebar-left .information-company .information-company-area {
+  margin-right: 15px;
+}
+
+.sidebar .container-sidebar-left .information-company .information-company-area img {
+  width: 54px;
+  height: 54px;
+  border-radius: 5px;
+  box-shadow: 4px 8px 20px 2px rgba(120,135,182,.1);
+}
+
+.sidebar .container-sidebar-left .information-company .information-company-content {
+  color: #ffffff;
+  height: 100%;
+}
+
+.sidebar .container-sidebar-left .information-company .information-company-content .info-company-title {
+  width: 100%;
+  margin-top: 22px;
+}
+
+.sidebar .container-sidebar-left .information-company .information-company-content .info-company-title h1 {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  max-width: 215px;
+  overflow: hidden;
+}
+
+.sidebar .container-sidebar-left .information-company .information-company-content .info-company-paws {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.sidebar .container-sidebar-left .information-company .information-company-content .info-company-paws svg {
+  margin-right: 3px;
+}
+
+.sidebar .container-sidebar-left .information-company .information-company-content .info-company-paws span {
+  color: #dabb72;
+  font-size: 18px;
+  margin-left: 5px;
+  margin-top: 3.5px;
+}
+
+.sidebar .container-sidebar-left .company-list-menu {
+  position: relative;
+}
+
+.sidebar .container-sidebar-left .company-list-menu .transition {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 3px;
+}
+
+.sidebar .container-sidebar-left .company-list-menu .transition h1 {
+  margin-left: 8px;
+  font-size: 20px;
+}
+
+.sidebar .container-sidebar-left .company-list-menu .list-area {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.sidebar .container-sidebar-left .company-list-menu .list-area a {
   text-decoration: none;
-  height: 35px;
-  color: #fff;
+  color: #aaaaaa;
+  padding: 10px 25px;
   transition: 100ms;
   margin-bottom: 2px;
 }
 
-.sidebar .company-list-menu .list-area a:hover {
-  background: #dddddd;
-  color: #2e2930;
-}
-
-.sidebar .company-list-menu .transition {
-  width: 100%;
-  margin-top: 15px;
-}
-
-.sidebar .company-list-menu .transition h1 {
-  margin-left: 25px;
-  color: #fafafa;
-  font-size: 16px;
+.sidebar .container-sidebar-left .company-list-menu .list-area a:hover {
+  background: #aaaaaa;
+  color: #fff;
 }
