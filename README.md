@@ -4,7 +4,7 @@ iPet App made by ReactJS
 
 ### Calendar
 
-Sent on git on 1st of august;
+Sented to git on 1st of August;
 
 ### `npm start` or `yarn start` (If yarn is installed)
 

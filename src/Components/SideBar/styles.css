@@ -4,7 +4,6 @@
 
 #sidebar-menu-left::-webkit-scrollbar {
   width: 5px;
-  border-radius: 50%;
 }
 
 #sidebar-menu-left::-webkit-scrollbar-track {
@@ -25,7 +24,6 @@
   top: 0;
   bottom: 0;
   left: 0;
-  /* background-image: linear-gradient(to bottom,#191e28 0,#394458 100%); */
   background: #1c1b20;
   max-width: 310px;
   width: 100%;
@@ -125,6 +123,6 @@
 }
 
 .sidebar .container-sidebar-left .company-list-menu .list-area a:hover {
-  background: #aaaaaa;
+  background: #333333;
   color: #fff;
 }
