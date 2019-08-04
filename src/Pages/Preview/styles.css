@@ -1,0 +1,194 @@
+/* 7bbb5e */
+
+.box-color-area {
+  position: relative;
+  background: #7bbb5e;
+  height: 250px;
+}
+
+.content-preview {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-top: -95px;
+  width: 100%;
+  padding: 0 15px;
+  padding-bottom: 25px;
+}
+
+.content-preview .buttons-actions {
+  position: absolute;
+  top: -75px;
+  max-width: 920px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-preview .buttons-actions .actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  width: 100%;
+}
+
+.content-preview .buttons-actions .actions .button-design {
+  width: 140px;
+  height: 35px;
+  border-radius: 5px;
+  background: #4c5765;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 100ms;
+}
+
+.content-preview .buttons-actions .actions .favorite:hover, .content-preview .buttons-actions .actions .favorite button, .content-preview .buttons-actions .actions .report:hover, .content-preview .buttons-actions .actions .report:hover button {
+  border: none;
+  cursor: pointer;
+  color: #4c5765;
+  background: #fff;
+}
+
+.content-preview .buttons-actions .actions .favorite button, .content-preview .buttons-actions .actions .report button {
+  border: none;
+  background: none;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin-top: 1px;
+  margin-left: 8px;
+  font-size: 16px;
+  transition: 105ms;
+}
+
+.content-preview .buttons-actions .actions .favorite svg, .content-preview .buttons-actions .actions .report svg {
+  color: #fff;
+}
+
+.content-preview .box-main-information {
+  background: #fff;
+  max-width: 920px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,.1);
+}
+
+.content-preview .box-main-information .img-area {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-top: -70px;
+  padding-bottom: 20px;
+}
+
+.content-preview .box-main-information .img-area img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 0 8px 16px rgba(0,0,0,.1);
+}
+
+.content-preview .box-main-information .title-joinedDate {
+  text-align: center;
+}
+
+.content-preview .box-main-information .title-joinedDate h1 {
+  font-size: 30px;
+  color: #2D2D2D;
+}
+
+.content-preview .box-main-information .title-joinedDate .evaluation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  padding: 5px;
+  max-width: 150px;
+  margin: 0 auto;
+  box-shadow: 0 8px 16px rgba(0,0,0,.1);
+  border-radius: 5px;
+}
+
+.content-preview .box-main-information .title-joinedDate .evaluation svg {
+  color: #4c5765;
+  margin-right: 3px;
+  margin-top: 3px;
+}
+
+.content-preview .box-main-information .title-joinedDate .evaluation span {
+  position: relative;
+  margin-left: 5px;
+  margin-top: 5px;
+  color: #4c5765;
+  font-weight: 600;
+}
+
+.content-preview .box-main-information .transion-small {
+  width: 25px;
+  height: 3px;
+  background: #7bbb5e;
+  margin: 33px auto 0 auto;
+}
+
+.content-preview .box-main-information .address-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 45px;
+  padding: 0 65px;
+  margin-bottom: 25px;
+}
+
+.content-preview .box-main-information .address-status .address-area {
+  background: #fff;
+  border-radius: 10px;
+  height: 75px;
+  max-width: 295px;
+  width: 100%;
+  padding: 10px 10px 5px;
+  box-shadow: 0 8px 16px rgba(0,0,0,.1);
+}
+
+.content-preview .box-main-information .address-status .address-area h3, .content-preview .box-main-information .status-area h3 {
+  font-size: 16px;
+  margin-top: 2px;
+  margin-left: 8px;
+  color: #ec910a;
+}
+
+.content-preview .box-main-information .address-status .address-area .address-info, .content-preview .box-main-information .status-area .status-info {
+  padding: 0 5px;
+  margin-top: 2px;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.content-preview .box-main-information .address-status .address-area .address-info svg, .content-preview .box-main-information .status-area .status-info svg {
+  color: #ec910a;
+  margin-right: 5px;
+  position: relative;
+  top: 3px;
+}
+
+.content-preview .box-main-information .address-status .address-area .address-info span, .content-preview .box-main-information .status-area .status-info span {
+  font-size: 15px;
+  color: #4c5765;
+}
+
+.content-preview .box-main-information .status-area {
+  background: #fff;
+  border-radius: 10px;
+  height: 75px;
+  max-width: 295px;
+  width: 100%;
+  padding: 10px 10px 5px;
+  box-shadow: 0 8px 16px rgba(0,0,0,.1);
+}
+
+/* color: #394458; */

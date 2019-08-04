@@ -8,7 +8,7 @@ export default function Main() {
   return (
     <>
       <SideBar />
-      <div className="container">
+      <div className="container-page-sidebar-space">
         <h1>Main</h1>
       </div>
     </>

@@ -30,9 +30,11 @@ export default function SideBar() {
             <div className="bar" />
           </div>
           <ul className="list-area">
+            <a href="/preview"><li>Preview</li></a>
             <a href="#"><li>Cadastrar Serviço</li></a>
             <a href="#"><li>Cadastrar Produto</li></a>
             <a href="#"><li>Avaliações</li></a>
+            <a href="#"><li>Alterar endereço</li></a>
           </ul>
         </div>
       </div>
