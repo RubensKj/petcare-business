@@ -44,6 +44,7 @@
   cursor: pointer;
   transition: 100ms;
   box-shadow: 0 8px 16px rgba(0,0,0,.1);
+  border: 1px solid #ebeced;
 }
 
 .content-preview .buttons-actions .actions .favorite:hover, .content-preview .buttons-actions .actions .report:hover {
@@ -82,6 +83,7 @@
   max-width: 920px;
   width: 100%;
   border-radius: 10px;
+  border-top: 1px solid #ebeced;
   /* box-shadow: 0 8px 16px rgba(0,0,0,.1); */
 }
 
@@ -119,6 +121,7 @@
   margin: 0 auto;
   box-shadow: 0 8px 16px rgba(0,0,0,.1);
   border-radius: 5px;
+  border: 1px solid #ebeced;
 }
 
 .content-preview .box-main-information .title-joinedDate .evaluation svg {
@@ -158,6 +161,7 @@
   width: 100%;
   padding: 10px 10px 5px;
   box-shadow: 0 8px 16px rgba(0,0,0,.1);
+  border: 1px solid #ebeced;
 }
 
 .content-preview .box-main-information .address-status .address-area h3, .content-preview .box-main-information .status-area h3 {
@@ -196,6 +200,7 @@
   width: 100%;
   padding: 10px 10px 5px;
   box-shadow: 0 8px 16px rgba(0,0,0,.1);
+  border: 1px solid #ebeced;
 }
 
 /* Content-company */
@@ -256,6 +261,7 @@
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 8px 16px rgba(0,0,0,.1);
+  border: 1px solid #ebeced;
 }
 
 .content-company .products-area .grid-products .product .avatar-area {
@@ -271,7 +277,7 @@
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  border: 1px solid #B3B6CB;
+  border: 1px solid #ebeced;
 }
 
 .content-company .products-area .grid-products .product .product-information {

@@ -20,7 +20,7 @@ button {
   border: none;
 }
 
-.openSidebar {
+.closedSidebar {
   width: 0px;
   transition: width .10s;
 }
