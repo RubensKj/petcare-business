@@ -8,7 +8,7 @@ export default function Preview() {
   return (
     <>
       <SideBar />
-      <div className="container-page-sidebar-space">
+      <div className="container-page-sidebar">
         <div className="box-color-area" />
         <div className="content-preview">
           <div className="buttons-actions">

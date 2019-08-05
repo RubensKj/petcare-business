@@ -4,7 +4,7 @@ import SideBar from '../../Components/SideBar';
 
 import './styles.css';
 
-export default function Main() {
+export default function CreateService() {
   return (
     <>
       <SideBar />

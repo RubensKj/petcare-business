@@ -1,7 +1,6 @@
 /* 7bbb5e */
 
 .box-color-area {
-  position: relative;
   background: #7bbb5e;
   height: 250px;
 }
@@ -81,7 +80,6 @@
   overflow: hidden;
   display: flex;
   justify-content: center;
-  position: relative;
   margin-top: -70px;
   padding-bottom: 20px;
 }
@@ -252,7 +250,6 @@
 }
 
 .content-company .products-area .grid-products .product .avatar-area {
-  position: relative;
   margin: auto 0;
   margin-left: -35px;
   background: #fff;
@@ -281,7 +278,6 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 100%;
 }
 
 .content-company .products-area .grid-products .product .product-information .header-product h3 {
@@ -302,7 +298,6 @@
 }
 
 .content-company .products-area .grid-products .product .product-information .transion-small {
-  position: relative;
   margin-left: 0 !important;
   top: 5px;
 }
@@ -320,7 +315,6 @@
 }
 
 .content-company .products-area .grid-products .product .product-information .footer-product .product-price svg, .content-company .products-area .grid-products .product .product-information .footer-product .product-weight svg {
-  position: relative;
   top: 3px;
   margin-right: 5px;
 }

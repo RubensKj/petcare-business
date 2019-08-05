@@ -1,0 +1,91 @@
+.container-fixed-bar {
+  display: block;
+  position: fixed;
+  width: 65px;
+  height: 100%;
+  /* background: #151417; */
+  background: #202225;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.container-fixed-bar .up-actions .btn-home {
+  margin-top: 2px;
+  padding: 5px;
+}
+
+.container-fixed-bar .up-actions .btn-home button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  background: #2f3136;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.container-fixed-bar .up-actions .btn-home button svg {
+  stroke: #fff !important;
+}
+
+.container-fixed-bar .up-actions .btn-home button:hover {
+  background: #fff;
+}
+
+.container-fixed-bar .up-actions .btn-home button:hover>svg {
+  stroke: #2f3136 !important;
+}
+
+.container-fixed-bar .up-actions .list-actions {
+  margin-top: 12px;
+}
+
+.container-fixed-bar .up-actions .list-actions ul{
+  padding: 5px;
+  list-style: none;
+  text-decoration: none;
+}
+
+.container-fixed-bar .up-actions .list-actions ul a li{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  background: #2f3136;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 5px;
+}
+
+.container-fixed-bar .up-actions .list-actions ul a li:hover, .container-fixed-bar .setting-config a:hover {
+  background: #fff;
+}
+
+.container-fixed-bar .up-actions .list-actions ul a li:hover>svg, .container-fixed-bar .setting-config a:hover>svg {
+  stroke: #2f3136 !important;
+}
+
+/* DOWN LIST */
+
+.container-fixed-bar .setting-config {
+  position: absolute;
+  bottom: 5px;
+  padding: 5px;
+  width: 100%;
+}
+
+.container-fixed-bar .setting-config a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  background: #2f3136;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 5px;
+}

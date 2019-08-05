@@ -15,6 +15,22 @@ body {
   color: #333;
 }
 
+button {
+  background: transparent;
+  border: none;
+}
+
+.openSidebar {
+  width: 0px;
+  transition: width .10s;
+}
+
+.container-page-sidebar {
+  margin-left: 375px;
+  transition: margin-left .2s;
+}
+
 .container-page-sidebar-space {
-  margin-left: 310px;
+  margin-left: 65px;
+  transition: margin-left .9s;
 }
