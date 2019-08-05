@@ -46,10 +46,13 @@
   box-shadow: 0 8px 16px rgba(0,0,0,.1);
 }
 
-.content-preview .buttons-actions .actions .favorite:hover, .content-preview .buttons-actions .actions .favorite button, .content-preview .buttons-actions .actions .report:hover, .content-preview .buttons-actions .actions .report:hover button {
-  border: none;
-  cursor: pointer;
-  color: #4c5765;
+.content-preview .buttons-actions .actions .favorite:hover, .content-preview .buttons-actions .actions .favorite:hover>svg, .content-preview .buttons-actions .actions .report:hover {
+  color: #897322;
+  fill: #897322;
+}
+
+.content-preview .buttons-actions .actions .report:hover>svg {
+  color: #897322;
 }
 
 .content-preview .buttons-actions .actions .favorite button, .content-preview .buttons-actions .actions .report button {
@@ -62,6 +65,7 @@
   margin-left: 8px;
   font-size: 16px;
   transition: 105ms;
+  cursor: pointer;
 }
 
 .content-preview .buttons-actions .actions .favorite svg, .content-preview .buttons-actions .actions .report svg {
