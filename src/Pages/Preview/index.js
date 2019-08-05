@@ -89,6 +89,9 @@ export default function Preview() {
                 </div>
               </a>
             </div>
+            <div className="button-load-more">
+              <button>Carregar mais pet shops</button>
+            </div>
           </div>
         </div>
       </div>
