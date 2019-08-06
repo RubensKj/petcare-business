@@ -235,7 +235,7 @@
 
 /* Grid products area */
 
-.content-company .products-area .grid-products {
+.content-company .products-area .grid-products, .content-company .products-area .grid-services {
   margin-top: 12px;
   width: 100%;
   margin: 20px auto 20px;
@@ -244,8 +244,68 @@
   column-gap: 65px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(298px, 1fr));
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
+
+/* Service Shop */ 
+
+.content-company .products-area .grid-services .service {
+  display: flex;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,.1);
+  border: 1px solid #ebeced;
+  cursor: pointer;
+  user-select: none;
+}
+
+.content-company .products-area .grid-services .service .service-information, .content-company .products-area .grid-products .product .product-information {
+  display: grid;
+  margin: auto;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 10px 2px;
+  width: 100%;
+}
+
+.content-company .products-area .grid-services .service .service-information .title-service,.content-company .products-area .grid-services .service .service-information .description-service {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.content-company .products-area .grid-services .service .service-information .title-service h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 18px;
+  color: #ec910a;
+}
+
+.content-company .products-area .grid-services .service .service-information .description-service p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #B3B6CB;
+  font-size: 15px;
+}
+
+.content-company .products-area .grid-services .service .service-information .price-service {
+  display: flex;
+  color: #394458;
+  font-size: 16px;
+}
+
+.content-company .products-area .grid-services .service .service-information .price-service .unity {
+  margin-right: 5px;
+}
+
+.selectedItem {
+  border: 1px solid #ec910a !important;
+  background: #f3f4f7;
+}
+
+/* Products Shop */ 
 
 .content-company .products-area .grid-products a {
   text-decoration: none;
@@ -278,15 +338,6 @@
   height: 100px;
   border-radius: 50%;
   border: 1px solid #ebeced;
-}
-
-.content-company .products-area .grid-products .product .product-information {
-  display: grid;
-  margin: auto;
-  margin-left: 10px;
-  margin-right: 10px;
-  padding: 10px 2px;
-  width: 100%;
 }
 
 .content-company .products-area .grid-products .product .product-information .header-product {

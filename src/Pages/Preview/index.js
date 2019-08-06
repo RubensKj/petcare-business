@@ -3,6 +3,13 @@ import React from 'react';
 import './styles.css';
 
 export default function Preview() {
+
+  function selectItem(event) {
+    let selectedDiv = event.currentTarget;
+    selectedDiv.classList.toggle("selectedItem");
+    console.log(selectedDiv);
+  }
+
   return (
     <>
       <div className="container-page-sidebar">
@@ -56,6 +63,40 @@ export default function Preview() {
         </div>
         <div className="content-company">
           <div className="products-area">
+            <div className="title-area">
+              <h3>Serviços</h3>
+            </div>
+            <div className="transion-small" />
+            <div className="grid-services">
+              <div className="service" onClick={(event) => selectItem(event)}>
+                <div className="service-information">
+                  <div className="title-service">
+                    <h3>Tosa</h3>
+                  </div>
+                  <div className="description-service">
+                    <p>Gran Plus Gatos Castrados Frango e Arroz - 10kg- Ração premium especial indicada para gatos adultos e castrados.- Energia reduzida - indicado para gatos castrados ou que vivem em ambientes internos.- Ótima palatabilidade.- 100% satisfação garantida.</p>
+                  </div>
+                  <div className="price-service">
+                    <p className="unity">R$</p>
+                    <p>54.20</p>
+                  </div>
+                </div>
+              </div>
+              <div className="service" onClick={event => selectItem(event)}>
+                <div className="service-information">
+                  <div className="title-service">
+                    <h3>Banho</h3>
+                  </div>
+                  <div className="description-service">
+                    <p>Banho com shampoo malaco e pauladinha</p>
+                  </div>
+                  <div className="price-service">
+                    <p className="unity">R$</p>
+                    <p>24.20</p>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className="title-area">
               <h3>Produtos</h3>
             </div>
