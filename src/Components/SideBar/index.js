@@ -12,7 +12,7 @@ export default function SideBar() {
         <div className="container-sidebar-left">
           <div className="information-company">
             <div className="information-company-area">
-              <img src="https://scontent.fbnu1-1.fna.fbcdn.net/v/t1.0-9/36919020_268531707232126_6615945512266760192_n.jpg?_nc_cat=104&_nc_oc=AQkT9OzKnH47MyQHguJZ8Wt38JFTYtrVKfROYDr46Tk2_RGFIGMkcWPXw3UaNS-bwKs&_nc_ht=scontent.fbnu1-1.fna&oh=82722e4b1b45ab3b0563f72bdfee5482&oe=5DEBBFF4" />
+              <img src="https://scontent.fbnu1-1.fna.fbcdn.net/v/t1.0-9/36919020_268531707232126_6615945512266760192_n.jpg?_nc_cat=104&_nc_oc=AQkT9OzKnH47MyQHguJZ8Wt38JFTYtrVKfROYDr46Tk2_RGFIGMkcWPXw3UaNS-bwKs&_nc_ht=scontent.fbnu1-1.fna&oh=82722e4b1b45ab3b0563f72bdfee5482&oe=5DEBBFF4" alt="Company Logo" />
             </div>
             <div className="information-company-content">
               <div className="info-company-title">
@@ -35,11 +35,11 @@ export default function SideBar() {
             </div>
             <ul className="list-area">
               <a href="/"><li>Inicio</li></a>
-              <a href="#"><li>Pedidos</li></a>
-              <a href="#"><li>Avaliações</li></a>
+              <a href="/pedidos"><li>Pedidos</li></a>
+              <a href="/avaliacoes"><li>Avaliações</li></a>
               <a href="/lista-produtos"><li>Produtos</li></a>
               <a href="/cadastrar-servico"><li>Cadastrar Serviço</li></a>
-              <a href="#"><li>Alterar endereço</li></a>
+              <a href="/alterar-endereco"><li>Alterar endereço</li></a>
             </ul>
           </div>
         </div>

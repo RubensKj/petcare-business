@@ -102,7 +102,7 @@ export default function Preview() {
             </div>
             <div className="transion-small" />
             <div className="grid-products">
-              <a href="#">
+              <a href="/produto/{id}">
                 <div className="product">
                   <div className="avatar-area">
                     <img src="https://image.flaticon.com/icons/png/512/194/194647.png" alt="Product Logo" />
