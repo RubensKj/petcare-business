@@ -1,3 +1,12 @@
+.openDropDownProduct {
+  display: block !important;
+}
+
+.buttonPressed {
+  background: #ebeced;
+  transition: 100ms;
+}
+
 .container-product {
   display: block;
   justify-content: center;
@@ -114,7 +123,164 @@
   grid-column-gap: 65px;
   column-gap: 65px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(298px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(355px, 1fr));
   margin-bottom: 50px;
 }
 
+/* Product style */
+
+.container-product .container-list-products {
+  max-width: 920px;
+  width: 100%;
+}
+
+.container-product .container-list-products .product {
+  position: relative;
+  display: flex;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #ebeced;
+}
+
+.container-product .container-list-products .product .avatar-product-area {
+  margin: auto 0;
+  margin-left: -35px;
+  background: #fff;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.container-product .container-list-products .product .avatar-product-area img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 1px solid #ebeced;
+}
+
+.container-product .container-list-products .product .product-infomation {
+  display: grid;
+  margin: auto;
+  margin-left: 45px;
+  margin-right: 10px;
+  padding: 10px 2px;
+  width: 100%;
+  height: 100%;
+}
+
+.container-product .container-list-products .product .product-infomation .title-product-area {
+  width: 100%;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.container-product .container-list-products .product .product-infomation .title-product-area h1 {
+  width: 100%;
+  font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #2D2D2D;
+}
+
+.container-product .container-list-products .product .product-infomation .description-product-area {
+  /* autoprefixer: off */
+  -webkit-box-orient: vertical;
+  /* autoprefixer: on */
+  display: block;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 15px;
+  color: #394458;
+}
+
+.container-product .container-list-products .product .product-infomation .utilities-product-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.container-product .container-list-products .product .product-infomation .utilities-product-area .price-weight {
+  display: flex;
+  justify-content: space-between;
+  color: #394458;
+}
+
+.container-product .container-list-products .product .product-infomation .utilities-product-area .price-weight .product-price {
+  margin-right: 8px;
+  color: #394458;
+}
+
+.container-product .container-list-products .product .product-infomation .utilities-product-area .price-weight .product-price svg, .container-product .container-list-products .product .product-infomation .utilities-product-area .price-weight .product-weight svg {
+  position: relative;
+  top: 2px;
+  margin-right: 2px;
+}
+
+.container-product .container-list-products .product .product-infomation .utilities-product-area .actions-product {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container-product .container-list-products .product .product-infomation .utilities-product-area .actions-product .action-open-modal {
+  width: 32px;
+  height: 32px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background .3s;
+}
+
+.container-product .container-list-products .product .product-infomation .utilities-product-area .actions-product .action-open-modal svg {
+  margin: auto;
+  stroke: #4c5765;
+}
+
+.container-product .container-list-products .product .product-infomation .utilities-product-area .actions-product .action-open-modal:hover {
+  background: #ebeced;
+}
+
+.container-product .container-list-products .product .product-infomation .utilities-product-area .actions-product  .dropdown-menu-product {
+  display: none;
+  max-width: 140px;
+  width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #ebeced;
+  position: absolute;
+  top: 92px;
+  right: 45px;
+  padding: 5px 0;
+  user-select: none;
+}
+
+.container-product .container-list-products .product .dropdown-menu-product ul {
+  margin-top: 5px;
+  list-style: none;
+}
+
+.container-product .container-list-products .product .dropdown-menu-product ul li {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  margin-bottom: 5px;
+  height: 35px;
+  font-size: 16px;
+  color: #394458;
+  cursor: pointer;
+}
+
+.container-product .container-list-products .product .dropdown-menu-product ul li .delete-button svg, .container-product .container-list-products .product .dropdown-menu-product ul li .edit-button svg {
+  stroke: #394458;
+  position: relative;
+  top: 2px;
+  margin-right: 6px;
+}
+
+.container-product .container-list-products .product .dropdown-menu-product ul li:hover {
+  background: #ebeced;
+}

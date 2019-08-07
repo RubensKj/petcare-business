@@ -430,3 +430,27 @@
 }
 
 /* color: #394458; */
+/* Mobile */
+
+@media only screen and (max-width: 852px) and (min-width: 0px) {
+  .content-preview {
+    margin-top: -78px !important;
+  }
+
+  .content-preview .buttons-actions {
+    top: -110px !important;
+  }
+  
+  .content-preview .box-main-information .address-status {
+    display: block !important;
+    margin-bottom: 18px !important;
+  }
+
+  .content-preview .box-main-information .address-status .address-area {
+    margin-bottom: 15px;
+  }
+
+  .content-preview .box-main-information .address-status .address-area, .content-preview .box-main-information .status-area {
+    max-width: none !important;
+  }
+}
