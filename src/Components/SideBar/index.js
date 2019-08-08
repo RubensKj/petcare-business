@@ -39,7 +39,7 @@ export default function SideBar() {
               <a href="/avaliacoes"><li>Avaliações</li></a>
               <a href="/lista-produtos"><li>Produtos</li></a>
               <a href="/cadastrar-servico"><li>Cadastrar Serviço</li></a>
-              <a href="/alterar-endereco"><li>Alterar endereço</li></a>
+              <a href="/alterar"><li>Alterar endereço</li></a>
             </ul>
           </div>
         </div>

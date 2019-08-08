@@ -1,0 +1,97 @@
+.cantEditArea {
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
+}
+
+.cantEditButton {
+  cursor: not-allowed !important;
+}
+
+.container-form {
+  max-width: 520px;
+  width: 100%;
+  margin: 30px auto 0;
+  padding: 0 20px;
+}
+
+.container-form .product-info-edit-title {
+  font-size: 20px;
+  color: #2D2D2D;
+}
+
+.container-form .product-edit-form {
+  margin-top: 25px;
+}
+
+.container-form .product-edit-form .input-area {
+  display: flex;
+  justify-content: left;
+  width: 100%;
+  height: 45px;
+  border-radius: 5px;
+  margin-bottom: 12px;
+  border: 1px solid #d1d5da;
+}
+
+.container-form .product-edit-form .input-area input {
+  background: transparent;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  width: 100%;
+  margin: 0 15px;
+  color: #394458;
+}
+
+.container-form .product-edit-form  .description-area {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 12px;
+  padding: 10px 15px;
+  border: 1px solid #d1d5da;
+}
+
+.container-form .product-edit-form  .description-area textarea {
+  background: transparent;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #394458;
+  max-width: 100%;
+  min-width: 100%;
+  width: 100%;
+  min-height: 55px;
+  max-height: 350px;
+  height: 100%;
+}
+
+.container-form .product-edit-form .button-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 45px;
+  margin-top: 15px;
+  border-radius: 5px;
+  background: #ec910a;
+  border: 1px solid #ebeced;
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+
+.container-form .product-edit-form .button-area button {
+  width: 100%;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+}
+
+.container-form .product-edit-form .button-area:hover {
+  opacity: 0.9;
+}

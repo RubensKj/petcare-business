@@ -1,5 +1,7 @@
 import React from 'react';
 
+import HeaderEditPage from '../../Components/HeaderEditPage';
+
 import './styles.css';
 
 export default function ListProducts() {
@@ -49,13 +51,9 @@ export default function ListProducts() {
     console.log(id);
   }
 
-  function openEditModal(id) {
-    let modal = document.querySelector(".modal-edit");
-    modal.classList.add("open-modal-edit");
-  }
-
   return (
     <div className="container-page-sidebar">
+      <HeaderEditPage editPage={true} />
       <div className="container-product">
         <form className="search-container" onSubmit={(e) => searchNote(e)}>
           <div className="form-area">
@@ -111,21 +109,20 @@ export default function ListProducts() {
                           <span>Deletar</span>
                         </div>
                       </li>
-                      <li role="button" onClick={() => openEditModal(1)}>
-                        <div className="edit-button">
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2" strokeLinecap="square" strokeLinejoin="arcs"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon></svg>
-                          <span>Editar</span>
-                        </div>
-                      </li>
+                      <a href="/produtos/id/editar">
+                        <li>
+                          <div className="edit-button">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2" strokeLinecap="square" strokeLinejoin="arcs"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon></svg>
+                            <span>Editar</span>
+                          </div>
+                        </li>
+                      </a>
                     </ul>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="modal-edit">
-          
         </div>
       </div>
     </div>
