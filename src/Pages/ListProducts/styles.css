@@ -169,7 +169,6 @@
 }
 
 .container-product .container-list-products .product .product-infomation .title-product-area {
-  width: 100%;
   margin-top: 2px;
   white-space: nowrap;
   overflow: hidden;
@@ -194,6 +193,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 15px;
+  max-height: 46px;
   color: #394458;
 }
 

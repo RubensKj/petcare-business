@@ -14,10 +14,14 @@
   padding: 0 20px;
 }
 
+/* TITLE */
+
 .container-form .product-info-edit-title {
   font-size: 20px;
   color: #2D2D2D;
 }
+
+/* FORM  */
 
 .container-form .product-edit-form {
   margin-top: 25px;
