@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './styles.css';
+import SideBar from '../../Components/SideBar';
 
 export default function Preview() {
 
@@ -12,6 +13,7 @@ export default function Preview() {
 
   return (
     <>
+      <SideBar />
       <div className="container-page-sidebar">
         <div className="box-color-area" />
         <div className="content-preview">

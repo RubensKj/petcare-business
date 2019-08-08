@@ -1,0 +1,43 @@
+.header-unanthorized {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  background: #7bbb5e;
+  border-bottom: 1px solid #dcdcdc;
+  box-shadow: rgba(0,0,0,.05) 0 2px 4px 0;
+}
+
+.header-unanthorized .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 920px;
+  width: 100%;
+  padding: 0 25px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.header-unanthorized .content a svg {
+  color: #fff;
+}
+
+.header-unanthorized .content .actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-unanthorized .content .actions a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.header-unanthorized .content .actions .entrar-button {
+  margin-right: 25px;
+}
+
+.header-unanthorized .content .actions a:hover {
+  opacity: 0.9;
+}

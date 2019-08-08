@@ -8,7 +8,7 @@ export default function CreateService() {
   return (
     <>
       <SideBar />
-      <div className="container-page-sidebar-space">
+      <div className="container-page-sidebar">
         <h1>Main</h1>
       </div>
     </>
