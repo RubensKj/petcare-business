@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import CreateService from './Pages/CreateService';
 import EditPage from './Pages/EditPage';
 import ListProducts from './Pages/ListProducts';
+import ListRequests from './Pages/ListRequests';
 import Preview from './Pages/Preview';
 
 import SignUp from './Pages/SignUp';
@@ -17,7 +18,8 @@ const Routes = () => (
           <Route path='/cadastrar' component={SignUp} />
           <Route path='/entrar' component={LogIn} />
           <Route path='/cadastrar-servico' component={CreateService} />
-          <Route path='/lista-produtos' component={ListProducts} />
+          <Route exact path='/produtos' component={ListProducts} />
+          <Route path='/pedidos' component={ListRequests} />
           <Route path='/produtos/id/editar' component={EditPage} />
       </Switch>
   </BrowserRouter>

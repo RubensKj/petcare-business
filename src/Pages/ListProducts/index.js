@@ -2,6 +2,9 @@ import React from 'react';
 
 import HeaderEditPage from '../../Components/HeaderEditPage';
 import SideBar from '../../Components/SideBar';
+import SearchBox from '../../Components/SearchBox';
+
+import { searchInList } from '../../Helpers/Functions';
 
 import './styles.css';
 
@@ -11,24 +14,6 @@ export default function ListProducts() {
     let dropdownID = "#dropdown-" + id;
     let dropdown = document.querySelector(dropdownID);
     dropdown.classList.toggle("openDropDownProduct");
-  }
-
-  function searchNote(e) {
-    e.preventDefault();
-    var input, filter, ul, li, a, i, txtValue;
-    input = document.getElementById("input-search-product");
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("container-list-products");
-    li = ul.getElementsByClassName("product");
-    for (i = 0; i < li.length; i++) {
-      a = li[i].getElementsByClassName("title-product-area")[0];
-      txtValue = a.textContent || a.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        li[i].style.display = "";
-      } else {
-        li[i].style.display = "none";
-      }
-    }
   }
 
   window.onclick = function (event) {
@@ -57,14 +42,7 @@ export default function ListProducts() {
       <div className="container-page-sidebar">
         <HeaderEditPage editPage={true} />
         <div className="container-product">
-          <form className="search-container" onSubmit={(e) => searchNote(e)}>
-            <div className="form-area">
-              <input id="input-search-product" type="text" placeholder="Pesquise por um produto" />
-            </div>
-            <div className="button-area">
-              <button type="submit"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2" strokeLinecap="square" strokeLinejoin="arcs"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
-            </div>
-          </form>
+          <SearchBox searchMethod={(e) => searchInList(e, "input-search-search-box", "container-list-products", "product", "title-product-area")} placeholder="Pesquise por um produto" />
           <div className="buttons">
             <button className="delete-button">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2" strokeLinecap="square" strokeLinejoin="arcs"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>

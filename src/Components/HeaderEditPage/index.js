@@ -7,10 +7,10 @@ export default function HeaderEditPage({ editPage, requestsPage, configuration }
     <div className="header-edit">
       <div className="container-options">
         <div className="left-actions">
-          <div className={`tabnav ` + (editPage ? ('selected') : (''))}>
+          <a href="/produtos" className={`tabnav ` + (editPage ? ('selected') : (''))}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2f3136" strokeWidth="2" strokeLinecap="square" strokeLinejoin="arcs"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z" /><path d="M14 3v5h5M16 13H8M16 17H8M10 9H8" /></svg>
             <span>Produtos</span>
-          </div>
+          </a>
           <a href="/pedidos" className={`tabnav ` + (requestsPage ? ('selected') : (''))}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2f3136" strokeWidth="2" strokeLinecap="square" strokeLinejoin="arcs"><circle cx="10" cy="20.5" r="1" /><circle cx="18" cy="20.5" r="1" /><path d="M2.5 2.5h3l2.7 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6l1.6-8.4H7.1" /></svg>
             <span>Pedidos</span>
