@@ -53,6 +53,7 @@
   margin-left: 8px;
   color: #ec910a;
   user-select: none;
+  overflow: hidden;
 }
 
 .container-signup .box-signup .signup-form .input-area .input-div {
@@ -79,6 +80,7 @@
   font-size: 15px;
   color: #4c5765;
   user-select: none;
+  overflow: hidden;
 }
 
 .container-signup .box-signup .signup-form .button-area {
@@ -125,6 +127,7 @@
   font-size: 17px;
   color: #4c5765;
   margin-left: 5px;
+  overflow: hidden;
 }
 
 .container-signup .box-ref-login .content-login-box .button-login-area {

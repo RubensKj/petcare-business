@@ -1,0 +1,179 @@
+.container-request {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  max-width: 920px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+  padding-bottom: 25px;
+}
+
+.container-request .request-item {
+  max-width: 920px;
+  width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #ebeced;
+  margin-top: 25px;
+}
+
+.container-request .request-item .header-request {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 10px 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background: #fafafa;
+  border-bottom: 1px solid #ebeced;
+}
+
+.container-request .request-item .header-request .person-information {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.container-request .request-item .header-request .person-information img {
+  background: #fff;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 1px solid rgba(76, 87, 101, 0.34);
+  margin-right: 10px;
+}
+
+.container-request .request-item .header-request .person-information h3 {
+  font-size: 18px;
+  color: #4c5765;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.container-request .request-item .request-information {
+  width: 100%;
+  padding: 5px 10px;
+}
+
+.container-request .request-item .request-information .header-request-information {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px;
+  margin-bottom: 5px;
+}
+
+.container-request .request-item .request-information .header-request-information .header-request-number {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.container-request .request-item .request-information .header-request-information .header-request-number h3 {
+  font-size: 17px;
+  color: #ec910a;
+  margin-right: 5px;
+}
+
+.container-request .request-item .request-information .header-request-information .header-request-number span {
+  font-size: 16px;
+  color: #4c5765;
+}
+
+.container-request .request-item .request-information .header-request-information .realized {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.container-request .request-item .request-information .header-request-information .realized svg {
+  stroke: #ec910a;
+  margin-right: 5px;
+}
+
+.container-request .request-item .request-information .header-request-information .realized span {
+  font-size: 16px;
+  color: #4c5765;
+}
+
+.container-request .request-item .request-information .list-services {
+  margin-top: 12px;
+  width: 100%;
+  margin: 20px auto 20px;
+  padding: 0 40px;
+  grid-gap: 30px;
+  gap: 30px;
+  grid-column-gap: 65px;
+  column-gap: 65px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(298px, 1fr));
+  margin-bottom: 50px;
+}
+
+.container-request .request-item .request-information .list-services .list-item {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 10px;
+  padding: 5px 10px;
+  border: 1px solid #ebeced;
+  box-shadow: 0 8px 16px rgba(0,0,0,.1);
+  user-select: none;
+}
+
+.container-request .request-item .request-information .list-services .list-item .item-information {
+  display: grid;
+  margin: auto;
+  padding: 10px 2px;
+  width: 100%;
+}
+
+.container-request .request-item .request-information .list-services .list-item .item-information .title-service {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 15px;
+}
+
+.container-request .request-item .request-information .list-services .list-item .item-information .title-service h3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 18px;
+  color: #ec910a;
+}
+
+.container-request .request-item .request-information .list-services .list-item .item-information .description-service {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.container-request .request-item .request-information .list-services .list-item .item-information .description-service p {
+  color: #4c5765;
+  /* autoprefixer: off */
+  -webkit-box-orient: vertical;
+  display: block;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 50px;
+  height: 100%;
+  transition: 0.8s ease;
+}
+
+.container-request .request-item .request-information .list-services .list-item .item-information .description-service p:hover {
+  max-height: none !important;
+  display: block !important;
+  -webkit-line-clamp: none !important;
+  height: 100%;
+  transition: 0.2s;
+}

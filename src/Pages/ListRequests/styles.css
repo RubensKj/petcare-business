@@ -8,10 +8,16 @@
 }
 
 .container-requests .container-list-requests {
-  margin-top: 15px;
+  max-width: 920px;
+  width: 100%;
+}
+
+.container-requests .container-list-requests {
+  border-top: 1px solid #ebeced;
   width: 100%;
   margin: 20px auto 20px;
-  padding: 0 40px;
+  margin-top: 25px;
+  padding: 20px 40px 0;
   grid-gap: 30px;
   gap: 30px;
   grid-column-gap: 65px;
