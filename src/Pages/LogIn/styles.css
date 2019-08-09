@@ -1,11 +1,11 @@
-.container-signup {
+.container-login {
   max-width: 920px;
   width: 100%;
   margin: 85px auto 0;
   transition: margin 0.2s;
 }
 
-.container-signup .box-signup {
+.container-login .box-login {
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 8px 16px rgba(0,0,0,.1);
@@ -16,12 +16,12 @@
   transition: max-width 0.8s;
 }
 
-.container-signup .box-signup .signup-form {
+.container-login .box-login .login-form {
   margin-top: 25px;
   padding: 0 25px 25px;
 }
 
-.container-signup .box-signup .signup-form .error-area {
+.container-login .box-login .login-form .error-area {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -29,7 +29,7 @@
   margin-bottom: 12px;
 }
 
-.container-signup .box-signup .signup-form .error-area .error-signup {
+.container-login .box-login .login-form .error-login {
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -39,7 +39,7 @@
   color: #d33;
 }
 
-.container-signup .box-signup .signup-form .input-area {
+.container-login .box-login .login-form .input-area {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -47,7 +47,7 @@
   margin-bottom: 12px;
 }
 
-.container-signup .box-signup .signup-form .input-area label {
+.container-login .box-login .login-form .input-area label {
   font-size: 16px;
   margin-top: 2px;
   margin-left: 8px;
@@ -55,7 +55,7 @@
   user-select: none;
 }
 
-.container-signup .box-signup .signup-form .input-area .input-div {
+.container-login .box-login .login-form .input-area .input-div {
   display: flex;
   justify-content: left;
   width: 100%;
@@ -65,7 +65,7 @@
   border: 1px solid #d1d5da;
 }
 
-.container-signup .box-signup .signup-form .input-area .input-div input {
+.container-login .box-login .login-form .input-area .input-div input {
   width: 100%;
   background: transparent;
   border: none;
@@ -75,13 +75,7 @@
   color: #394458;
 }
 
-.container-signup .box-signup .signup-form .input-area span {
-  font-size: 15px;
-  color: #4c5765;
-  user-select: none;
-}
-
-.container-signup .box-signup .signup-form .button-area {
+.container-login .box-login .login-form .button-area {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -95,7 +89,7 @@
   cursor: pointer;
 }
 
-.container-signup .box-signup .signup-form .button-area button {
+.container-login .box-login .login-form .button-area button {
   width: 100%;
   height: 100%;
   font-family: 'Poppins', sans-serif;
@@ -105,9 +99,9 @@
   cursor: pointer;
 }
 
-/* Login box */
+/* Cadastrar Box */
 
-.container-signup .box-ref-login {
+.container-login .box-ref-signup {
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 8px 16px rgba(0,0,0,.1);
@@ -117,17 +111,17 @@
   margin: 25px auto 0;
 }
 
-.container-signup .box-ref-login .content-login-box {
+.container-login .box-ref-signup .content-signup-box {
   padding: 15px 25px;
 }
 
-.container-signup .box-ref-login .content-login-box .header-ref-login {
+.container-login .box-ref-signup .content-signup-box .header-ref-signup {
   font-size: 17px;
   color: #4c5765;
   margin-left: 5px;
 }
 
-.container-signup .box-ref-login .content-login-box .button-login-area {
+.container-login .box-ref-signup .content-signup-box .button-signup-area {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -141,7 +135,7 @@
   cursor: pointer;
 }
 
-.container-signup .box-ref-login .content-login-box .button-login-area a {
+.container-login .box-ref-signup .content-signup-box .button-signup-area a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -156,33 +150,31 @@
   cursor: pointer;
 }
 
-
 /* Hovers */
 
-.container-signup .box-signup .signup-form .button-area:hover, .container-signup .box-ref-login .content-login-box .button-login-area:hover {
+.container-login .box-login .login-form .button-area:hover, .container-login .box-ref.signup .content-signup-box .button-signup-area:hover {
   opacity: 0.9;
 }
-
 
 /* Mobile */
 
 @media only screen and (max-width: 1024px) and (min-width: 480px) {
-  .container-signup {
+  .container-login {
     margin: 25px auto 25px !important;
     padding: 0 25px;
   }
 
-  .container-signup .box-signup, .container-signup .box-ref-login {
+  .container-login .box-login, .container-login .box-ref-signup {
     max-width: none !important;
   }
 }
 
 @media only screen and (max-width: 479px) and (min-width: 0px) {
-  .container-signup {
+  .container-login  {
     margin: 0 auto 25px !important;
   }
   
-  .container-signup .box-signup {
+  .container-login  .box-login {
     border-top-left-radius: 0 !important;
     border-top-right-radius: 0 !important;
   }
