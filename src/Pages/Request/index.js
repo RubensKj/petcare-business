@@ -30,18 +30,25 @@ export default function Request() {
                   <span>13/02/2019 - 19:35</span>
                 </div>
               </div>
-              <div className="list-services">
-                <div className="list-item">
-                  <div className="item-information">
-                    <div className="title-service">
-                      <h3>Tosa</h3>
+              <div className="lists">
+                <div className="list-services">
+                  <div className="list-service-item">
+                    <div className="item-information">
+                      <div className="title-service">
+                        <h3>Tosa</h3>
+                      </div>
+                      <div className="description-service">
+                        <p>Gran Plus Gatos Castrados Frango e Arroz - 10kg- Ração premium especial indicada para gatos adultos e castrados.- Energia reduzida - indicado para gatos castrados ou que vivem em ambientes internos.- Ótima palatabilidade.- 100% satisfação garantida.</p>
+                      </div>
                     </div>
-                    <div className="description-service">
-                      <p>Gran Plus Gatos Castrados Frango e Arroz - 10kg- Ração premium especial indicada para gatos adultos e castrados.- Energia reduzida - indicado para gatos castrados ou que vivem em ambientes internos.- Ótima palatabilidade.- 100% satisfação garantida.</p>
+                    <div className="buttons-actions">
+
                     </div>
                   </div>
-                  <div className="buttons-actions">
-                    
+                </div>
+                <div className="list-products">
+                  <div className="list-product-item">
+
                   </div>
                 </div>
               </div>
