@@ -1,7 +1,8 @@
 .container-signup {
   max-width: 920px;
   width: 100%;
-  margin: 105px auto 0;
+  margin: 85px auto 0;
+  transition: margin 0.2s;
 }
 
 .container-signup .box-signup {
@@ -12,6 +13,7 @@
   max-width: 450px;
   width: 100%;
   margin: 0 auto;
+  transition: max-width 0.8s;
 }
 
 .container-signup .box-signup .header-signup {
@@ -34,6 +36,24 @@
 .container-signup .box-signup .signup-form {
   margin-top: 25px;
   padding: 0 25px 25px;
+}
+
+.container-signup .box-signup .signup-form .error-area {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 12px;
+}
+
+.container-signup .box-signup .signup-form .error-area .error-signup {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 16px;
+  margin-top: 2px;
+  margin-left: 8px;
+  color: #d33;
 }
 
 .container-signup .box-signup .signup-form .input-area {
@@ -158,4 +178,29 @@
 
 .container-signup .box-signup .signup-form .button-area:hover, .container-signup .box-ref-login .content-login-box .button-login-area:hover {
   opacity: 0.9;
+}
+
+
+/* Mobile */
+
+@media only screen and (max-width: 1024px) and (min-width: 480px) {
+  .container-signup {
+    margin: 25px auto 25px !important;
+    padding: 0 25px;
+  }
+
+  .container-signup .box-signup, .container-signup .box-ref-login {
+    max-width: none !important;
+  }
+}
+
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  .container-signup {
+    margin: 0 auto 25px !important;
+  }
+  
+  .container-signup .box-signup {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+  }
 }

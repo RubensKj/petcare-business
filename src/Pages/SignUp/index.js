@@ -4,6 +4,7 @@ import React from 'react';
 import './styles.css';
 
 export default function SignUp() {
+
   return (
     <div className="container-signup">
       <div className="box-signup">
@@ -12,6 +13,9 @@ export default function SignUp() {
           <h1>Cadastre-se no PetCare</h1>
         </div>
         <form className="signup-form" onSubmit={null} autocomplete="on">
+          <div className="error-area">
+            <h3 className="error-signup">Errooooooooooooooooooooooooooooooooooo</h3>
+          </div>
           <div className="input-area">
             <label>Nome completo: </label>
             <div className="input-div">
