@@ -1,0 +1,75 @@
+.status {
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status .process {
+  margin: 0 5px;
+  width: 100%;
+  height: 3px;
+  background: #ebeced;
+  display: flex;
+}
+
+.status .process .gerado, .status .process .andamento, .status .process .saiu-para-entrega, .status .process .finalizado {
+  height: 3px;
+}
+
+.status .process .gerado {
+  width: 25%;
+  background: #ff6363;
+}
+
+.status .process .andamento {
+  width: 25%;
+  background: #f5f85d;
+  opacity: 0.4;
+}
+
+.status .process .saiu-para-entrega {
+  width: 25%;
+  background: #8baefe;
+  opacity: 0.4;
+}
+
+.status .process .finalizado {
+  width: 25%;
+  background: #4cf08a;
+  opacity: 0.4;
+}
+
+.status .button {
+  max-width: 150px;
+  width: 100%;
+  height: 30px;
+  margin-left: 8px;
+  background: #fff;
+  border-radius: 5px;
+  border: 1px solid #ebeced;
+  box-shadow: 0 8px 16px rgba(0,0,0,.02);
+  overflow: hidden;
+}
+
+.status .button button {
+  border: none;
+  background: transparent;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #ec910a;
+  transition: 100ms;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.status .button:hover {
+  background: #ec910a;
+}
+
+.status .button:hover>button {
+  color: #fff;
+}

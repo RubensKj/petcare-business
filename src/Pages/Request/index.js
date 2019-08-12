@@ -2,6 +2,7 @@ import React from 'react';
 
 import HeaderEditPage from '../../Components/HeaderEditPage';
 import SideBar from '../../Components/SideBar';
+import SelectRequest from '../../Components/SelectRequest';
 import ServiceCard from '../../Components/ServiceCard';
 import ProductCard from '../../Components/ProductCard';
 
@@ -20,12 +21,19 @@ export default function Request() {
                 <img src="https://www.altoastral.com.br/wp-content/uploads/2016/11/pessoa-assexuada.jpg" alt="User Logo" />
                 <h3 className="name-person">Rubens Kleinschmidt Júnior</h3>
               </div>
+              <SelectRequest />
             </div>
             <div className="request-information">
               <div className="header-request-information">
-                <div className="header-request-number">
-                  <h3>Pedido: </h3>
-                  <span>#21212</span>
+                <div className="number-status">
+                  <div className="header-request-number">
+                    <h3>Pedido: </h3>
+                    <span>#21212</span>
+                  </div>
+                  <div className="status">
+                    <h3>Status:</h3>
+                    <span>Pedido gerado</span>
+                  </div>
                 </div>
                 <div className="realized">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2" strokeLinecap="square" strokeLinejoin="arcs"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
@@ -57,9 +65,6 @@ export default function Request() {
                     <ProductCard product={null} actionThreeDots={false} />
                   </div>
                 </div>
-              </div>
-              <div className="buttons">
-                
               </div>
             </div>
           </div>

@@ -62,25 +62,24 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 0 25px;
   margin-bottom: 5px;
 }
 
-.container-request .request-item .request-information .header-request-information .header-request-number {
+.container-request .request-item .request-information .header-request-information .number-status .header-request-number, .container-request .request-item .request-information .header-request-information .number-status .status {
   display: flex;
   justify-content: left;
   align-items: center;
   margin-top: 10px;
 }
 
-.container-request .request-item .request-information .header-request-information .header-request-number h3 {
+.container-request .request-item .request-information .header-request-information .number-status .header-request-number h3, .container-request .request-item .request-information .header-request-information .number-status .status h3 {
   font-size: 17px;
   color: #ec910a;
   margin-right: 5px;
 }
 
-.container-request .request-item .request-information .header-request-information .header-request-number span {
+.container-request .request-item .request-information .header-request-information .number-status .header-request-number span, .container-request .request-item .request-information .header-request-information .number-status .status span {
   font-size: 16px;
   color: #4c5765;
 }
@@ -88,7 +87,6 @@
 .container-request .request-item .request-information .header-request-information .realized {
   display: flex;
   justify-content: left;
-  align-items: center;
   margin-top: 10px;
 }
 
@@ -195,6 +193,10 @@
   .product .product-infomation .utilities-product-area .actions-product {
     display: none;
   }
+
+  .container-request .request-item .request-information .header-request-information {
+    display: block !important;
+  }
 }
 
 @media only screen and (max-width: 475px) and (min-width: 446px) {
@@ -211,6 +213,14 @@
 
   .product .product-infomation .utilities-product-area .actions-product {
     display: none;
+  }
+
+  .container-request .request-item .request-information .header-request-information {
+    display: block !important;
+  }
+
+  .container-request .request-item .request-information .lists .products .list-products {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 }
 
@@ -246,5 +256,13 @@
 
   .product .product-infomation .utilities-product-area .actions-product {
     display: none;
+  }
+
+  .container-request .request-item .request-information .header-request-information {
+    display: block !important;
+  }
+
+  .container-request .request-item .request-information .lists .products .list-products {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 }
