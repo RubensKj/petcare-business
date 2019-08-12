@@ -1,0 +1,53 @@
+.service-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 10px;
+  padding: 5px 10px;
+  border: 1px solid #ebeced;
+  box-shadow: 0 8px 16px rgba(0,0,0,.1);
+  user-select: none;
+  height: 109px;
+  transition: height 0.8s;
+}
+
+.service-card .service-information {
+  display: grid;
+  padding: 10px 2px;
+}
+
+.service-card .service-information .title-service {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 15px;
+}
+
+.service-card .service-information .title-service h3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 18px;
+  color: #ec910a;
+}
+
+.service-card .service-information .description-service {
+  height: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.service-card .service-information .description-service p {
+  color: #4c5765;
+  /* autoprefixer: off */
+  -webkit-box-orient: vertical;
+  display: block;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 50px;
+  height: 100%;
+}

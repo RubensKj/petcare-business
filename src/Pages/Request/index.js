@@ -2,6 +2,8 @@ import React from 'react';
 
 import HeaderEditPage from '../../Components/HeaderEditPage';
 import SideBar from '../../Components/SideBar';
+import ServiceCard from '../../Components/ServiceCard';
+import ProductCard from '../../Components/ProductCard';
 
 import './styles.css';
 
@@ -30,27 +32,34 @@ export default function Request() {
                   <span>13/02/2019 - 19:35</span>
                 </div>
               </div>
+              <div className="title-lists-header">
+                <div className="title-services">
+                  <h3>Serviços</h3>
+                </div>
+                <div className="title-product">
+                  <h3>Produtos</h3>
+                </div>
+              </div>
               <div className="lists">
-                <div className="list-services">
-                  <div className="list-service-item">
-                    <div className="item-information">
-                      <div className="title-service">
-                        <h3>Tosa</h3>
-                      </div>
-                      <div className="description-service">
-                        <p>Gran Plus Gatos Castrados Frango e Arroz - 10kg- Ração premium especial indicada para gatos adultos e castrados.- Energia reduzida - indicado para gatos castrados ou que vivem em ambientes internos.- Ótima palatabilidade.- 100% satisfação garantida.</p>
-                      </div>
-                    </div>
-                    <div className="buttons-actions">
-
-                    </div>
+                <div className="title-lists firstTitle">
+                  <h3>Serviços</h3>
+                </div>
+                <div className="services">
+                  <div className="list-services">
+                    <ServiceCard service={null} />
                   </div>
                 </div>
-                <div className="list-products">
-                  <div className="list-product-item">
-
+                <div className="title-lists">
+                  <h3>Produtos</h3>
+                </div>
+                <div className="products">
+                  <div className="list-products">
+                    <ProductCard product={null} actionThreeDots={false} />
                   </div>
                 </div>
+              </div>
+              <div className="buttons">
+                
               </div>
             </div>
           </div>
