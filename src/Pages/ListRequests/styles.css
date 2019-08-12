@@ -23,7 +23,7 @@
   grid-column-gap: 65px;
   column-gap: 65px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(1, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(298px, 1fr));
   margin-bottom: 50px;
 }
 
@@ -73,19 +73,19 @@
   padding: 5px 10px;
 }
 
-.container-requests .container-list-requests .request .request-information .header-request, .container-requests .container-list-requests .request .request-information .realized {
+.container-requests .container-list-requests .request .request-information .header-request, .container-requests .container-list-requests .request .request-information .status-request-list, .container-requests .container-list-requests .request .request-information .realized {
   display: flex;
   justify-content: left;
   align-items: center;
 }
 
-.container-requests .container-list-requests .request .request-information .header-request h3 {
+.container-requests .container-list-requests .request .request-information .header-request h3, .container-requests .container-list-requests .request .request-information .status-request-list h3 {
   font-size: 17px;
   color: #ec910a;
   margin-right: 5px;
 }
 
-.container-requests .container-list-requests .request .request-information .header-request span {
+.container-requests .container-list-requests .request .request-information .header-request span, .container-requests .container-list-requests .request .request-information .status-request-list span {
   font-size: 15px;
   color: #4c5765;
 }

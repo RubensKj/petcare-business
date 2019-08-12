@@ -29,6 +29,10 @@ export default function ListRequests() {
                   <h3>Pedido: </h3>
                   <span>#21212</span>
                 </div>
+                <div className="status-request-list">
+                  <h3>Status: </h3>
+                  <span>Pedido gerado</span>
+                </div>
                 <div className="realized">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2" strokeLinecap="square" strokeLinejoin="arcs"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                   <span>13/02/2019 - 19:35</span>
