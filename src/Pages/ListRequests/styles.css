@@ -23,7 +23,7 @@
   grid-column-gap: 65px;
   column-gap: 65px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(355px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(1, 1fr));
   margin-bottom: 50px;
 }
 
@@ -140,4 +140,11 @@
 
 .container-requests .container-list-requests .request .button-area-see-details .button-area:hover {
   opacity: 0.9;
+}
+
+@media only screen and (max-width: 500px) and (min-width: 0px) {
+  .container-requests .container-list-requests {
+    padding: 30px 15px 0 !important;
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

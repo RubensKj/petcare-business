@@ -105,3 +105,10 @@
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
+
+@media only screen and (max-width: 500px) and (min-width: 0px) {
+  .container-product .container-list-products {
+    padding: 30px 15px 0 !important;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

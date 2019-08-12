@@ -47,3 +47,29 @@
 .header-edit .container-options .left-actions .tabnav span {
   color: #394458;
 }
+
+@media only screen and (max-width: 500px) and (min-width: 0px) {
+  .header-edit {
+    padding: 0 10px 5px !important;
+    margin: 5px 0;
+  }
+
+  .header-edit .container-options {
+    max-width: none !important;
+  }
+
+  .header-edit .container-options .left-actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: left !important;
+    align-items: flex-start !important;
+  }
+
+  .header-edit .container-options .left-actions .tabnav {
+    justify-content: left !important;
+  }
+
+  .selected {
+    border: none;
+  }
+}
