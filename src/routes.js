@@ -13,6 +13,7 @@ import Request from './Pages/Request';
 import Preview from './Pages/Preview';
 
 import SignUp from './Pages/SignUp';
+import SignUpPhaseTwo from './Pages/SignUpPhaseTwo';
 import LogIn from './Pages/LogIn';
 
 const Routes = () => (
@@ -20,6 +21,7 @@ const Routes = () => (
       <Switch>
           <Route exact path='/' component={Preview} />
           <Route path='/cadastrar' component={SignUp} />
+          <Route path='/create-petshop' component={SignUpPhaseTwo} />
           <Route path='/entrar' component={LogIn} />
           <Route path='/cadastrar-servico' component={CreateService} />
           <Route exact path='/produtos' component={ListProducts} />

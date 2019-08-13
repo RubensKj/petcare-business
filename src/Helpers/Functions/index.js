@@ -16,3 +16,13 @@ export function searchInList(e, inputclassName, divListID, item, title) {
     }
   }
 }
+
+export function addAnimationToInput() {
+  let inputs = document.querySelectorAll('.inputed');
+  inputs.forEach(input => {
+      if(!input.value) {
+          input.style.borderColor = '#fd424f'
+          input.classList.add('animation');
+      }
+  });
+}

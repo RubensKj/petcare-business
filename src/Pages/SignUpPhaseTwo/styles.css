@@ -1,0 +1,97 @@
+.container-signup-phasetwo {
+  max-width: 520px;
+  width: 100%;
+  margin: 30px auto 0;
+  padding: 10px 20px;
+  background: #fff;
+  border-radius: 5px;
+  border: 1px solid #ebeced;
+}
+
+.container-signup-phasetwo .title-signup-phasetwo {
+  font-size: 18px;
+  color: #2D2D2D;
+}
+
+.container-signup-phasetwo .signup-phasetwo {
+  margin-top: 25px;
+}
+
+.container-signup-phasetwo .signup-phasetwo .input-div, .container-signup-phasetwo .signup-phasetwo .city-states .city-input {
+  display: flex;
+  justify-content: left;
+  width: 100%;
+  height: 45px;
+  border-radius: 5px;
+  margin-bottom: 12px;
+  border: 1px solid #d1d5da;
+}
+
+.container-signup-phasetwo .signup-phasetwo .input-div input, .container-signup-phasetwo .signup-phasetwo .city-states .city-input input {
+  background: transparent;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  width: 100%;
+  margin: 0 15px;
+  color: #394458;
+}
+
+.container-signup-phasetwo .signup-phasetwo .city-states .city-input, .container-signup-phasetwo .signup-phasetwo .city-states .city-input input {
+  margin-right: 20px;
+}
+
+.container-signup-phasetwo .signup-phasetwo .city-states .states {
+  display: flex;
+  justify-content: left;
+  width: 20%;
+  height: 45px;
+  border-radius: 5px;
+  margin-bottom: 12px;
+  border: 1px solid #d1d5da;
+}
+
+.container-signup-phasetwo .signup-phasetwo .city-states .states select {
+  background: transparent;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  width: 100%;
+  padding: 0 10px;
+  color: #394458;
+}
+
+.container-signup-phasetwo .signup-phasetwo .city-states {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.container-signup-phasetwo .signup-phasetwo .button-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 45px;
+  margin-top: 15px;
+  border-radius: 5px;
+  background: #ec910a;
+  border: 1px solid #ebeced;
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+
+.container-signup-phasetwo .signup-phasetwo .button-area button {
+  width: 100%;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+}
+
+.container-signup-phasetwo .signup-phasetwo .button-area:hover {
+  opacity: 0.9;
+}

@@ -36,3 +36,48 @@ button {
   margin-left: 65px;
   transition: margin-left .9s;
 }
+
+
+/* ANIMATION */
+
+.animation {
+  animation-name: heartBeat;
+  animation-duration: 3s; 
+}
+
+@keyframes heartBeat {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0;
+    transition: all ease;
+  }
+
+  14% {
+    -webkit-transform: scale(1.03);
+    transform: scale(1.03);
+    opacity: 0.45;
+    transition: all ease;
+  }
+
+  28% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0.85;
+    transition: all ease;
+  }
+
+  42% {
+    -webkit-transform: scale(1.03);
+    transform: scale(1.03);
+    opacity: 1;
+    transition: all ease;
+  }
+
+  70% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+    transition: all ease;
+  }
+}
