@@ -13,12 +13,8 @@ export default function SignUpOwner() {
   const state = useSelector(state => state.Register);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    console.log(state)
-  }, [state])
-
-  function handleSubmit() {
-
+  function handleSubmit(e) {
+    e.preventDefault();
   }
 
   return (
