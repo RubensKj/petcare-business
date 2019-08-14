@@ -6,6 +6,11 @@ const INITIAL_STATE = {
     cpf: "",
     cnpj: "",
     companyName: "",
+    address: [
+      {
+        
+      }
+    ],
     description: "",
     rate: 5.0,
     password: "",

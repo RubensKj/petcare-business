@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 
 import HeaderBoxAuth from '../../Components/HeaderBoxAuth';
+import Input from '../../Components/Input';
+import ButtonForm from '../../Components/ButtonForm';
 
 import { isAuthenticated } from '../../Services/auth';
 import { addAnimationToInput } from '../../Helpers/Functions';
@@ -74,28 +76,17 @@ export default function SignUp(props) {
           </div>
           <div className="input-area">
             <label>Nome completo: </label>
-            <div className="input-div inputed">
-              <input type="text" name="completeName" onChange={e => dispatch(addInput('ADD_COMPLETE_NAME', e.target.value))} />
-            </div>
-            <span>Deve ser o nome completo do dono da empresa.</span>
+            <Input type="text" name="completeName" onChange={e => dispatch(addInput('ADD_COMPLETE_NAME', e.target.value))} messageBottom="Deve ser o nome completo do dono da empresa." />
           </div>
           <div className="input-area">
             <label>Email: </label>
-            <div className="input-div inputed">
-              <input type="text" name="email" onChange={e => dispatch(addInput('ADD_EMAIL', e.target.value))} />
-            </div>
-            <span>Este será o email para entrar na empresa. Você pode adicionar o nome da empresa mais tarde.</span>
+            <Input type="text" name="email" onChange={e => dispatch(addInput('ADD_EMAIL', e.target.value))} messageBottom="Este será o email para entrar na empresa. Você pode adicionar o nome da empresa mais tarde." />
           </div>
           <div className="input-area">
             <label>Telefone: </label>
-            <div className="input-div inputed">
-              <input type="number" name="phoneNumber" onChange={e => dispatch(addInput('ADD_PHONENUMBER', e.target.value))} />
-            </div>
-            <span>Telefone para contato com a empresa.</span>
+            <Input type="number" name="phoneNumber" onChange={e => dispatch(addInput('ADD_PHONENUMBER', e.target.value))} messageBottom="Telefone para contato com a empresa." />
           </div>
-          <div className="button-area">
-            <button type="submit">Cadastrar</button>
-          </div>
+          <ButtonForm text="Cadastrar" />
         </form>
       </div>
       <div className="box-ref-login">
