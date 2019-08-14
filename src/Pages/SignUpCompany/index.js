@@ -20,6 +20,10 @@ export default function SignUpPhaseTwo(props) {
     //}
   }, [props.history, state.phase])
 
+  useEffect(() => {
+    console.log(state);
+  }, [state])
+
   function handleSubmit(e) {
     e.preventDefault();
     localStorage.removeItem('state');

@@ -6,17 +6,15 @@ const INITIAL_STATE = {
     cpf: "",
     cnpj: "",
     companyName: "",
-    address: [
-      {
-        placeNumber: 0,
-        street: '',
-        complement: '',
-        neighborhood: '',
-        city: '',
-        states: '',
-        cep: '',
-      }
-    ],
+    address: {
+      placeNumber: 0,
+      street: '',
+      complement: '',
+      neighborhood: '',
+      city: '',
+      states: '',
+      cep: '',
+    },
     description: "",
     rate: 5.0,
     password: "",
@@ -40,19 +38,19 @@ export default function registerUser(state = INITIAL_STATE, action) {
     case 'ADD_CPF':
       return { ...state, registerUser: { ...state.registerUser, cpf: action.value } }
     case 'ADD_PLACENUMBER':
-      return { ...state, registerUser: { ...state.registerUser, placeNumber: action.value } }
+      return { ...state, registerUser: { ...state.registerUser, address: { ...state.registerUser.address, placeNumber: action.value } } }
     case 'ADD_STREET':
-      return { ...state, registerUser: { ...state.registerUser, street: action.value } }
+      return { ...state, registerUser: { ...state.registerUser, address: { ...state.registerUser.address, street: action.value } } }
     case 'ADD_COMPLEMENT':
-      return { ...state, registerUser: { ...state.registerUser, complement: action.value } }
+      return { ...state, registerUser: { ...state.registerUser, address: { ...state.registerUser.address, complement: action.value } } }
     case 'ADD_NEIGHBORHOOD':
-      return { ...state, registerUser: { ...state.registerUser, neighborhood: action.value } }
+      return { ...state, registerUser: { ...state.registerUser, address: { ...state.registerUser.address, neighborhood: action.value } } }
     case 'ADD_CITY':
-      return { ...state, registerUser: { ...state.registerUser, city: action.value } }
+      return { ...state, registerUser: { ...state.registerUser, address: { ...state.registerUser.address, city: action.value } } }
     case 'ADD_STATES':
-      return { ...state, registerUser: { ...state.registerUser, states: action.value } }
+        return { ...state, registerUser: { ...state.registerUser, address: { ...state.registerUser.address, states: action.value } } }
     case 'ADD_CEP':
-      return { ...state, registerUser: { ...state.registerUser, cep: action.value } }
+      return { ...state, registerUser: { ...state.registerUser, address: { ...state.registerUser.address, cep: action.value } } }
     case 'ADD_DESCRIPTION':
       return { ...state, registerUser: { ...state.registerUser, description: action.value } }
     case 'ADD_PASSWORD':
