@@ -70,7 +70,7 @@ export default function SignUp(props) {
     <div className="container-signup">
       <div className="box-signup">
         <HeaderBoxAuth message="Cadastre-se no PetCare" />
-        <form className="signup-form" onSubmit={handleSubmit} autoComplete="off">
+        <form className="signup-form" onSubmit={handleSubmit} autoComplete="off" autoCapitalize="off" autoCorrect="off">
           <div className="error-area">
             <h3 className="error-signup">{state.error}</h3>
           </div>

@@ -9,8 +9,25 @@
 }
 
 .container-signup-phasetwo .signup-phasetwo {
-  margin-top: 25px;
-  padding: 10px 20px;
+  padding: 25px 20px;
+}
+
+.container-signup-phasetwo .signup-phasetwo .error-area {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 12px;
+}
+
+.container-signup-phasetwo .signup-phasetwo .error-area .error-signup {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 16px;
+  margin-top: 2px;
+  margin-left: 8px;
+  color: #d33;
 }
 
 .container-signup-phasetwo .signup-phasetwo .city-states .city-input, .container-signup-phasetwo .signup-phasetwo .city-states .city-input input {
