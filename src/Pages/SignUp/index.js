@@ -16,10 +16,15 @@ export default function SignUp(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    let stateLocal = localStorage.getItem('state');
+    if(stateLocal !== null && stateLocal.phase !== 1) {
+      localStorage.removeItem('state');
+    }
+
     if (isAuthenticated()) {
       props.history.push('/');
     }
-  }, [state, props.history]);
+  }, [props.history]);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -28,20 +33,34 @@ export default function SignUp(props) {
       dispatch(addErrors("Preencha todos os dados para se cadastrar"));
       addAnimationToInput();
     } else {
-      if (!email.includes('@')) {
-        dispatch(addErrors("Este email não é válido"));
-      } else {
-        try {
-          await api.post("/company-auth/validate-owner-email", email, { headers: { 'Content-Type': 'application/json' } });
-          dispatch(addErrors(''));
-          dispatch(changePhase(2));
-          props.history.push('/create-petshop')
-        } catch (err) {
-          console.log(err);
-          dispatch(addErrors("Nome de usuário ou email já está em uso."));
-          addAnimationToInput();
-        }
+      if(completeName.length <= 0 || completeName.length > 197) {
+        dispatch(addErrors("Por favor colocar um nome completo válido"));
+        addAnimationToInput();
+        return;
       }
+
+      if (!(email.includes('@') && email.includes('.com'))) {
+        dispatch(addErrors("Este email não é válido"));
+        addAnimationToInput();
+        return;
+      }
+
+      if(phoneNumber < 0 || phoneNumber.length > 14) {
+        dispatch(addErrors("Este número de telefone não é válido"));
+        addAnimationToInput();
+        return;
+      }
+
+      try {
+        await api.post("/company-auth/validate-owner-email/", email);
+        dispatch(addErrors(''));
+        dispatch(changePhase(2));
+        localStorage.setItem('state', state);
+        props.history.push('/create-petshop')
+      } catch (err) {
+        dispatch(addErrors("Este email já está sendo usado"));
+      }
+      
     }
   }
 
