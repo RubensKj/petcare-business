@@ -8,7 +8,7 @@ import ProductCard from '../../Components/ProductCard';
 
 import './styles.css';
 
-export default function Request() {
+export default function Order() {
   return (
     <>
       <SideBar />

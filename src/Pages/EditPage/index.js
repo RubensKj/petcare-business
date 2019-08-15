@@ -2,6 +2,8 @@ import React from 'react';
 
 import HeaderEditPage from '../../Components/HeaderEditPage';
 import SideBar from '../../Components/SideBar';
+import Input from '../../Components/Input';
+import ButtonForm from '../../Components/ButtonForm';
 
 import './styles.css';
 
@@ -16,24 +18,14 @@ export default function EditPage() {
             Editar dados do produto
         </div>
           <form className="product-edit-form">
-            <div className="input-area">
-              <input type="text" placeholder="Nome do produto." />
-            </div>
+            <Input type="text" placeholder="Nome do produto." />
             <div className="description-area">
               <textarea type="text" placeholder="Descrição." />
             </div>
-            <div className="input-area">
-              <input type="text" placeholder="Preço." />
-            </div>
-            <div className="input-area">
-              <input type="text" placeholder="Peso (Ex: 10kg, 10g)." />
-            </div>
-            <div className="input-area">
-              <input type="text" placeholder="Quantidade em estoque." />
-            </div>
-            <div className="button-area">
-              <button className="button-update-product" type="submit">Confirmar Alteração</button>
-            </div>
+            <Input type="text" placeholder="Preço." />
+            <Input type="text" placeholder="Peso (Ex: 10kg, 10g)." />
+            <Input type="text" placeholder="Quantidade em estoque." />
+            <ButtonForm text="Confirmar Alteração" />
           </form>
         </div>
       </div>

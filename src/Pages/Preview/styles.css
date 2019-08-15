@@ -111,7 +111,7 @@
   color: #2D2D2D;
 }
 
-.content-preview .box-main-information .title-joinedDate .evaluation {
+.content-preview .box-main-information .title-joinedDate .evaluation-paws-preview {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -124,16 +124,16 @@
   border: 1px solid #ebeced;
 }
 
-.content-preview .box-main-information .title-joinedDate .evaluation svg {
+.content-preview .box-main-information .title-joinedDate .evaluation-paws-preview svg {
   color: #B3B6CB;
   margin-right: 3px;
   margin-top: 3px;
 }
 
-.content-preview .box-main-information .title-joinedDate .evaluation span {
+.content-preview .box-main-information .title-joinedDate .evaluation-paws-preview span {
   position: relative;
-  margin-left: 5px;
-  margin-top: 5px;
+  margin-left: 3px;
+  margin-top: 3px;
   color: #B3B6CB;
   font-weight: 600;
 }
