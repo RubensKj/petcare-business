@@ -10,8 +10,8 @@ import ListRequests from './Pages/ListRequests';
 import ListEvaluations from './Pages/ListEvaluations';
 
 import Order from './Pages/Order';
-
 import Preview from './Pages/Preview';
+import SettingsPage from './Pages/SettingsPage';
 
 import SignUp from './Pages/SignUp';
 import SignUpCompany from './Pages/SignUpCompany';
@@ -30,6 +30,7 @@ const Routes = () => (
           <Route exact path='/produtos' component={ListProducts} />
           <Route exact path='/pedidos' component={ListRequests} />
           <Route exact path='/avaliacoes' component={ListEvaluations} />
+          <Route path='/configuracoes' component={SettingsPage} />
           <Route path='/pedidos/id' component={Order} />
           <Route path='/produtos/id/editar' component={EditPage} />
       </Switch>
