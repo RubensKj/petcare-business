@@ -8,6 +8,61 @@
   margin-top: 30px;
 }
 
+.container-settings .header-title-settings {
+  padding: 0 15px;
+}
+
+.container-settings .header-title-settings h1 {
+  font-size: 20px;
+  color: #2D2D2D;
+}
+
+.container-settings .header-title-settings, .container-settings .forms-settings {
+  max-width: 920px;
+  width: 100%;
+  margin: 10px auto;
+}
+
+.container-settings .forms-settings {
+  margin: 20px auto 20px;
+  padding: 0 40px;
+}
+
+.container-settings .forms-settings .form-image-settings {
+  margin-bottom: 35px;
+}
+
+.container-settings .forms-settings .form-image-settings label {
+  display: flex;
+  width: 160px;
+  margin: 15px auto 0;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: filter 0.2s;
+}
+
+.container-settings .forms-settings .form-image-settings label:hover {
+  filter: contrast(85%);
+}
+
+.container-settings .forms-settings .form-image-settings label img {
+  max-width: 160px;
+  width: 100%;
+  max-height: 160px;
+  height: 100%;
+  border: 1px solid #ebeced;
+  border-radius: 50%;
+}
+
+.container-settings .forms-settings  .form-content-settings .info-header-settings {
+  margin-bottom: 15px;
+}
+
+.container-settings .forms-settings  .form-content-settings .input-area {
+  padding: 0 30px;
+}
+
 .container-settings .form-content-settings .bottom-border-settings {
+  margin-top: 25px;
   border-bottom: 1px solid #ebeced;
 }
