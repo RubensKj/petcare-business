@@ -61,6 +61,10 @@
   padding: 0 30px;
 }
 
+.container-settings .forms-settings .form-content-settings .button-area-form {
+  margin-top: 30px;
+}
+
 .container-settings .form-content-settings .bottom-border-settings {
   margin-top: 25px;
   border-bottom: 1px solid #ebeced;

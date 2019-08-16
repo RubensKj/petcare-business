@@ -37,6 +37,7 @@ export default function SettingsPage() {
               <TransitionOfSetting title="Principais" description="Informações que serão utilizar para mostrar para o usuário;" />
               <Input type="text" placeholder="Nome da empresa" messageBottom="Esse nome será visível para os usuários que acessarem a pagina da empresa." autoComplete="off" />
               <Input type="text" placeholder="CNPJ" messageBottom="Esse CPNJ é qual a empresa foi cadastrada." autoComplete="off" />
+              <ButtonForm text="Alterar dados da empresa" />
               <div className="bottom-border-settings" />
             </form>
           </div>
