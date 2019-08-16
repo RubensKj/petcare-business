@@ -1,17 +1,17 @@
-.info-header {
+.info-header-settings {
   width: 100%;
   border-top: 1px solid #ebeced;
   padding: 10px 15px;
 }
 
-.info-header .content-header h3 {
+.info-header-settings .content-header-settings h3 {
   color: #2D2D2D;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
 }
 
-.info-header .content-header span {
+.info-header-settings .content-header-settings span {
   padding: 0 5px;
   color: #4c5765;
   overflow: hidden;
