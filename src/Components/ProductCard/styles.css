@@ -1,5 +1,4 @@
 .product {
-  position: relative;
   display: flex;
   max-height: 137px;
   background: #fff;
@@ -76,13 +75,21 @@
 }
 
 .product .product-infomation .utilities-product-area .price-weight .product-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-right: 8px;
   color: #394458;
 }
 
+.product .product-infomation .utilities-product-area .price-weight .product-weight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .product .product-infomation .utilities-product-area .price-weight .product-price svg, .container-product .container-list-products .product .product-infomation .utilities-product-area .price-weight .product-weight svg {
-  position: relative;
-  top: 2px;
+  margin-top: 1px;
   margin-right: 2px;
 }
 
