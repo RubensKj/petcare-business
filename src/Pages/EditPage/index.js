@@ -17,13 +17,16 @@ export default function EditPage() {
         <div className="container-form">
           <div className="product-info-edit-title">
             Editar dados do produto
-        </div>
+          </div>
           <form className="product-edit-form">
-            <Input type="text" placeholder="Nome do produto." />
+            <Input type="text" placeholder="Nome do produto" messageBottom="Nome do serviço que será visível para o usuário na hora de escolher um para a compra." autoComplete="off" />
             <TextArea type="text" placeholder="Descrição." />
-            <Input type="text" placeholder="Preço." />
-            <Input type="text" placeholder="Peso (Ex: 10kg, 10g)." />
-            <Input type="text" placeholder="Quantidade em estoque." />
+            <Input type="number" placeholder="Preço" min="0" step="any" />
+            <Input type="text" placeholder="Peso" messageBottom="Necessário colocar a unidade do peso do produto. Ex 150g ou 15kg" autoComplete="off" />
+            <Input type="text" placeholder="Indicação" messageBottom="Para quem este produto é indicado. Ex Cachorro, Gato..." autoComplete="off" />
+            <Input type="text" placeholder="Idade" messageBottom="Filhote, Adulto, Idosos..." autoComplete="off" />
+            <Input type="text" placeholder="Transgênico" autoComplete="off" />
+            <TextArea type="text" placeholder="Composição." />
             <ButtonForm text="Confirmar Alteração" />
           </form>
         </div>

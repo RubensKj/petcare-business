@@ -25,13 +25,6 @@ export default function ListService() {
           </div>
           <div id="container-list-services" className="container-list-services">
             <ServiceCard />
-            <ServiceCard />
-            <ServiceCard />
-            <ServiceCard />
-            <ServiceCard />
-            <ServiceCard />
-            <ServiceCard />
-            <ServiceCard />
           </div>
         </div>
       </div>

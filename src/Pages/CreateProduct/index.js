@@ -41,7 +41,7 @@ export default function CreateProduct() {
               <Input type="text" placeholder="Idade" messageBottom="Filhote, Adulto, Idosos..." autoComplete="off" />
               <Input type="text" placeholder="Transgênico" autoComplete="off" />
               <TextArea type="text" placeholder="Composição." />
-              <ButtonForm text="Criar Serviço" />
+              <ButtonForm text="Criar Produto" />
             </div>
             <div className="bottom-border-settings" />
           </form>
