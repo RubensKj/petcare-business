@@ -20,7 +20,7 @@ export default function CreateService() {
         <HeaderEditPage requestsPage={true} />
         <div className="container-create-service">
           <TitlePages text="Cadastro de serviço" />
-          <form className="create-form-service" onSubmit={null} >
+          <form className="create-form-service" onSubmit={null}>
             <TransitionOfSetting title="Serviço" description="Cadastro de serviço, obs: cadastrar todos os serviços relacionados ao pet shop aqui (Ex: Tosa, Banho, Creche etc.)" />
             <div className="inputs">
               <Input type="text" placeholder="Nome do serviço" messageBottom="Nome do serviço que será visível para o usuário na hora de escolher um para a compra." autoComplete="off" />

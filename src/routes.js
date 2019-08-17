@@ -7,6 +7,7 @@ import CreateProduct from './Pages/CreateProduct';
 import EditPage from './Pages/EditPage';
 
 import ListProducts from './Pages/ListProducts';
+import ListService from './Pages/ListService';
 import ListRequests from './Pages/ListRequests';
 import ListEvaluations from './Pages/ListEvaluations';
 
@@ -30,6 +31,7 @@ const Routes = () => (
           <Route path='/cadastrar-servico' component={CreateService} />
           <Route path='/cadastrar-produto' component={CreateProduct} />
           <Route exact path='/produtos' component={ListProducts} />
+          <Route exact path='/servicos' component={ListService} />
           <Route exact path='/pedidos' component={ListRequests} />
           <Route exact path='/avaliacoes' component={ListEvaluations} />
           <Route path='/configuracoes' component={SettingsPage} />

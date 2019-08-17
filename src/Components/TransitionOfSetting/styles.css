@@ -18,3 +18,16 @@
   text-overflow: ellipsis;
   transition: 0.2s all;
 }
+
+.info-header-settings .content-error-settings {
+  padding: 0 15px;
+}
+
+.info-header-settings .content-error-settings span {
+  display: block;
+  font-size: 18px;
+  color: #FB4A4D;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: 0.2s all;
+}

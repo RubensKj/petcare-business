@@ -25,12 +25,12 @@ export default function SettingsPage() {
         <div className="container-settings">
           <TitlePages text="Configurações" />
           <div className="forms-settings">
-            <form className="form-image-settings">
+            <form className="form-image-settings" encType="multipart/form-data">
               <TransitionOfSetting title="Avatar" description="Essa logo será visível para quem acessar esta empresa." />
               <label htmlFor="input-image-company" >
                 <img src="https://scontent.fbnu1-1.fna.fbcdn.net/v/t1.0-9/36919020_268531707232126_6615945512266760192_n.jpg?_nc_cat=104&_nc_oc=AQkT9OzKnH47MyQHguJZ8Wt38JFTYtrVKfROYDr46Tk2_RGFIGMkcWPXw3UaNS-bwKs&_nc_ht=scontent.fbnu1-1.fna&oh=82722e4b1b45ab3b0563f72bdfee5482&oe=5DEBBFF4" alt="Company Logo" />
               </label>
-              <input id="input-image-company" type="file" style={{ display: 'none' }} onChange={handleImage} enctype="multipart/form-data" />
+              <input id="input-image-company" type="file" style={{ display: 'none' }} onChange={handleImage} />
             </form>
             <form className="form-content-settings">
               <TransitionOfSetting title="Principais" description="Informações que serão utilizar para mostrar para o usuário;" />
