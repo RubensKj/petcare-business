@@ -2,11 +2,11 @@ import React from 'react';
 
 import './styles.css';
 
-export default function Input({ type, value, name, placeholder, messageBottom, onChange, autoComplete }) {
+export default function Input({ type, value, name, placeholder, messageBottom, onChange, autoComplete, min, step }) {
   return (
     <div className="input-area">
       <div className="input-div inputed">
-        <input className="input-basic" type={type} value={value} name={name} placeholder={placeholder} onChange={onChange} autoComplete={autoComplete} />
+        <input className="input-basic" type={type} value={value} name={name} placeholder={placeholder} onChange={onChange} autoComplete={autoComplete} min={min} max="1000.00" step={step} />
       </div>
       <span>{messageBottom}</span>
     </div>

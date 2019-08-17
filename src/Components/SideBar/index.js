@@ -46,7 +46,7 @@ export default function SideBar() {
             </div>
             <ul className="list-area">
               <a href="/cadastrar-servico"><li>Cadastrar Serviço</li></a>
-              <a href="/cadastrar-servico"><li>Cadastrar Produto</li></a>
+              <a href="/cadastrar-produto"><li>Cadastrar Produto</li></a>
               <a href="/configuracoes"><li>Informações da empresa</li></a>
             </ul>
           </div>

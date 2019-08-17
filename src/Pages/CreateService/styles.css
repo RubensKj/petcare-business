@@ -1,0 +1,24 @@
+.container-create-service {
+  display: block;
+  justify-content: center;
+  width: 100%;
+  padding: 0 15px;
+  padding-bottom: 25px;
+  margin-top: 30px;
+}
+
+.container-create-service .create-form-service {
+  max-width: 920px;
+  width: 100%;
+  margin: 20px auto 20px;
+  padding: 0 40px;
+}
+
+.container-create-service .create-form-service .inputs {
+  margin: 20px auto 20px;
+  padding: 0 40px;
+}
+
+.container-create-service .create-form-service .bottom-border-settings {
+  border-bottom: 1px solid #ebeced;
+}

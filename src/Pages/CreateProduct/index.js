@@ -12,18 +12,18 @@ import TransitionOfSetting from '../../Components/TransitionOfSetting';
 
 import './styles.css';
 
-export default function CreateService() {
+export default function CreateProduct() {
   return (
     <>
       <SideBar />
       <div className="container-page-sidebar">
         <HeaderEditPage requestsPage={true} />
         <div className="container-create-service">
-          <TitlePages text="Cadastro de serviço" />
+          <TitlePages text="Cadastro de produto" />
           <form className="create-form-service" onSubmit={null} >
-            <TransitionOfSetting title="Serviço" description="Cadastro de serviço, obs: cadastrar todos os serviços relacionados ao pet shop aqui (Ex: Tosa, Banho, Creche etc.)" />
+            <TransitionOfSetting title="Produto" description="Cadastro de produto, esse produto será visível para o usuário na página de perfil da empresa para compra." />
             <div className="inputs">
-              <Input type="text" placeholder="Nome do serviço" messageBottom="Nome do serviço que será visível para o usuário na hora de escolher um para a compra." autoComplete="off" />
+              <Input type="text" placeholder="Nome do produto" messageBottom="Nome do serviço que será visível para o usuário na hora de escolher um para a compra." autoComplete="off" />
               <TextArea type="text" placeholder="Descrição." />
               <Input type="number" placeholder="Preço" min="0" step="any" />
               <ButtonForm text="Criar Serviço" />

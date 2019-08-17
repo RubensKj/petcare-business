@@ -7,16 +7,7 @@
   margin-top: 30px;
 }
 
-.container-settings .header-title-settings {
-  padding: 0 15px;
-}
-
-.container-settings .header-title-settings h1 {
-  font-size: 20px;
-  color: #2D2D2D;
-}
-
-.container-settings .header-title-settings, .container-settings .forms-settings {
+.container-settings .forms-settings {
   max-width: 920px;
   width: 100%;
   margin: 10px auto;

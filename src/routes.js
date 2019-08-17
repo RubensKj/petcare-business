@@ -3,6 +3,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import CreateService from './Pages/CreateService';
+import CreateProduct from './Pages/CreateProduct';
 import EditPage from './Pages/EditPage';
 
 import ListProducts from './Pages/ListProducts';
@@ -27,6 +28,7 @@ const Routes = () => (
           <Route path='/finalizar' component={SignUpOwner} />
           <Route path='/entrar' component={LogIn} />
           <Route path='/cadastrar-servico' component={CreateService} />
+          <Route path='/cadastrar-produto' component={CreateProduct} />
           <Route exact path='/produtos' component={ListProducts} />
           <Route exact path='/pedidos' component={ListRequests} />
           <Route exact path='/avaliacoes' component={ListEvaluations} />

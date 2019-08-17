@@ -3,6 +3,7 @@ import React from 'react';
 import HeaderEditPage from '../../Components/HeaderEditPage';
 import SideBar from '../../Components/SideBar';
 import Input from '../../Components/Input';
+import TextArea from '../../Components/TextArea';
 import ButtonForm from '../../Components/ButtonForm';
 
 import './styles.css';
@@ -19,9 +20,7 @@ export default function EditPage() {
         </div>
           <form className="product-edit-form">
             <Input type="text" placeholder="Nome do produto." />
-            <div className="description-area">
-              <textarea type="text" placeholder="Descrição." />
-            </div>
+            <TextArea type="text" placeholder="Descrição." />
             <Input type="text" placeholder="Preço." />
             <Input type="text" placeholder="Peso (Ex: 10kg, 10g)." />
             <Input type="text" placeholder="Quantidade em estoque." />

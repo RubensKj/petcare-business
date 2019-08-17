@@ -1,0 +1,11 @@
+.header-title-settings {
+  max-width: 920px;
+  width: 100%;
+  margin: 10px auto;
+  padding: 0 15px;
+}
+
+.header-title-settings h1 {
+  font-size: 20px;
+  color: #2D2D2D;
+}
