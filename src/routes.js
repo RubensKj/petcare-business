@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { PrivateRoute } from './Components/PrivateRoute';
 
 import CreateService from './Pages/CreateService';
 import CreateProduct from './Pages/CreateProduct';
@@ -23,7 +24,7 @@ import LogIn from './Pages/LogIn';
 const Routes = () => (
   <BrowserRouter>
       <Switch>
-          <Route exact path='/' component={Preview} />
+          <PrivateRoute exact path='/' component={Preview} />
           <Route path='/cadastrar' component={SignUp} />
           <Route path='/create-petshop' component={SignUpCompany} />
           <Route path='/finalizar' component={SignUpOwner} />

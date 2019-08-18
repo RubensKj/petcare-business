@@ -9,7 +9,7 @@ export const loginWithBack = async (username, password) => {
         password: password,
     }
     if(username || password) {
-        const response = await api.post("/auth/entrar", JSON.stringify(user), { headers: { 'Content-Type': 'application/json' } });
+        const response = await api.post("/company-auth/login", JSON.stringify(user));
         login(response.data.accessToken);
     }
 }

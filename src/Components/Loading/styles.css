@@ -1,0 +1,27 @@
+.loading-api {
+  color: #fafafa;
+}
+
+.loading-api span {
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5;
+}
+
+.loading-api span:before {
+  content: attr(data-text);
+  position: absolute;
+  overflow: hidden;
+  max-width: 7em;
+  white-space: nowrap;
+  color: #7bbb5e;
+  animation: loading 8s linear;
+}
+
+@keyframes loading {
+  0% {
+      max-width: 0;
+  }
+}

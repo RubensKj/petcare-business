@@ -1,11 +1,40 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import FixedBar from '../../Components/FixedBar';
 import PawLogo from '../../Assets/PawLogo';
+import Loading from '../../Components/Loading';
+
+import api from '../../Services/api';
+import { useSelector, useDispatch } from 'react-redux';
+import { setCompany, setIsLoading } from '../../Store/Actions/Company';
 
 import './styles.css';
 
 export default function SideBar() {
+  const state = useSelector(state => state.Company);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setIsLoading(true));
+    async function loadCompany() {
+      await api.get("/profile-company").then(res => {
+        const rate = Math.floor(res.data.rate);
+        for (var i = 0; i < rate; i++) {
+          let paws = document.querySelectorAll(".svg-faw");
+          paws.forEach(paw => { paw.classList.add('faw-rating'); });
+        }
+        dispatch(setCompany(res.data));
+        dispatch(setIsLoading(false));
+      }).catch(error => {
+        console.log(error);
+      });
+    }
+    loadCompany();
+  }, [dispatch])
+
+  const company = state.data;
+  const isLoading = state.isLoading;
+
   return (
     <>
       <FixedBar />
@@ -17,7 +46,7 @@ export default function SideBar() {
             </div>
             <div className="information-company-content">
               <div className="info-company-title">
-                <h1>Blumen Garten</h1>
+                <h1>{isLoading ? (<Loading />) : (company.companyName)}</h1>
               </div>
               <div className="info-company-paws">
                 <PawLogo />
@@ -25,7 +54,7 @@ export default function SideBar() {
                 <PawLogo />
                 <PawLogo />
                 <PawLogo />
-                <span>4.3</span>
+                <span>{isLoading ? (<Loading text="..." />) : (company.rate === 5 ? ("5.0") : (company.rate))}</span>
               </div>
             </div>
           </div>

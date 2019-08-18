@@ -1,17 +1,28 @@
 import React from 'react';
 
 import SideBar from '../../Components/SideBar';
+import FavoriteButton from '../../Components/FavoriteButton';
+import AddressInfo from '../../Components/AddressInfo';
+import Loading from '../../Components/Loading';
 import PawLogo from '../../Assets/PawLogo';
+
+import { useSelector } from 'react-redux';
 
 import './styles.css';
 
 export default function Preview() {
+  const state = useSelector(state => state.Company);
 
   function selectItem(event) {
     let selectedDiv = event.currentTarget;
     selectedDiv.classList.toggle("selectedItem");
     console.log(selectedDiv);
   }
+
+  const company = state.data;
+  const isLoading = state.isLoading;
+  console.log(company);
+  console.log(state);
 
   return (
     <>
@@ -21,10 +32,7 @@ export default function Preview() {
         <div className="content-preview">
           <div className="buttons-actions">
             <div className="actions">
-              <div className="favorite button-design" role="button">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="square" strokeLinejoin="arcs"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                <button>Favoritar</button>
-              </div>
+              <FavoriteButton favorite={true} />
               <div className="report button-design" role="button">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="square" strokeLinejoin="arcs"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12" y2="16"></line></svg>
                 <button>Denunciar</button>
@@ -36,24 +44,25 @@ export default function Preview() {
               <img src="https://scontent.fbnu1-1.fna.fbcdn.net/v/t1.0-9/36919020_268531707232126_6615945512266760192_n.jpg?_nc_cat=104&_nc_oc=AQkT9OzKnH47MyQHguJZ8Wt38JFTYtrVKfROYDr46Tk2_RGFIGMkcWPXw3UaNS-bwKs&_nc_ht=scontent.fbnu1-1.fna&oh=82722e4b1b45ab3b0563f72bdfee5482&oe=5DEBBFF4" alt="Company Logo" />
             </div>
             <div className="title-joinedDate">
-              <h1>Blumen Garten</h1>
+              <h1>{isLoading ? (<Loading />) : (company.companyName)}</h1>
               <div className="evaluation-paws-preview">
                 <PawLogo />
                 <PawLogo />
                 <PawLogo />
                 <PawLogo />
                 <PawLogo />
-                <span>4.7</span>
+                <span>{isLoading ? (<Loading text="..." />) : (company.rate === 5 ? ("5.0") : (company.rate))}</span>
               </div>
             </div>
             <div className="transion-small" />
             <div className="address-status">
               <div className="address-area">
                 <h3>Endereço</h3>
-                <div className="address-info">
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" strokeLinejoin="arcs"><circle cx="12" cy="10" r="3" /><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" /></svg>
-                  <span>R. Bahia, 814 - Salto, Blumenau - SC, 89031-000</span>
-                </div>
+                {isLoading ? (<Loading />) : (company.addresses > 0 ? (company.addresses.map(address => (
+                  <AddressInfo text={address.street + ', ' + address.placeNumber + ' - ' + (address.complement ? (address.complement) : ('')) + address.neighborhood + ', ' + address.city + ' - ' + address.cep} />
+                ))) : (
+                    <AddressInfo text="Esta empresa não possui nenhum endereço." />
+                  ))}
               </div>
               <div className="status-area">
                 <h3>Horário</h3>
