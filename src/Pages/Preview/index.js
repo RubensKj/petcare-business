@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import SideBar from '../../Components/SideBar';
 import FavoriteButton from '../../Components/FavoriteButton';
 import AddressInfo from '../../Components/AddressInfo';
 import Loading from '../../Components/Loading';
+
 import PawLogo from '../../Assets/PawLogo';
+import PetShopDogLogo from '../../Assets/PetShopDogLogo.svg';
 
 import { useSelector } from 'react-redux';
 
@@ -12,6 +14,14 @@ import './styles.css';
 
 export default function Preview() {
   const state = useSelector(state => state.Company);
+
+  useEffect(() => {
+    const rate = Math.floor(state.data.rate);
+    for (var i = 0; i < rate; i++) {
+      let paws = document.querySelectorAll(".paw-preview");
+      paws[i].classList.add('faw-rating');
+    }
+  }, [state.data.rate])
 
   function selectItem(event) {
     let selectedDiv = event.currentTarget;
@@ -21,7 +31,6 @@ export default function Preview() {
 
   const company = state.data;
   const isLoading = state.isLoading;
-  console.log(company);
   console.log(state);
 
   return (
@@ -32,7 +41,7 @@ export default function Preview() {
         <div className="content-preview">
           <div className="buttons-actions">
             <div className="actions">
-              <FavoriteButton favorite={true} />
+              <FavoriteButton favorite={false} />
               <div className="report button-design" role="button">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="square" strokeLinejoin="arcs"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12" y2="16"></line></svg>
                 <button>Denunciar</button>
@@ -41,16 +50,16 @@ export default function Preview() {
           </div>
           <div className="box-main-information">
             <div className="img-area">
-              <img src="https://scontent.fbnu1-1.fna.fbcdn.net/v/t1.0-9/36919020_268531707232126_6615945512266760192_n.jpg?_nc_cat=104&_nc_oc=AQkT9OzKnH47MyQHguJZ8Wt38JFTYtrVKfROYDr46Tk2_RGFIGMkcWPXw3UaNS-bwKs&_nc_ht=scontent.fbnu1-1.fna&oh=82722e4b1b45ab3b0563f72bdfee5482&oe=5DEBBFF4" alt="Company Logo" />
+              <img src={company.avatar ? (company.avatar) : (PetShopDogLogo)} alt="Company Logo" />
             </div>
             <div className="title-joinedDate">
               <h1>{isLoading ? (<Loading />) : (company.companyName)}</h1>
               <div className="evaluation-paws-preview">
-                <PawLogo />
-                <PawLogo />
-                <PawLogo />
-                <PawLogo />
-                <PawLogo />
+                <PawLogo className="paw-preview" />
+                <PawLogo className="paw-preview" />
+                <PawLogo className="paw-preview" />
+                <PawLogo className="paw-preview" />
+                <PawLogo className="paw-preview" />
                 <span>{isLoading ? (<Loading text="..." />) : (company.rate === 5 ? ("5.0") : (company.rate))}</span>
               </div>
             </div>
@@ -58,8 +67,8 @@ export default function Preview() {
             <div className="address-status">
               <div className="address-area">
                 <h3>Endereço</h3>
-                {isLoading ? (<Loading />) : (company.addresses > 0 ? (company.addresses.map(address => (
-                  <AddressInfo text={address.street + ', ' + address.placeNumber + ' - ' + (address.complement ? (address.complement) : ('')) + address.neighborhood + ', ' + address.city + ' - ' + address.cep} />
+                {isLoading ? (<Loading />) : (company.addresses ? (company.addresses.map(address => (
+                  <AddressInfo key={address.id} text={address.street + ', ' + address.placeNumber + ' - ' + (address.complement ? (address.complement) : ('')) + address.neighborhood + ', ' + address.city + ' - ' + address.cep} />
                 ))) : (
                     <AddressInfo text="Esta empresa não possui nenhum endereço." />
                   ))}
@@ -68,7 +77,7 @@ export default function Preview() {
                 <h3>Horário</h3>
                 <div className="status-info">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="square" strokeLinejoin="arcs"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                  <span>Aberto - Até as 16:00</span>
+                  <span>{company.status}</span>
                 </div>
               </div>
             </div>

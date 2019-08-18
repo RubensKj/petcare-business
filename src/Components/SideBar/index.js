@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 
 import FixedBar from '../../Components/FixedBar';
-import PawLogo from '../../Assets/PawLogo';
 import Loading from '../../Components/Loading';
+
+import PawLogo from '../../Assets/PawLogo';
+import PetShopDogLogo from '../../Assets/PetShopDogLogo.svg';
 
 import api from '../../Services/api';
 import { useSelector, useDispatch } from 'react-redux';
@@ -21,7 +23,7 @@ export default function SideBar() {
         const rate = Math.floor(res.data.rate);
         for (var i = 0; i < rate; i++) {
           let paws = document.querySelectorAll(".svg-faw");
-          paws.forEach(paw => { paw.classList.add('faw-rating'); });
+          paws[i].classList.add('faw-rating');
         }
         dispatch(setCompany(res.data));
         dispatch(setIsLoading(false));
@@ -42,7 +44,7 @@ export default function SideBar() {
         <div className="container-sidebar-left">
           <div className="information-company">
             <div className="information-company-area">
-              <img src="https://scontent.fbnu1-1.fna.fbcdn.net/v/t1.0-9/36919020_268531707232126_6615945512266760192_n.jpg?_nc_cat=104&_nc_oc=AQkT9OzKnH47MyQHguJZ8Wt38JFTYtrVKfROYDr46Tk2_RGFIGMkcWPXw3UaNS-bwKs&_nc_ht=scontent.fbnu1-1.fna&oh=82722e4b1b45ab3b0563f72bdfee5482&oe=5DEBBFF4" alt="Company Logo" />
+              <img src={company.avatar ? (company.avatar) : (PetShopDogLogo)} alt="Company Logo" />
             </div>
             <div className="information-company-content">
               <div className="info-company-title">

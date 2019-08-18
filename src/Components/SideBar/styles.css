@@ -56,7 +56,6 @@
   width: 54px;
   height: 54px;
   border-radius: 5px;
-  box-shadow: 4px 8px 20px 2px rgba(120,135,182,.1);
 }
 
 .sidebar .container-sidebar-left .information-company .information-company-content {
@@ -74,7 +73,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 100%;
-  max-width: 215px;
+  max-width: 200px;
   overflow: hidden;
 }
 
