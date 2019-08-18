@@ -24,24 +24,24 @@
 
 .status .process .gerado {
   width: 25%;
-  background: #ff6363;
+  background: #ffb822;
 }
 
 .status .process .andamento {
   width: 25%;
-  background: #f5f85d;
+  background: #ff6363;
   opacity: 0.3;
 }
 
 .status .process .saiu-para-entrega {
   width: 25%;
-  background: #00c2ba;
+  background: #5867dd;
   opacity: 0.3;
 }
 
 .status .process .finalizado {
   width: 25%;
-  background: #4cf08a;
+  background: #1dc9b7;
   opacity: 0.3;
 }
 
