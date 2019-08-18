@@ -9,7 +9,7 @@ export default function LogIn() {
     <div className="container-login">
       <div className="box-login">
         <HeaderBoxAuth message="Entre no PetCare" />
-        <form className="login-form" onSubmit={null} autocomplete="off">
+        <form className="login-form" onSubmit={null} autoComplete="off">
           <div className="error-area">
             <h3 className="error-login">Errooooooooooooooooooooooooooooooooooo</h3>
           </div>

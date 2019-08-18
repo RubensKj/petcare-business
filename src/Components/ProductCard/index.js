@@ -1,7 +1,6 @@
 import React from 'react';
 
 import './styles.css';
-import api from '../../Services/api';
 
 export default function ProductCard({ product, actionThreeDots }) {
 

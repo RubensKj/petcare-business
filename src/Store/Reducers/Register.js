@@ -3,7 +3,6 @@ const INITIAL_STATE = {
     completeName: "",
     email: "",
     phoneNumber: "",
-    cpf: "",
     cnpj: "",
     companyName: "",
     address: {
@@ -12,11 +11,11 @@ const INITIAL_STATE = {
       complement: '',
       neighborhood: '',
       city: '',
-      states: '',
+      state: '',
       cep: '',
     },
     description: "",
-    rate: 5.0,
+    cpf: "",
     password: "",
   },
   phase: 1,
@@ -25,6 +24,8 @@ const INITIAL_STATE = {
 
 export default function registerUser(state = INITIAL_STATE, action) {
   switch (action.type) {
+    case 'ADD_STATE':
+      return { ...state, registerUser: action.stateLocal }
     case 'ADD_COMPLETE_NAME':
       return { ...state, registerUser: { ...state.registerUser, completeName: action.value } }
     case 'ADD_EMAIL':
@@ -48,7 +49,7 @@ export default function registerUser(state = INITIAL_STATE, action) {
     case 'ADD_CITY':
       return { ...state, registerUser: { ...state.registerUser, address: { ...state.registerUser.address, city: action.value } } }
     case 'ADD_STATES':
-        return { ...state, registerUser: { ...state.registerUser, address: { ...state.registerUser.address, states: action.value } } }
+      return { ...state, registerUser: { ...state.registerUser, address: { ...state.registerUser.address, state: action.value } } }
     case 'ADD_CEP':
       return { ...state, registerUser: { ...state.registerUser, address: { ...state.registerUser.address, cep: action.value } } }
     case 'ADD_DESCRIPTION':

@@ -9,7 +9,7 @@ import { searchInList } from '../../Helpers/Functions';
 
 import './styles.css';
 
-export default function ListService() {
+export default function ListServices() {
   return (
     <>
       <SideBar />

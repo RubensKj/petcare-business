@@ -8,31 +8,30 @@ import { addAnimationToInput } from '../../Helpers/Functions';
 
 import api from '../../Services/api';
 import { useSelector, useDispatch } from 'react-redux';
-import { addErrors, addInput, changePhase } from '../../Store/Actions/Register';
+import { addErrors, addInput, changePhase, addState } from '../../Store/Actions/Register';
 
 import './styles.css';
 
 export default function SignUpPhaseTwo(props) {
-  const state = useSelector(state => state.Register);
+  const stateSignUp = useSelector(state => state.Register);
   const dispatch = useDispatch();
+  const stateLocal = JSON.parse(localStorage.getItem('state'));
 
   useEffect(() => {
-    var stateLocal = localStorage.getItem('state');
-    if (stateLocal === null || stateLocal.phase === 1) {
+    if (stateLocal === null) {
       props.history.push('/cadastrar');
     }
-  }, [props.history, state.phase]);
+  }, [props.history, stateLocal]);
 
   async function handleSubmit(e) {
     e.preventDefault();
-    localStorage.setItem('state', state);
-    const { cnpj, companyName } = state.registerUser;
-    const { street, placeNumber, complement, neighborhood, cep, city, states } = state.registerUser.address;
-    if (!cnpj || !companyName || !street || !placeNumber || !complement || !neighborhood || !cep || !city || !states) {
+    const { cnpj, companyName } = stateSignUp.registerUser;
+    const { street, placeNumber, complement, neighborhood, cep, city, state } = stateSignUp.registerUser.address;
+    if (!cnpj || !companyName || !street || !placeNumber || !neighborhood || !cep || !city || !state) {
       dispatch(addErrors("Preencha todos os dados para continuar o cadastro"));
       addAnimationToInput();
     } else {
-      if(cnpj < 0 || cnpj.length > 18) {
+      if (cnpj < 0 || cnpj.length > 18) {
         dispatch(addErrors("CNPJ é inválido, favor inserir um correto."));
         addAnimationToInput();
         return;
@@ -50,13 +49,13 @@ export default function SignUpPhaseTwo(props) {
         return;
       }
 
-      if (placeNumber < 0 || placeNumber > 2500) {
+      if (placeNumber < 0 || placeNumber > 3500) {
         dispatch(addErrors("Número inválido"));
         addAnimationToInput();
         return;
       }
 
-      if (complement.length > 50) {
+      if (complement.length >= 100) {
         dispatch(addErrors("Complemento muito extenso"));
         addAnimationToInput();
         return;
@@ -74,22 +73,29 @@ export default function SignUpPhaseTwo(props) {
         return;
       }
 
-      if (states.length > 4) {
+      if (state.length > 4) {
         dispatch(addErrors("Estado inválido"));
         addAnimationToInput();
         return;
       }
 
+      const mergeState = { ...stateLocal, ...stateSignUp.registerUser, address: { ...stateSignUp.registerUser.address } } 
+      const { completeName, email, phoneNumber } = stateSignUp.registerUser;
+      if (!completeName || !email || !phoneNumber) {
+        dispatch(addState(mergeState));
+      }
+      
+      console.log(mergeState)
+
       try {
         await api.post("/company-auth/validate-cnpj", cnpj);
         dispatch(addErrors(''));
         dispatch(changePhase(3));
-        localStorage.setItem('state', state);
+        localStorage.setItem('state', JSON.stringify(mergeState));
         props.history.push('/finalizar')
       } catch (err) {
         dispatch(addErrors("Este CNPJ já está sendo usado"));
       }
-
     }
   }
 
@@ -98,12 +104,12 @@ export default function SignUpPhaseTwo(props) {
       <HeaderBoxAuth message="Sobre o pet shop" />
       <form className="signup-phasetwo" onSubmit={handleSubmit} autoComplete="off" autoCapitalize="off" autoCorrect="off">
         <div className="error-area">
-          <h3 className="error-signup">{state.error}</h3>
+          <h3 className="error-signup">{stateSignUp.error}</h3>
         </div>
-        <Input type="number" placeholder="CNPJ" onChange={e => dispatch(addInput('ADD_CNPJ', e.target.value))} messageBottom="CNPJ deve ser do pet shop que for cadastro" />
+        <Input type="text" placeholder="CNPJ" onChange={e => dispatch(addInput('ADD_CNPJ', e.target.value))} messageBottom="CNPJ deve ser do pet shop que for cadastro" />
         <Input type="text" placeholder="Nome do pet shop" onChange={e => dispatch(addInput('ADD_COMPANY_NAME', e.target.value))} messageBottom="Esse nome visível ao cliente, e no perfil da empresa" />
         <Input type="text" placeholder="Endereço" onChange={e => dispatch(addInput('ADD_STREET', e.target.value))} />
-        <Input type="number" placeholder="Número" onChange={e => dispatch(addInput('ADD_PLACENUMBER', e.target.value))} />
+        <Input type="number" placeholder="Número" onChange={e => dispatch(addInput('ADD_PLACENUMBER', e.target.value))} max="100000.00" />
         <Input type="text" placeholder="Complemento" onChange={e => dispatch(addInput('ADD_COMPLEMENT', e.target.value))} />
         <Input type="text" placeholder="Bairro" onChange={e => dispatch(addInput('ADD_NEIGHBORHOOD', e.target.value))} />
         <Input type="text" placeholder="CEP" onChange={e => dispatch(addInput('ADD_CEP', e.target.value))} />

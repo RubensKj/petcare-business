@@ -29,3 +29,7 @@
   margin-left: 8px;
   color: #d33;
 }
+
+.container-signup-phasethree .form-phasethree .completeName-input {
+  cursor: initial;
+}

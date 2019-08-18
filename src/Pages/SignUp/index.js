@@ -52,12 +52,12 @@ export default function SignUp(props) {
         addAnimationToInput();
         return;
       }
-
+      
       try {
         await api.post("/company-auth/validate-owner-email/", email);
         dispatch(addErrors(''));
         dispatch(changePhase(2));
-        localStorage.setItem('state', state);
+        localStorage.setItem('state', JSON.stringify(state.registerUser));
         props.history.push('/create-petshop')
       } catch (err) {
         dispatch(addErrors("Este email já está sendo usado"));
@@ -84,7 +84,7 @@ export default function SignUp(props) {
           </div>
           <div className="input-area">
             <label>Telefone: </label>
-            <Input type="number" name="phoneNumber" onChange={e => dispatch(addInput('ADD_PHONENUMBER', e.target.value))} messageBottom="Telefone para contato com a empresa." />
+            <Input type="text" name="phoneNumber" onChange={e => dispatch(addInput('ADD_PHONENUMBER', e.target.value))} messageBottom="Telefone para contato com a empresa." />
           </div>
           <ButtonForm text="Cadastrar" />
         </form>
