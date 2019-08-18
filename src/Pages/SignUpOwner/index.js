@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import HeaderBoxAuth from '../../Components/HeaderBoxAuth';
 import Input from '../../Components/Input';
@@ -16,22 +16,31 @@ export default function SignUpOwner(props) {
   const stateSignUp = useSelector(state => state.Register);
   const dispatch = useDispatch();
   const stateLocal = JSON.parse(localStorage.getItem('state'));
+  let completeNameLocal = '';
+  if (stateLocal !== null) { completeNameLocal = stateLocal.completeName }
+  const [completeNameState, setCompleteNameState] = useState(completeNameLocal);
 
   useEffect(() => {
     if (stateLocal === null) {
       props.history.push('/cadastrar');
     }
+  }, [props.history, stateLocal]);
 
-    console.log(stateSignUp)
-  }, [props.history, stateLocal, dispatch]);
+
 
   async function handleSubmit(e) {
     e.preventDefault();
     const { cpf, password } = stateSignUp.registerUser;
-    if (!cpf || !password) {
+    if (!completeNameState || !cpf || !password) {
       dispatch(addErrors("Preencha todos os dados para continuar o cadastro"));
       addAnimationToInput();
     } else {
+      if(completeNameState.length <= 0 || completeNameState.length > 1000) {
+        dispatch(addErrors("Nome completo inválido " + completeNameState));
+        addAnimationToInput();
+        return;
+      }
+
       if (cpf < 0 || cpf.length > 14 || cpf.length < 11) {
         dispatch(addErrors("Este CPF é inválido, favor inserir um válido"));
         addAnimationToInput();
@@ -44,23 +53,41 @@ export default function SignUpOwner(props) {
         return;
       }
 
-      const mergeState = { ...stateLocal }
-      const { completeName, email, phoneNumber, companyName, cnpj, cep, city, placeNumber, state, street } = stateSignUp.registerUser;
-      if (!completeName || !email || !phoneNumber || !companyName || !cnpj || !cep || !city || !placeNumber || !state || !street) {
-        dispatch(addState(mergeState));
+      const mergeState = {
+        completeName: stateLocal.completeName,
+        email: stateLocal.email,
+        phoneNumber: stateLocal.phoneNumber,
+        cnpj: stateLocal.cnpj,
+        companyName: stateLocal.companyName,
+        address: { ...stateLocal.address },
+        description: "",
+        cpf: stateSignUp.registerUser.cpf,
+        password: stateSignUp.registerUser.password,
       }
+      dispatch(addState(mergeState));
 
-      try {
-        await api.post("/signup-petshop", JSON.stringify(stateSignUp.registerUser));
+      await api.post("/signup-petshop", JSON.stringify(stateSignUp.registerUser)).then(() => {
         dispatch(addErrors(''));
         dispatch(changePhase(3));
         localStorage.removeItem('state');
-        localStorage.removeItem('completeName');
         props.history.push('/entrar')
-      } catch (err) {
-        dispatch(addErrors("Este CPF já está sendo usado"));
-      }
+      }).catch(error => {
+        switch (error.message) {
+          case "Network Error":
+            return dispatch(addErrors("O servidor está temporariamente desligado"));
+          case "Request failed with status code 403":
+            return dispatch(addErrors("Este CPF já está sendo usado"))
+          default:
+            return dispatch(addErrors(""));
+        }
+      });
     }
+  }
+
+  function handleCompleteName(e) {
+    setCompleteNameState(e.target.value)
+    const newStateWithNewName = { ...stateLocal, completeName: e.target.value }
+    localStorage.setItem('state', JSON.stringify(newStateWithNewName));
   }
 
   return (
@@ -70,7 +97,7 @@ export default function SignUpOwner(props) {
         <div className="error-area">
           <h3 className="error-signup">{stateSignUp.error}</h3>
         </div>
-        <Input type="readOnly" messageBottom="Nome completo do dono da empresa" />
+        <Input type="text" value={completeNameState} onChange={handleCompleteName} messageBottom="Nome completo do dono da empresa" />
         <Input type="text" placeholder="CPF" onChange={e => dispatch(addInput('ADD_CPF', e.target.value))} messageBottom="O CPF deve ser o do dono da empresa" />
         <Input type="password" placeholder="Senha" onChange={e => dispatch(addInput('ADD_PASSWORD', e.target.value))} messageBottom="Senha que será utilizada para entrar no sistema da empresa" autoComplete="on" />
         <ButtonForm text="Finalizar" />

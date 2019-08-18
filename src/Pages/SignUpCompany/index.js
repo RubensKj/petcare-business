@@ -15,13 +15,13 @@ import './styles.css';
 export default function SignUpPhaseTwo(props) {
   const stateSignUp = useSelector(state => state.Register);
   const dispatch = useDispatch();
-  const stateLocal = JSON.parse(localStorage.getItem('state'));
+  const registerUserLocalStorage = JSON.parse(localStorage.getItem('state'));
 
   useEffect(() => {
-    if (stateLocal === null) {
+    if (registerUserLocalStorage === null) {
       props.history.push('/cadastrar');
     }
-  }, [props.history, stateLocal]);
+  }, [props.history, registerUserLocalStorage]);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -49,7 +49,7 @@ export default function SignUpPhaseTwo(props) {
         return;
       }
 
-      if (placeNumber < 0 || placeNumber > 3500) {
+      if (placeNumber < 0 || placeNumber > 20000) {
         dispatch(addErrors("Número inválido"));
         addAnimationToInput();
         return;
@@ -79,23 +79,36 @@ export default function SignUpPhaseTwo(props) {
         return;
       }
 
-      const mergeState = { ...stateLocal, ...stateSignUp.registerUser, address: { ...stateSignUp.registerUser.address } } 
-      const { completeName, email, phoneNumber } = stateSignUp.registerUser;
-      if (!completeName || !email || !phoneNumber) {
-        dispatch(addState(mergeState));
-      }
-      
-      console.log(mergeState)
-
-      try {
-        await api.post("/company-auth/validate-cnpj", cnpj);
+      await api.post("/company-auth/validate-cnpj", cnpj).then(() => {
+        const mergeState = {
+          completeName: registerUserLocalStorage.completeName,
+          email: registerUserLocalStorage.email,
+          phoneNumber: registerUserLocalStorage.phoneNumber,
+          cnpj: stateSignUp.registerUser.cnpj,
+          companyName: stateSignUp.registerUser.companyName,
+          address: { ...stateSignUp.registerUser.address },
+          description: "",
+          cpf: "",
+          password: "",
+        }
+        const { completeName, email, phoneNumber } = stateSignUp.registerUser;
+        if (!completeName || !email || !phoneNumber) {
+          dispatch(addState(mergeState));
+        }
         dispatch(addErrors(''));
         dispatch(changePhase(3));
         localStorage.setItem('state', JSON.stringify(mergeState));
         props.history.push('/finalizar')
-      } catch (err) {
-        dispatch(addErrors("Este CNPJ já está sendo usado"));
-      }
+      }).catch(error => {
+        switch (error.message) {
+          case "Network Error":
+            return dispatch(addErrors("O servidor está temporariamente desligado"));
+          case "Request failed with status code 403":
+            return dispatch(addErrors("Este CNPJ já está sendo usado"));
+          default:
+            return dispatch(addErrors(""));
+        }
+      });
     }
   }
 
@@ -110,7 +123,7 @@ export default function SignUpPhaseTwo(props) {
         <Input type="text" placeholder="Nome do pet shop" onChange={e => dispatch(addInput('ADD_COMPANY_NAME', e.target.value))} messageBottom="Esse nome visível ao cliente, e no perfil da empresa" />
         <Input type="text" placeholder="Endereço" onChange={e => dispatch(addInput('ADD_STREET', e.target.value))} />
         <Input type="number" placeholder="Número" onChange={e => dispatch(addInput('ADD_PLACENUMBER', e.target.value))} max="100000.00" />
-        <Input type="text" placeholder="Complemento" onChange={e => dispatch(addInput('ADD_COMPLEMENT', e.target.value))} />
+        <Input type="text" placeholder="Complemento (Opcional)" onChange={e => dispatch(addInput('ADD_COMPLEMENT', e.target.value))} />
         <Input type="text" placeholder="Bairro" onChange={e => dispatch(addInput('ADD_NEIGHBORHOOD', e.target.value))} />
         <Input type="text" placeholder="CEP" onChange={e => dispatch(addInput('ADD_CEP', e.target.value))} />
         <div className="city-states">

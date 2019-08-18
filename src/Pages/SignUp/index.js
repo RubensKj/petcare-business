@@ -19,7 +19,7 @@ export default function SignUp(props) {
 
   useEffect(() => {
     let stateLocal = localStorage.getItem('state');
-    if(stateLocal !== null && stateLocal.phase !== 1) {
+    if (stateLocal !== null && stateLocal.phase !== 1) {
       localStorage.removeItem('state');
     }
 
@@ -35,7 +35,7 @@ export default function SignUp(props) {
       dispatch(addErrors("Preencha todos os dados para se cadastrar"));
       addAnimationToInput();
     } else {
-      if(completeName.length <= 0 || completeName.length > 197) {
+      if (completeName.length <= 0 || completeName.length > 197) {
         dispatch(addErrors("Por favor colocar um nome completo válido"));
         addAnimationToInput();
         return;
@@ -47,22 +47,27 @@ export default function SignUp(props) {
         return;
       }
 
-      if(phoneNumber < 0 || phoneNumber.length > 14) {
+      if (phoneNumber < 0 || phoneNumber.length > 14) {
         dispatch(addErrors("Este número de telefone não é válido"));
         addAnimationToInput();
         return;
       }
-      
-      try {
-        await api.post("/company-auth/validate-owner-email/", email);
+
+      await api.post("/company-auth/validate-owner-email/", email).then(() => {
         dispatch(addErrors(''));
         dispatch(changePhase(2));
         localStorage.setItem('state', JSON.stringify(state.registerUser));
         props.history.push('/create-petshop')
-      } catch (err) {
-        dispatch(addErrors("Este email já está sendo usado"));
-      }
-      
+      }).catch(error => {
+        switch (error.message) {
+          case "Network Error":
+            return dispatch(addErrors("O servidor está temporariamente desligado"));
+          case "Request failed with status code 403":
+            return dispatch(addErrors("Este email já está sendo usado."));
+          default:
+            return dispatch(addErrors(""));
+        }
+      });
     }
   }
 
