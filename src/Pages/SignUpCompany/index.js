@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 
+import HeaderMainPage from '../../Components/HeaderMainPage';
 import HeaderBoxAuth from '../../Components/HeaderBoxAuth';
 import Input from '../../Components/Input';
 import ButtonForm from '../../Components/ButtonForm';
@@ -113,29 +114,32 @@ export default function SignUpPhaseTwo(props) {
   }
 
   return (
-    <div className="container-signup-phasetwo">
-      <HeaderBoxAuth message="Sobre o pet shop" />
-      <form className="signup-phasetwo" onSubmit={handleSubmit} autoComplete="off" autoCapitalize="off" autoCorrect="off">
-        <div className="error-area">
-          <h3 className="error-signup">{stateSignUp.error}</h3>
-        </div>
-        <Input type="text" placeholder="CNPJ" onChange={e => dispatch(addInput('ADD_CNPJ', e.target.value))} messageBottom="CNPJ deve ser do pet shop que for cadastro" />
-        <Input type="text" placeholder="Nome do pet shop" onChange={e => dispatch(addInput('ADD_COMPANY_NAME', e.target.value))} messageBottom="Esse nome visível ao cliente, e no perfil da empresa" />
-        <Input type="text" placeholder="Endereço" onChange={e => dispatch(addInput('ADD_STREET', e.target.value))} />
-        <Input type="number" placeholder="Número" onChange={e => dispatch(addInput('ADD_PLACENUMBER', e.target.value))} max="100000.00" />
-        <Input type="text" placeholder="Complemento (Opcional)" onChange={e => dispatch(addInput('ADD_COMPLEMENT', e.target.value))} />
-        <Input type="text" placeholder="Bairro" onChange={e => dispatch(addInput('ADD_NEIGHBORHOOD', e.target.value))} />
-        <Input type="text" placeholder="CEP" onChange={e => dispatch(addInput('ADD_CEP', e.target.value))} />
-        <div className="city-states">
-          <div className="city-input inputed">
-            <input type="text" placeholder="Cidade" onChange={e => dispatch(addInput('ADD_CITY', e.target.value))} />
+    <>
+      <HeaderMainPage hideBtns={true} />
+      <div className="container-signup-phasetwo">
+        <HeaderBoxAuth message="Sobre o pet shop" />
+        <form className="signup-phasetwo" onSubmit={handleSubmit} autoComplete="off" autoCapitalize="off" autoCorrect="off">
+          <div className="error-area">
+            <h3 className="error-signup">{stateSignUp.error}</h3>
           </div>
-          <div className="states inputed">
-            <input type="text" placeholder="UF" onChange={e => dispatch(addInput('ADD_STATES', e.target.value))} />
+          <Input type="text" placeholder="CNPJ" onChange={e => dispatch(addInput('ADD_CNPJ', e.target.value))} messageBottom="CNPJ deve ser do pet shop que for cadastro" />
+          <Input type="text" placeholder="Nome do pet shop" onChange={e => dispatch(addInput('ADD_COMPANY_NAME', e.target.value))} messageBottom="Esse nome visível ao cliente, e no perfil da empresa" />
+          <Input type="text" placeholder="Endereço" onChange={e => dispatch(addInput('ADD_STREET', e.target.value))} />
+          <Input type="number" placeholder="Número" onChange={e => dispatch(addInput('ADD_PLACENUMBER', e.target.value))} max="100000.00" />
+          <Input type="text" placeholder="Complemento (Opcional)" onChange={e => dispatch(addInput('ADD_COMPLEMENT', e.target.value))} />
+          <Input type="text" placeholder="Bairro" onChange={e => dispatch(addInput('ADD_NEIGHBORHOOD', e.target.value))} />
+          <Input type="text" placeholder="CEP" onChange={e => dispatch(addInput('ADD_CEP', e.target.value))} />
+          <div className="city-states">
+            <div className="city-input inputed">
+              <input type="text" placeholder="Cidade" onChange={e => dispatch(addInput('ADD_CITY', e.target.value))} />
+            </div>
+            <div className="states inputed">
+              <input type="text" placeholder="UF" onChange={e => dispatch(addInput('ADD_STATES', e.target.value))} />
+            </div>
           </div>
-        </div>
-        <ButtonForm text="Continuar cadastro" />
-      </form>
-    </div>
+          <ButtonForm text="Continuar cadastro" />
+        </form>
+      </div>
+    </>
   );
 }

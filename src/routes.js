@@ -14,6 +14,7 @@ import ListEvaluations from './Pages/ListEvaluations';
 
 import Order from './Pages/Order';
 import Preview from './Pages/Preview';
+import Main from './Pages/Main';
 import SettingsPage from './Pages/SettingsPage';
 
 import SignUp from './Pages/SignUp';
@@ -24,11 +25,12 @@ import LogIn from './Pages/LogIn';
 const Routes = () => (
   <BrowserRouter>
       <Switch>
-          <PrivateRoute exact path='/' component={Preview} />
+          <Route exact path='/' component={Main} />
+          <Route path='/dashboard' component={Preview} />
+          <Route path='/entrar' component={LogIn} />
           <Route path='/cadastrar' component={SignUp} />
           <Route path='/create-petshop' component={SignUpCompany} />
           <Route path='/finalizar' component={SignUpOwner} />
-          <Route path='/entrar' component={LogIn} />
           <Route path='/cadastrar-servico' component={CreateService} />
           <Route path='/cadastrar-produto' component={CreateProduct} />
           <Route exact path='/produtos' component={ListProducts} />

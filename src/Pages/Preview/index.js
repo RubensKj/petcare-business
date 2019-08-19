@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import SideBar from '../../Components/SideBar';
 import FavoriteButton from '../../Components/FavoriteButton';
 import AddressInfo from '../../Components/AddressInfo';
+import StatusInfo from '../../Components/StatusInfo';
 import Loading from '../../Components/Loading';
 
 import PawLogo from '../../Assets/PawLogo';
@@ -75,10 +76,7 @@ export default function Preview() {
               </div>
               <div className="status-area">
                 <h3>Horário</h3>
-                <div className="status-info">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="square" strokeLinejoin="arcs"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                  <span>{company.status}</span>
-                </div>
+                {isLoading ? (<Loading />) : (<StatusInfo text={company.status} />)}
               </div>
             </div>
           </div>

@@ -66,7 +66,7 @@ export default function SideBar() {
               <div className="bar" />
             </div>
             <ul className="list-area">
-              <a href="/"><li>Inicio</li></a>
+              <a href="/dashboard"><li>Inicio</li></a>
               <a href="/pedidos"><li>Pedidos</li></a>
               <a href="/servicos"><li>Serviços</li></a>
               <a href="/produtos"><li>Produtos</li></a>

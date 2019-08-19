@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 
+import HeaderMainPage from '../../Components/HeaderMainPage';
 import HeaderBoxAuth from '../../Components/HeaderBoxAuth';
 import Input from '../../Components/Input';
 import ButtonForm from '../../Components/ButtonForm';
@@ -72,38 +73,41 @@ export default function SignUp(props) {
   }
 
   return (
-    <div className="container-signup">
-      <div className="box-signup">
-        <HeaderBoxAuth message="Cadastre-se no PetCare" />
-        <form className="signup-form" onSubmit={handleSubmit} autoComplete="off" autoCapitalize="off" autoCorrect="off">
-          <div className="error-area">
-            <h3 className="error-signup">{state.error}</h3>
-          </div>
-          <div className="input-area">
-            <label>Nome completo: </label>
-            <Input type="text" name="completeName" onChange={e => dispatch(addInput('ADD_COMPLETE_NAME', e.target.value))} messageBottom="Deve ser o nome completo do dono da empresa." />
-          </div>
-          <div className="input-area">
-            <label>Email: </label>
-            <Input type="text" name="email" onChange={e => dispatch(addInput('ADD_EMAIL', e.target.value))} messageBottom="Este será o email para entrar na empresa. Você pode adicionar o nome da empresa mais tarde." />
-          </div>
-          <div className="input-area">
-            <label>Telefone: </label>
-            <Input type="text" name="phoneNumber" onChange={e => dispatch(addInput('ADD_PHONENUMBER', e.target.value))} messageBottom="Telefone para contato com a empresa." />
-          </div>
-          <ButtonForm text="Cadastrar" />
-        </form>
-      </div>
-      <div className="box-ref-login">
-        <div className="content-login-box">
-          <div className="header-ref-login">
-            <span>Já possui uma empresa cadastrada?</span>
-          </div>
-          <div className="button-login-area">
-            <a href="/entrar">Entrar</a>
+    <>
+      <HeaderMainPage hideBtns={true} />
+      <div className="container-signup">
+        <div className="box-signup">
+          <HeaderBoxAuth message="Cadastre-se no PetCare" />
+          <form className="signup-form" onSubmit={handleSubmit} autoComplete="off" autoCapitalize="off" autoCorrect="off">
+            <div className="error-area">
+              <h3 className="error-signup">{state.error}</h3>
+            </div>
+            <div className="input-area">
+              <label>Nome completo: </label>
+              <Input type="text" name="completeName" onChange={e => dispatch(addInput('ADD_COMPLETE_NAME', e.target.value))} messageBottom="Deve ser o nome completo do dono da empresa." />
+            </div>
+            <div className="input-area">
+              <label>Email: </label>
+              <Input type="text" name="email" onChange={e => dispatch(addInput('ADD_EMAIL', e.target.value))} messageBottom="Este será o email para entrar na empresa. Você pode adicionar o nome da empresa mais tarde." />
+            </div>
+            <div className="input-area">
+              <label>Telefone: </label>
+              <Input type="text" name="phoneNumber" onChange={e => dispatch(addInput('ADD_PHONENUMBER', e.target.value))} messageBottom="Telefone para contato com a empresa." />
+            </div>
+            <ButtonForm text="Cadastrar" />
+          </form>
+        </div>
+        <div className="box-ref-login">
+          <div className="content-login-box">
+            <div className="header-ref-login">
+              <span>Já possui uma empresa cadastrada?</span>
+            </div>
+            <div className="button-login-area">
+              <a href="/entrar">Entrar</a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
