@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 
 import SideBar from '../../Components/SideBar';
+import Footer from '../../Components/Footer';
 import FavoriteButton from '../../Components/FavoriteButton';
 import AddressInfo from '../../Components/AddressInfo';
 import StatusInfo from '../../Components/StatusInfo';
@@ -122,7 +123,7 @@ export default function Preview() {
             </div>
             <div className="transion-small" />
             <div className="grid-products">
-              <a href="/produto/{id}">
+              <a href="/produtos">
                 <div className="product">
                   <div className="avatar-area">
                     <img src="https://image.flaticon.com/icons/png/512/194/194647.png" alt="Product Logo" />
