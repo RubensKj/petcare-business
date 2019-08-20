@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 
 import SideBar from '../../Components/SideBar';
-import Footer from '../../Components/Footer';
 import FavoriteButton from '../../Components/FavoriteButton';
 import AddressInfo from '../../Components/AddressInfo';
 import StatusInfo from '../../Components/StatusInfo';
@@ -14,16 +13,18 @@ import { useSelector } from 'react-redux';
 
 import './styles.css';
 
-export default function Preview() {
+export default function Preview(props) {
   const state = useSelector(state => state.Company);
 
   useEffect(() => {
-    const rate = Math.floor(state.data.rate);
-    for (var i = 0; i < rate; i++) {
-      let paws = document.querySelectorAll(".paw-preview");
-      paws[i].classList.add('faw-rating');
-    }
-  }, [state.data.rate])
+    // if (state.isLoading) {
+    //   const rate = Math.floor(state.data.rate);
+    //   for (var i = 0; i < rate; i++) {
+    //     let paws = document.querySelectorAll(".paw-preview");
+    //     paws[i].classList.add('faw-rating');
+    //   }
+    // }
+  }, [state.data.rate, state.isLoading])
 
   function selectItem(event) {
     let selectedDiv = event.currentTarget;
@@ -37,7 +38,7 @@ export default function Preview() {
 
   return (
     <>
-      <SideBar />
+      <SideBar props={props} />
       <div className="container-page-sidebar">
         <div className="box-color-area" />
         <div className="content-preview">
@@ -55,29 +56,29 @@ export default function Preview() {
               <img src={company.avatar ? (company.avatar) : (PetShopDogLogo)} alt="Company Logo" />
             </div>
             <div className="title-joinedDate">
-              <h1>{isLoading ? (<Loading />) : (company.companyName)}</h1>
-              <div className="evaluation-paws-preview">
-                <PawLogo className="paw-preview" />
-                <PawLogo className="paw-preview" />
-                <PawLogo className="paw-preview" />
-                <PawLogo className="paw-preview" />
-                <PawLogo className="paw-preview" />
-                <span>{isLoading ? (<Loading text="..." />) : (company.rate === 5 ? ("5.0") : (company.rate))}</span>
-              </div>
+              {isLoading ? (<Loading />) : (
+                <>
+                  <h1>{company.companyName}</h1>
+                  <div className="evaluation-paws-preview">
+                    <PawLogo className="paw-preview" />
+                    <PawLogo className="paw-preview" />
+                    <PawLogo className="paw-preview" />
+                    <PawLogo className="paw-preview" />
+                    <PawLogo className="paw-preview" />
+                    <span>{company.rate === 5 ? ("5.0") : (company.rate)}</span>
+                  </div>
+                </>
+              )}
             </div>
             <div className="transion-small" />
             <div className="address-status">
               <div className="address-area">
                 <h3>Endereço</h3>
-                {isLoading ? (<Loading />) : (company.addresses ? (company.addresses.map(address => (
-                  <AddressInfo key={address.id} text={address.street + ', ' + address.placeNumber + ' - ' + (address.complement ? (address.complement) : ('')) + address.neighborhood + ', ' + address.city + ' - ' + address.cep} />
-                ))) : (
-                    <AddressInfo text="Esta empresa não possui nenhum endereço." />
-                  ))}
+                {isLoading ? (<Loading boxShadow="none" />) : (company.addresses ? (company.addresses.map(address => (<AddressInfo key={address.id} text={address.street + ', ' + address.placeNumber + ' - ' + (address.complement ? (address.complement) : ('')) + address.neighborhood + ', ' + address.city + ' - ' + address.cep} />))) : (<AddressInfo text="Esta empresa não possui nenhum endereço." />))}
               </div>
               <div className="status-area">
                 <h3>Horário</h3>
-                {isLoading ? (<Loading />) : (<StatusInfo text={company.status} />)}
+                {isLoading ? (<Loading boxShadow="none" />) : (<StatusInfo text={company.status} />)}
               </div>
             </div>
           </div>

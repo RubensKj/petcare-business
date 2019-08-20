@@ -9,3 +9,7 @@ export function setCompany(value) {
 export function setIsLoading(value) {
   return { type: 'SET_ISLOADING', value }
 }
+
+export function setPaws(value) {
+  return { type: 'SET_PAWS', value }
+}

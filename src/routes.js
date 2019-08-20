@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { PrivateRoute } from './Components/PrivateRoute';
+// import { PrivateRoute } from './Components/PrivateRoute';
 
 import CreateService from './Pages/CreateService';
 import CreateProduct from './Pages/CreateProduct';

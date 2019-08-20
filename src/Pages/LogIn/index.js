@@ -41,11 +41,14 @@ export default function LogIn(props) {
       login(res.data.accessToken);
       props.history.push('/dashboard');
     }).catch(error => {
+      console.log(JSON.stringify(error))
       switch (error.message) {
         case "Network Error":
           return setError("O servidor está temporariamente desligado");
         case "Request failed with status code 404":
           return setError("Não existe nenhuma empresa associada a este email.");
+        case "Request failed with status code 401":
+          return setError("Email ou senha incorretos.");
         default:
           return setError("");
       }

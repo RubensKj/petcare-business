@@ -13,9 +13,9 @@ export default function Footer() {
             <PetCareLogo />
           </div>
           <div className="list-footer">
-            <a href="">Termos</a>
-            <a href="">Sobre</a>
-            <a href="">Redes sociais</a>
+            <a href="/termos">Termos</a>
+            <a href="/sobre">Sobre</a>
+            <a href="/redes-sociais">Redes sociais</a>
           </div>
         </div>
       </div>

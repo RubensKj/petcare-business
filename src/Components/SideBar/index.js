@@ -6,33 +6,38 @@ import Loading from '../../Components/Loading';
 import PawLogo from '../../Assets/PawLogo';
 import PetShopDogLogo from '../../Assets/PetShopDogLogo.svg';
 
+import { isAuthenticated } from '../../Services/auth';
 import api from '../../Services/api';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCompany, setIsLoading } from '../../Store/Actions/Company';
 
 import './styles.css';
 
-export default function SideBar() {
+export default function SideBar({ props }) {
   const state = useSelector(state => state.Company);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setIsLoading(true));
-    async function loadCompany() {
-      await api.get("/profile-company").then(res => {
-        const rate = Math.floor(res.data.rate);
-        for (var i = 0; i < rate; i++) {
-          let paws = document.querySelectorAll(".svg-faw");
-          paws[i].classList.add('faw-rating');
-        }
-        dispatch(setCompany(res.data));
-        dispatch(setIsLoading(false));
-      }).catch(error => {
-        console.log(error);
-      });
+    if (isAuthenticated()) {
+      dispatch(setIsLoading(true));
+      async function loadCompany() {
+        await api.get("/profile-company").then(res => {
+          dispatch(setCompany(res.data));
+          dispatch(setIsLoading(false));
+        }).catch(error => {
+          console.log(error);
+        });
+      }
+      loadCompany();
+      const rate = Math.floor(state.rate);
+      for (var i = 0; i < rate; i++) {
+        let paws = document.querySelectorAll(".svg-faw");
+        paws[i].classList.add('faw-rating');
+      }
+    } else {
+      props.history.push('/entrar');
     }
-    loadCompany();
-  }, [dispatch])
+  }, [dispatch, props.history, state.rate])
 
   const company = state.data;
   const isLoading = state.isLoading;
@@ -46,19 +51,21 @@ export default function SideBar() {
             <div className="information-company-area">
               <img src={company.avatar ? (company.avatar) : (PetShopDogLogo)} alt="Company Logo" />
             </div>
-            <div className="information-company-content">
-              <div className="info-company-title">
-                <h1>{isLoading ? (<Loading />) : (company.companyName)}</h1>
+            {isLoading ? (<Loading background="#1c1b20" />) : (
+              <div className="information-company-content">
+                <div className="info-company-title">
+                  <h1>{company.companyName}</h1>
+                </div>
+                <div className="info-company-paws">
+                  <PawLogo />
+                  <PawLogo />
+                  <PawLogo />
+                  <PawLogo />
+                  <PawLogo />
+                  <span>{company.rate === 5 ? ("5.0") : (company.rate)}</span>
+                </div>
               </div>
-              <div className="info-company-paws">
-                <PawLogo />
-                <PawLogo />
-                <PawLogo />
-                <PawLogo />
-                <PawLogo />
-                <span>{isLoading ? (<Loading text="..." />) : (company.rate === 5 ? ("5.0") : (company.rate))}</span>
-              </div>
-            </div>
+            )}
           </div>
           <div className="company-list-menu">
             <div className="transition">
