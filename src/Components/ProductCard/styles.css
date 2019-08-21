@@ -10,18 +10,19 @@
 
 .product .avatar-product-area {
   margin: auto 0;
-  margin-left: -35px;
+  margin-left: -22px;
   margin-right: 15px;
   background: #fff;
-  width: 120px;
-  height: 120px;
+  width: 100px;
   border-radius: 50%;
   box-shadow: -2px 0px 8px rgba(0, 0, 0, 0.16);
 }
 
 .product .avatar-product-area img {
-  width: 120px;
-  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   border-radius: 50%;
   border: 1px solid #ebeced;
 }
@@ -91,7 +92,7 @@
   align-items: center;
 }
 
-.product .product-infomation .utilities-product-area .price-weight .product-price svg, .container-product .container-list-products .product .product-infomation .utilities-product-area .price-weight .product-weight svg {
+.product .product-infomation .utilities-product-area .price-weight .product-price svg, .product .product-infomation .utilities-product-area .price-weight .product-weight svg {
   margin-top: 1px;
   margin-right: 2px;
 }
@@ -154,7 +155,7 @@
   cursor: pointer;
 }
 
-.product .dropdown-menu-product ul li .delete-button svg, .container-product .container-list-products .product .dropdown-menu-product ul li .edit-button svg {
+.product .dropdown-menu-product ul li .delete-button svg, .product .dropdown-menu-product ul li .edit-button svg {
   stroke: #394458;
   position: relative;
   top: 2px;

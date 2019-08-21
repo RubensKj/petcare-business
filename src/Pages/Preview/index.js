@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import SideBar from '../../Components/SideBar';
 import Loading from '../../Components/Loading';
@@ -13,19 +13,23 @@ import PetShopDogLogo from '../../Assets/PetShopDogLogo.svg';
 
 import { useSelector } from 'react-redux';
 
+import api from '../../Services/api';
+
 import './styles.css';
 
 export default function Preview(props) {
   const state = useSelector(state => state.Company);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    // if (state.isLoading) {
-    //   const rate = Math.floor(state.data.rate);
-    //   for (var i = 0; i < rate; i++) {
-    //     let paws = document.querySelectorAll(".paw-preview");
-    //     paws[i].classList.add('faw-rating');
-    //   }
-    // }
+    if (!state.isLoading) {
+      const rate = Math.floor(state.data.rate);
+      for (var i = 0; i < rate; i++) {
+        let paws = document.querySelectorAll(".paw-preview");
+        paws[i].classList.add('faw-rating');
+      }
+    }
+    api.get('/products/0').then(res => setProducts(res.data.content));
   }, [state.data.rate, state.isLoading])
 
   function selectItem(event) {
@@ -36,7 +40,6 @@ export default function Preview(props) {
 
   const company = state.data;
   const isLoading = state.isLoading;
-  console.log(state);
 
   return (
     <>
@@ -76,7 +79,7 @@ export default function Preview(props) {
             <div className="address-status">
               <div className="address-area">
                 <h3>Endereço</h3>
-                {isLoading ? (<Loading boxShadow="none" />) : (company.addresses ? (company.addresses.map(address => (<AddressInfo key={address.id} text={address.street + ', ' + address.placeNumber + ' - ' + (address.complement ? (address.complement) : ('')) + address.neighborhood + ', ' + address.city + ' - ' + address.cep} />))) : (<AddressInfo text="Esta empresa não possui nenhum endereço." />))}
+                {isLoading ? (<Loading boxShadow="none" />) : ((company.addresses ? (company.addresses.map(address => (<AddressInfo key={address.id} text={address.street + ', ' + address.placeNumber + ' - ' + (address.complement ? (address.complement) : ('')) + address.neighborhood + ', ' + address.city + ' - ' + address.cep} />))) : (<AddressInfo text="Esta empresa não possui nenhum endereço." />)))}
               </div>
               <div className="status-area">
                 <h3>Horário</h3>
@@ -99,7 +102,7 @@ export default function Preview(props) {
             </div>
             <div className="transion-small" />
             <div className="grid-products">
-              <ProductCard />
+              {products.map(product => <ProductCard key={product.id} product={product} />)}
             </div>
             <div className="button-load-more">
               <button>Carregar mais pet shops</button>

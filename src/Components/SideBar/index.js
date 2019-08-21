@@ -24,16 +24,16 @@ export default function SideBar({ props }) {
         await api.get("/profile-company").then(res => {
           dispatch(setCompany(res.data));
           dispatch(setIsLoading(false));
+          const rate = Math.floor(res.data.rate);
+          for (var i = 0; i < rate; i++) {
+            let paws = document.querySelectorAll(".svg-faw");
+            paws[i].classList.add('faw-rating');
+          }
         }).catch(error => {
           console.log(error);
         });
       }
       loadCompany();
-      const rate = Math.floor(state.rate);
-      for (var i = 0; i < rate; i++) {
-        let paws = document.querySelectorAll(".svg-faw");
-        paws[i].classList.add('faw-rating');
-      }
     } else {
       props.history.push('/entrar');
     }
