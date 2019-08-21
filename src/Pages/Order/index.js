@@ -8,10 +8,10 @@ import ProductCard from '../../Components/ProductCard';
 
 import './styles.css';
 
-export default function Order() {
+export default function Order(props) {
   return (
     <>
-      <SideBar />
+      <SideBar props={props} />
       <div className="container-page-sidebar">
         <HeaderEditPage requestsPage={true} />
         <div className="container-request">

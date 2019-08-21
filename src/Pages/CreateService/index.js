@@ -12,10 +12,10 @@ import TransitionOfSetting from '../../Components/TransitionOfSetting';
 
 import './styles.css';
 
-export default function CreateService() {
+export default function CreateService(props) {
   return (
     <>
-      <SideBar />
+      <SideBar props={props} />
       <div className="container-page-sidebar">
         <HeaderEditPage requestsPage={true} />
         <div className="container-create-service">

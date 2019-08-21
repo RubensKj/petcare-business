@@ -8,10 +8,10 @@ import ButtonForm from '../../Components/ButtonForm';
 
 import './styles.css';
 
-export default function EditPage() {
+export default function EditPage(props) {
   return (
     <>
-      <SideBar />
+      <SideBar props={props} />
       <div className="container-page-sidebar">
         <HeaderEditPage editPage={true} />
         <div className="container-form">

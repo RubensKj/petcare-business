@@ -9,11 +9,11 @@ import { searchInList } from '../../Helpers/Functions';
 
 import './styles.css';
 
-export default function ListProducts() {
+export default function ListProducts(props) {
 
   return (
     <>
-      <SideBar />
+      <SideBar props={props} />
       <div className="container-page-sidebar">
         <HeaderEditPage editPage={true} />
         <div className="container-product">

@@ -6,10 +6,10 @@ import EvaluationCard from '../../Components/EvaluationCard';
 
 import './styles.css';
 
-export default function ListEvaluations() {
+export default function ListEvaluations(props) {
   return (
     <>
-      <SideBar />
+      <SideBar props={props} />
       <div className="container-page-sidebar">
         <HeaderEditPage evaluation={true} />
         <div className="container-evaluation">

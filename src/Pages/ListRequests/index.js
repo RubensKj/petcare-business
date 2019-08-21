@@ -8,10 +8,10 @@ import { searchInList } from '../../Helpers/Functions';
 
 import './styles.css';
 
-export default function ListRequests() {
+export default function ListRequests(props) {
   return (
     <>
-      <SideBar />
+      <SideBar props={props} />
       <div className="container-page-sidebar">
         <HeaderEditPage requestsPage={true} />
         <div className="container-requests">

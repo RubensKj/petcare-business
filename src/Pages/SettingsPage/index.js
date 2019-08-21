@@ -11,7 +11,7 @@ import TransitionOfSetting from '../../Components/TransitionOfSetting';
 
 import './styles.css';
 
-export default function SettingsPage() {
+export default function SettingsPage(props) {
 
   function handleImage(e) {
     console.log(e.target.value);
@@ -19,7 +19,7 @@ export default function SettingsPage() {
 
   return (
     <>
-      <SideBar />
+      <SideBar props={props} />
       <div className="container-page-sidebar">
         <HeaderEditPage configuration={true} />
         <div className="container-settings">

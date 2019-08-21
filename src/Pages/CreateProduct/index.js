@@ -13,7 +13,7 @@ import TransitionOfSetting from '../../Components/TransitionOfSetting';
 
 import './styles.css';
 
-export default function CreateProduct() {
+export default function CreateProduct(props) {
   const [image, setImage] = useState('');
 
   function handleImage(e) {
@@ -23,7 +23,7 @@ export default function CreateProduct() {
 
   return (
     <>
-      <SideBar />
+      <SideBar props={props} />
       <div className="container-page-sidebar">
         <HeaderEditPage editPage={true} />
         <div className="container-create-service">

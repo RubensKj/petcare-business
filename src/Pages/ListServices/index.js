@@ -9,10 +9,10 @@ import { searchInList } from '../../Helpers/Functions';
 
 import './styles.css';
 
-export default function ListServices() {
+export default function ListServices(props) {
   return (
     <>
-      <SideBar />
+      <SideBar props={props} />
       <div className="container-page-sidebar">
         <HeaderEditPage editPage={true} />
         <div className="container-service">

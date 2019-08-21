@@ -5,6 +5,7 @@
   background: #fff;
   border-radius: 10px;
   border: 1px solid #ebeced;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.16);
 }
 
 .product .avatar-product-area {
@@ -15,6 +16,7 @@
   width: 120px;
   height: 120px;
   border-radius: 50%;
+  box-shadow: -2px 0px 8px rgba(0, 0, 0, 0.16);
 }
 
 .product .avatar-product-area img {
