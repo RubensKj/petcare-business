@@ -1,15 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import HeaderEditPage from '../../Components/HeaderEditPage';
 import SideBar from '../../Components/SideBar';
 import SearchBox from '../../Components/SearchBox';
 import ProductCard from '../../Components/ProductCard';
+import BottomLoadMore from '../../Components/BottomLoadMore';
 
 import { searchInList } from '../../Helpers/Functions';
+
+import api from '../../Services/api';
 
 import './styles.css';
 
 export default function ListProducts(props) {
+  const [products, setProducts] = useState([]);
+  const [actPage, setActPage] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
+
+  useEffect(() => {
+    async function loadProducts(page) {
+      await api.get(`/products/${page}`).then(res => {
+        setProducts(res.data.content);
+        setTotalPages(res.data.totalPages);
+        console.log(res.data)
+      });
+    }
+    loadProducts(0);
+  }, []);
+
+  async function handleLoadMoreProducts(page) {
+    setActPage(page);
+    if (totalPages > page) {
+      await api.get(`/products/${page}`).then(res => {
+        setProducts(products.concat(res.data.content));
+        console.log(res.data)
+      });
+    } else {
+      let btn = document.querySelector(".button-load-more-to-pages");
+      btn.classList.add("button-load-more-no-content");
+    }
+  }
 
   return (
     <>
@@ -28,8 +58,11 @@ export default function ListProducts(props) {
               <span>Cadastrar</span>
             </a>
           </div>
-          <div id="container-list-products" className="container-list-products">
-            <ProductCard product={null} actionThreeDots={true} />
+          <div className="content-list">
+            <div id="container-list-products" className="container-list-products">
+              {products.map(product => <ProductCard key={product.id} product={product} actionThreeDots={true} />)}
+            </div>
+            <BottomLoadMore text="Carregar mais produtos" onClick={() => handleLoadMoreProducts((actPage + 1))} />
           </div>
         </div>
       </div>

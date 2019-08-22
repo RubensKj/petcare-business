@@ -42,8 +42,8 @@ export default function CreateProduct(props) {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const { name, description, price, indicationPet, porte, age, composition } = product;
-    if(!name || !price || !indicationPet || !porte || !age || !composition) {
+    const { name, description, price, indicationPet, porte, age, composition, quantityStore } = product;
+    if(!name || !price || !indicationPet || !porte || !age || !composition || !quantityStore) {
       setErrors("Preencha todos os dados para cadastrar o produto");
     } else {
       if(name.length <= 0 || name.length > 65) {
@@ -51,8 +51,8 @@ export default function CreateProduct(props) {
         return;
       }
 
-      if(description.length < 0 || description.length >= 450) {
-        setErrors("Descrição só pode ter no máximo 450 caracteres");
+      if(description.length < 0 || description.length >= 650) {
+        setErrors("Descrição só pode ter no máximo 650 caracteres");
         return;
       }
 
@@ -61,22 +61,27 @@ export default function CreateProduct(props) {
         return;
       }
 
-      if(indicationPet.length <= 0 || indicationPet.length >= 35) {
+      if(quantityStore <= 0 || quantityStore > 5000) {
+        setErrors("Quantidade em estoque não válida");
+        return;
+      }
+
+      if(indicationPet.length <= 0 || indicationPet.length >= 100) {
         setErrors("Indicação muito extensa");
         return;
       }
 
-      if(porte.length <= 0 || porte.length >= 35) {
+      if(porte.length <= 0 || porte.length >= 50) {
         setErrors("Porte muito extensa");
         return;
       }
 
-      if(age.length <= 0 || age.length >= 15) {
+      if(age.length <= 0 || age.length >= 35) {
         setErrors("Idade muito extensa");
         return;
       }
 
-      if(composition.length <= 0 || composition.length >= 250) {
+      if(composition.length <= 0 || composition.length >= 650) {
         setErrors("Composição muito extensa");
         return;
       }

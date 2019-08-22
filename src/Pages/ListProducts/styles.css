@@ -31,17 +31,17 @@
 
 .container-product .buttons .delete-button, .container-product .buttons .signup-product {
   width: 140px;
-    height: 35px;
-    border-radius: 5px;
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: 100ms;
-    box-shadow: 0 8px 16px rgba(0,0,0,.1);
-    border: 1px solid #ebeced;
-    text-decoration: none;
+  height: 35px;
+  border-radius: 5px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 100ms;
+  box-shadow: 0 8px 16px rgba(0,0,0,.1);
+  border: 1px solid #ebeced;
+  text-decoration: none;
 }
 
 .container-product .buttons .delete-button svg, .container-product .buttons .signup-product svg {
@@ -65,7 +65,7 @@
 
 /* List Products */
 
-.container-product .container-list-products {
+.container-product .content-list .container-list-products {
   margin-top: 12px;
   width: 100%;
   margin: 20px auto 20px;
@@ -81,9 +81,10 @@
 
 /* Product style */
 
-.container-product .container-list-products {
+.container-product .content-list {
   max-width: 920px;
   width: 100%;
+  margin: 20px auto;
 }
 
 /* MODAL CSS */

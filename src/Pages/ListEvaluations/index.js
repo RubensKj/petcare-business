@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+
 
 import HeaderEditPage from '../../Components/HeaderEditPage';
 import SideBar from '../../Components/SideBar';
@@ -7,6 +9,11 @@ import EvaluationCard from '../../Components/EvaluationCard';
 import './styles.css';
 
 export default function ListEvaluations(props) {
+  const state = useSelector(state => state.Company);
+
+  useEffect(() => {
+  }, [])
+
   return (
     <>
       <SideBar props={props} />

@@ -61,7 +61,7 @@ export default function ProductCard({ product, actionThreeDots }) {
               <button className="action-open-modal" onClick={(e) => openDropDown(e, product.id)}>
                 <svg className="svg-action-open" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2" strokeLinecap="square" strokeLinejoin="arcs"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
               </button>
-              <div id="dropdown-1" className="dropdown-menu-product">
+              <div id={`dropdown-${product.id}`} className="dropdown-menu-product">
                 <ul>
                   <li role="button" onClick={() => deleteProduct(product.id)}>
                     <div className="delete-button">
