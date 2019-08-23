@@ -9,6 +9,7 @@ import BottomLoadMore from '../../Components/BottomLoadMore';
 import { searchInList } from '../../Helpers/Functions';
 
 import api from '../../Services/api';
+import { isAuthenticated } from '../../Services/auth';
 
 import './styles.css';
 
@@ -18,27 +19,39 @@ export default function ListProducts(props) {
   const [totalPages, setTotalPages] = useState(0);
 
   useEffect(() => {
-    async function loadProducts(page) {
-      await api.get(`/products/${page}`).then(res => {
-        setProducts(res.data.content);
-        setTotalPages(res.data.totalPages);
-        console.log(res.data)
-      });
+    if (isAuthenticated()) {
+      async function loadProducts(page) {
+        await api.get(`/products/${page}`).then(res => {
+          setProducts(res.data.content);
+          setTotalPages(res.data.totalPages);
+          if(res.data.totalPages <= 1) {
+            let btn = document.querySelector(".button-load-more-to-pages");
+            btn.classList.add("button-load-more-no-content");
+          }
+        });
+      }
+      loadProducts(0);
+    } else {
+      props.history.push('/entrar');
     }
-    loadProducts(0);
-  }, []);
+  }, [props.history]);
 
   async function handleLoadMoreProducts(page) {
-    setActPage(page);
     if (totalPages > page) {
       await api.get(`/products/${page}`).then(res => {
         setProducts(products.concat(res.data.content));
-        console.log(res.data)
+        setActPage(page);
       });
     } else {
       let btn = document.querySelector(".button-load-more-to-pages");
       btn.classList.add("button-load-more-no-content");
     }
+  }
+
+  async function deleteProduct(id) {
+    await api.delete(`/delete-product/${id}`).then(() => {
+      setProducts(products.filter(product => product.id !== id));
+    });
   }
 
   return (
@@ -60,9 +73,9 @@ export default function ListProducts(props) {
           </div>
           <div className="content-list">
             <div id="container-list-products" className="container-list-products">
-              {products.map(product => <ProductCard key={product.id} product={product} actionThreeDots={true} />)}
+              {products.map(product => <ProductCard key={product.id} product={product} handleDelete={deleteProduct} actionThreeDots={true} />)}
             </div>
-            <BottomLoadMore text="Carregar mais produtos" onClick={() => handleLoadMoreProducts((actPage + 1))} />
+            <BottomLoadMore text="Carregar mais produtos" onClick={() => handleLoadMoreProducts(actPage + 1)} />
           </div>
         </div>
       </div>

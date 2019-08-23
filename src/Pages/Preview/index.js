@@ -7,6 +7,7 @@ import AddressInfo from '../../Components/AddressInfo';
 import StatusInfo from '../../Components/StatusInfo';
 import ServiceCardToUser from '../../Components/ServiceCardToUser';
 import ProductCard from '../../Components/ProductCard';
+import BottomLoadMore from '../../Components/BottomLoadMore';
 
 import PawLogo from '../../Assets/PawLogo';
 import PetShopDogLogo from '../../Assets/PetShopDogLogo.svg';
@@ -20,6 +21,19 @@ import './styles.css';
 export default function Preview(props) {
   const state = useSelector(state => state.Company);
   const [products, setProducts] = useState([]);
+  const [actPage, setActPage] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
+
+  async function loadProducts(page) {
+    await api.get(`/products/${page}`).then(res => {
+      setProducts(res.data.content);
+      setTotalPages(res.data.totalPages);
+      if (res.data.totalPages <= 1) {
+        let btn = document.querySelector(".button-load-more-to-pages");
+        btn.classList.add("button-load-more-no-content");
+      }
+    });
+  }
 
   useEffect(() => {
     if (!state.isLoading) {
@@ -29,13 +43,25 @@ export default function Preview(props) {
         paws[i].classList.add('faw-rating');
       }
     }
-    api.get('/products/0').then(res => setProducts(res.data.content));
+    loadProducts(0);
   }, [state.data.rate, state.isLoading])
 
   function selectItem(event) {
     let selectedDiv = event.currentTarget;
     selectedDiv.classList.toggle("selectedItem");
     console.log(selectedDiv);
+  }
+
+  async function handleLoadMoreProducts(page) {
+    if ((totalPages - 1) > page) {
+      await api.get(`/products/${page}`).then(res => {
+        setProducts(products.concat(res.data.content));
+        setActPage(page);
+      });
+    } else {
+      let btn = document.querySelector(".button-load-more-to-pages");
+      btn.classList.add("button-load-more-no-content");
+    }
   }
 
   const company = state.data;
@@ -104,9 +130,7 @@ export default function Preview(props) {
             <div className="grid-products">
               {products.map(product => <ProductCard key={product.id} product={product} />)}
             </div>
-            <div className="button-load-more">
-              <button>Carregar mais pet shops</button>
-            </div>
+            <BottomLoadMore text="Carregar mais produtos" onClick={() => handleLoadMoreProducts(actPage + 1)} />
           </div>
         </div>
       </div>

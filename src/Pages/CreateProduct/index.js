@@ -127,7 +127,7 @@ export default function CreateProduct(props) {
             <TransitionOfSetting errors={errors} title="Informações do produto" description="Cadastro de produto, esse produto será visível para o usuário na página de perfil da empresa para compra." />
             <div className="inputs">
               <Input type="text" placeholder="Nome do produto" onChange={e => setProduct({ ...product, name: e.target.value })} messageBottom="Nome do serviço que será visível para o usuário na hora de escolher um para a compra." autoComplete="off" />
-              <TextArea type="text" placeholder="Descrição. (Opcinal)" onChange={e => setProduct({ ...product, description: e.target.value })} />
+              <TextArea type="text" value={product.description} placeholder="Descrição. (Opcional)" onChange={e => setProduct({ ...product, description: e.target.value })} />
               <Input type="number" placeholder="Preço" onChange={e => setProduct({ ...product, price: e.target.value })} min="0" step="any" />
               <Input type="number" placeholder="Quantidade em estoque" onChange={e => setProduct({ ...product, quantityStore: e.target.value })} min="0" step="no" messageBottom="Quantidade de itens que iram para o estoque" />
               <Input type="text" placeholder="Peso" onChange={e => setProduct({ ...product, weight: e.target.value })} messageBottom="Necessário colocar a unidade do peso do produto. Ex 150g ou 15kg" autoComplete="off" />
@@ -135,7 +135,7 @@ export default function CreateProduct(props) {
               <Input type="text" placeholder="Porte" onChange={e => setProduct({ ...product, porte: e.target.value })} messageBottom="Qual é o porte do animal. Ex Pequeno, Médio ou Grande" autoComplete="off" />
               <Input type="text" placeholder="Idade" onChange={e => setProduct({ ...product, age: e.target.value })} messageBottom="Filhote, Adulto, Idosos..." autoComplete="off" />
               <Input type="text" placeholder="Transgênico" onChange={e => setProduct({ ...product, transgenic: e.target.value })} autoComplete="off" />
-              <TextArea type="text" placeholder="Composição." onChange={e => setProduct({ ...product, composition: e.target.value })} />
+              <TextArea type="text" value={product.composition} placeholder="Composição." onChange={e => setProduct({ ...product, composition: e.target.value })} />
               <ButtonForm text="Criar Produto" />
             </div>
             <div className="bottom-border-settings" />

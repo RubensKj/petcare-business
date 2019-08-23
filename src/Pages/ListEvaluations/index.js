@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+// import { useSelector } from 'react-redux';
 
 
 import HeaderEditPage from '../../Components/HeaderEditPage';
@@ -9,7 +9,8 @@ import EvaluationCard from '../../Components/EvaluationCard';
 import './styles.css';
 
 export default function ListEvaluations(props) {
-  const state = useSelector(state => state.Company);
+  // const state = useSelector(state => state.Company);
+  // const [evaluations, setEvaluations] = useState([]);
 
   useEffect(() => {
   }, [])

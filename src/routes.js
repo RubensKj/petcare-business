@@ -39,7 +39,7 @@ const Routes = () => (
           <Route exact path='/avaliacoes' component={ListEvaluations} />
           <Route path='/configuracoes' component={SettingsPage} />
           <Route path='/pedidos/id' component={Order} />
-          <Route path='/produtos/id/editar' component={EditPage} />
+          <Route path='/produtos/:id/editar' component={EditPage} />
       </Switch>
   </BrowserRouter>
 );
