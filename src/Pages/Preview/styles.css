@@ -397,12 +397,4 @@
     padding: 0 25px !important;
   }
   
-  .content-company .products-area .grid-products .product .avatar-area {
-    margin-left: -15px !important;
-  }
-
-  .content-company .products-area .grid-products .product .avatar-area, .content-company .products-area .grid-products .product .avatar-area img {
-    width: 80px !important;
-    height: 80px !important;
-  }
 }
