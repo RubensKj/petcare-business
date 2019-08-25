@@ -38,8 +38,7 @@
 .container-settings .forms-settings .form-image-settings label img {
   max-width: 160px;
   width: 100%;
-  max-height: 160px;
-  height: 100%;
+  height: 160px;
   border: 1px solid #ebeced;
   border-radius: 50%;
 }
@@ -59,4 +58,55 @@
 .container-settings .form-content-settings .bottom-border-settings {
   margin-top: 25px;
   border-bottom: 1px solid #ebeced;
+}
+
+.container-settings .form-content-settings .city-states .city-input, .container-settings .form-content-settings .city-states .city-input input {
+  margin-right: 20px;
+}
+
+.container-settings .form-content-settings .city-states .city-input {
+  display: flex;
+  justify-content: left;
+  width: 100%;
+  height: 45px;
+  border-radius: 5px;
+  margin-bottom: 12px;
+  border: 1px solid #d1d5da;
+}
+
+.container-settings .form-content-settings .city-states .city-input input {
+  background: transparent;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  width: 100%;
+  margin: 0 15px;
+  color: #394458;
+}
+
+.container-settings .form-content-settings .city-states .states {
+  display: flex;
+  justify-content: left;
+  width: 20%;
+  height: 45px;
+  border-radius: 5px;
+  margin-bottom: 12px;
+  border: 1px solid #d1d5da;
+}
+
+.container-settings .form-content-settings .city-states .states input {
+  background: transparent;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  width: 100%;
+  padding: 0 10px;
+  color: #394458;
+}
+
+.container-settings .form-content-settings .city-states {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
 }

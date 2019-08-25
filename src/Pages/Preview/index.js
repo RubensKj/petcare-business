@@ -111,7 +111,6 @@ export default function Preview(props) {
       }
     }
     selectedDiv.classList.toggle("selectedItem");
-    console.log(selectedDiv);
   }
 
 
