@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import HeaderEditPage from '../../Components/HeaderEditPage';
 import SideBar from '../../Components/SideBar';
 import SearchBox from '../../Components/SearchBox';
+import Loading from '../../Components/Loading';
 import ProductCard from '../../Components/ProductCard';
 import BottomLoadMore from '../../Components/BottomLoadMore';
 
@@ -17,14 +18,17 @@ export default function ListProducts(props) {
   const [products, setProducts] = useState([]);
   const [actPage, setActPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (isAuthenticated()) {
       async function loadProducts(page) {
+        setIsLoading(true);
         await api.get(`/products/${page}`).then(res => {
           setProducts(res.data.content);
           setTotalPages(res.data.totalPages);
-          if(res.data.totalPages <= 1) {
+          setIsLoading(false);
+          if (res.data.totalPages <= 1) {
             let btn = document.querySelector(".button-load-more-to-pages");
             btn.classList.add("button-load-more-no-content");
           }
@@ -72,10 +76,14 @@ export default function ListProducts(props) {
             </a>
           </div>
           <div className="content-list">
-            <div id="container-list-products" className="container-list-products">
-              {products.map(product => <ProductCard key={product.id} product={product} handleDelete={deleteProduct} actionThreeDots={true} />)}
-            </div>
-            <BottomLoadMore text="Carregar mais produtos" onClick={() => handleLoadMoreProducts(actPage + 1)} />
+            {isLoading ? (<Loading />) : (
+              <>
+                <div id="container-list-products" className="container-list-products">
+                  {products.map(product => <ProductCard key={product.id} product={product} handleDelete={deleteProduct} actionThreeDots={true} />)}
+                </div>
+                <BottomLoadMore text="Carregar mais produtos" onClick={() => handleLoadMoreProducts(actPage + 1)} />
+              </>
+            )}
           </div>
         </div>
       </div>

@@ -56,6 +56,13 @@
 
 /* List Products */
 
+.container-service .content-service-list .loading-api {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
 .container-service .content-service-list {
   max-width: 920px;
   width: 100%;

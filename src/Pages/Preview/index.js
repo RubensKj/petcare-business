@@ -20,19 +20,27 @@ import './styles.css';
 
 export default function Preview(props) {
   const state = useSelector(state => state.Company);
+
+  // LIST
   const [products, setProducts] = useState([]);
   const [services, setServices] = useState([]);
 
+  // PAGES SERVICES 
   const [actPageService, setActPageService] = useState(0);
   const [totalPagesService, setTotalPagesService] = useState(0);
+  const [isLoadingService, setIsLoadingService] = useState(false);
 
+  // PAGES PRODUCTS 
   const [actPageProduct, setActPageProduct] = useState(0);
   const [totalPagesProduct, setTotalPagesProduct] = useState(0);
+  const [isLoadingProduct, setIsLoadingProduct] = useState(false);
 
   async function loadServices(page) {
+    setIsLoadingService(true);
     await api.get(`/services/${page}`).then(res => {
       setServices(res.data.content);
       setTotalPagesService(res.data.totalPages);
+      setIsLoadingService(false)
       if (res.data.totalPages <= 1) {
         let btn = document.querySelector(".btn-loadServices");
         btn.classList.add("button-load-more-no-content");
@@ -41,9 +49,11 @@ export default function Preview(props) {
   }
 
   async function loadProducts(page) {
+    setIsLoadingProduct(true);
     await api.get(`/products/${page}`).then(res => {
       setProducts(res.data.content);
       setTotalPagesProduct(res.data.totalPages);
+      setIsLoadingProduct(false);
       if (res.data.totalPages <= 1) {
         let btn = document.querySelector(".btn-loadProducts");
         btn.classList.add("button-load-more-no-content");
@@ -157,30 +167,30 @@ export default function Preview(props) {
         </div>
         <div className="content-company">
           <div className="products-area">
-            {services ? (
+            <div className="title-area">
+              <h3>Serviços</h3>
+            </div>
+            <div className="transion-small" />
+            {isLoadingService ? (<Loading />) : (
               <>
-                <div className="title-area">
-                  <h3>Serviços</h3>
-                </div>
-                <div className="transion-small" />
                 <div className="grid-services">
                   {services.map(service => <ServiceCardToUser key={service.id} service={service} onClick={event => selectItem(event, service)} />)}
                 </div>
                 <BottomLoadMore setClassName="btn-loadServices" text="Carregar mais produtos" onClick={() => handleLoadMoreServices(actPageService + 1)} />
               </>
-            ) : ('')}
-            {products ? (
+            )}
+            <div className="title-area">
+              <h3>Produtos</h3>
+            </div>
+            <div className="transion-small" />
+            {isLoadingProduct ? (<Loading />) : (
               <>
-                <div className="title-area">
-                  <h3>Produtos</h3>
-                </div>
-                <div className="transion-small" />
                 <div className="grid-products">
                   {products.map(product => <ProductCard key={product.id} product={product} />)}
                 </div>
                 <BottomLoadMore setClassName="btn-loadProducts" text="Carregar mais produtos" onClick={() => handleLoadMoreProducts(actPageProduct + 1)} />
               </>
-            ) : ('')}
+            )}
           </div>
         </div>
       </div>

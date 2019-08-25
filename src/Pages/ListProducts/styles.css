@@ -81,6 +81,13 @@
 
 /* Product style */
 
+.container-product .content-list .loading-api {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
 .container-product .content-list {
   max-width: 920px;
   width: 100%;

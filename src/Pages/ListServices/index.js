@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import HeaderEditPage from '../../Components/HeaderEditPage';
 import SideBar from '../../Components/SideBar';
 import SearchBox from '../../Components/SearchBox';
+import Loading from '../../Components/Loading';
 import ServiceCard from '../../Components/ServiceCard';
 import BottomLoadMore from '../../Components/BottomLoadMore';
 
@@ -17,13 +18,16 @@ export default function ListServices(props) {
   const [services, setServices] = useState([]);
   const [actPage, setActPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (isAuthenticated()) {
       async function loadServices(page) {
+        setIsLoading(true);
         await api.get(`/services/${page}`).then(res => {
           setServices(res.data.content);
           setTotalPages(res.data.totalPages);
+          setIsLoading(false);
           if (res.data.totalPages <= 1) {
             let btn = document.querySelector(".button-load-more-to-pages");
             btn.classList.add("button-load-more-no-content");
@@ -62,10 +66,14 @@ export default function ListServices(props) {
             </a>
           </div>
           <div className="content-service-list">
-            <div id="container-list-services" className="container-list-services">
-              {services.map(service => <ServiceCard service={service} />)}
-            </div>
-            <BottomLoadMore text="Carregar mais produtos" onClick={() => handleLoadMoreProducts(actPage + 1)} />
+            {isLoading ? (<Loading />) : (
+              <>
+                <div id="container-list-services" className="container-list-services">
+                  {services.map(service => <ServiceCard key={service.id} service={service} />)}
+                </div>
+                <BottomLoadMore text="Carregar mais produtos" onClick={() => handleLoadMoreProducts(actPage + 1)} />
+              </>
+            )}
           </div>
         </div>
       </div>
