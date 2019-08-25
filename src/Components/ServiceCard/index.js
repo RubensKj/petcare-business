@@ -7,10 +7,10 @@ export default function ServiceCard({ service }) {
     <div className="service-card">
       <div className="service-information">
         <div className="title-service">
-          <h3>Tosa</h3>
+          <h3>{service.name}</h3>
         </div>
         <div className="description-service">
-          <p>Gran Plus Gatos Castrados Frango e Arroz - 10kg- Ração premium especial indicada para gatos adultos e castrados.- Energia reduzida - indicado para gatos castrados ou que vivem em ambientes internos.- Ótima palatabilidade.- 100% satisfação garantida.Gran Plus Gatos Castrados Frango e Arroz - 10kg- Ração premium especial indicada para gatos adultos e castrados.- Energia reduzida - indicado para gatos castrados ou que vivem em ambientes internos.- Ótima palatabilidade.- 100% satisfação garantida.</p>
+          <p>{service.description}</p>
         </div>
       </div>
     </div>

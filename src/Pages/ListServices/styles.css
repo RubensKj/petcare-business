@@ -56,7 +56,13 @@
 
 /* List Products */
 
-.container-service .container-list-services {
+.container-service .content-service-list {
+  max-width: 920px;
+  width: 100%;
+  margin: 20px auto;
+}
+
+.container-service .content-service-list .container-list-services {
   margin-top: 12px;
   width: 100%;
   margin: 20px auto 20px;
@@ -72,7 +78,7 @@
 
 /* Product style */
 
-.container-service .container-list-services {
+.container-service .content-service-list .container-list-services {
   max-width: 920px;
   width: 100%;
 }

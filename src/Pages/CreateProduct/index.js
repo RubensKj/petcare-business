@@ -37,7 +37,6 @@ export default function CreateProduct(props) {
     e.preventDefault();
     setProduct({ ...product, avatar: e.target.files[0] });
     setTextImage(e.target.files[0].name);
-    console.log(product)
   }
 
   async function handleSubmit(e) {

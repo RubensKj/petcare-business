@@ -5,6 +5,7 @@
   white-space: nowrap; 
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: all ease 0.2s;
 }
 
 .address-info svg {
@@ -17,4 +18,8 @@
 .address-info span {
   font-size: 15px;
   color: #4c5765;
+}
+
+.address-info:hover {
+  white-space: initial !important;
 }

@@ -1,15 +1,53 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import HeaderEditPage from '../../Components/HeaderEditPage';
 import SideBar from '../../Components/SideBar';
 import SearchBox from '../../Components/SearchBox';
 import ServiceCard from '../../Components/ServiceCard';
+import BottomLoadMore from '../../Components/BottomLoadMore';
 
 import { searchInList } from '../../Helpers/Functions';
+
+import api from '../../Services/api';
+import { isAuthenticated } from '../../Services/auth';
 
 import './styles.css';
 
 export default function ListServices(props) {
+  const [services, setServices] = useState([]);
+  const [actPage, setActPage] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
+
+  useEffect(() => {
+    if (isAuthenticated()) {
+      async function loadServices(page) {
+        await api.get(`/services/${page}`).then(res => {
+          setServices(res.data.content);
+          setTotalPages(res.data.totalPages);
+          if (res.data.totalPages <= 1) {
+            let btn = document.querySelector(".button-load-more-to-pages");
+            btn.classList.add("button-load-more-no-content");
+          }
+        });
+      }
+      loadServices(0);
+    } else {
+      props.history.push('/entrar');
+    }
+  }, [props.history]);
+
+  async function handleLoadMoreProducts(page) {
+    if (totalPages > page) {
+      await api.get(`/services/${page}`).then(res => {
+        setServices(services.concat(res.data.content));
+        setActPage(page);
+      });
+    } else {
+      let btn = document.querySelector(".button-load-more-to-pages");
+      btn.classList.add("button-load-more-no-content");
+    }
+  }
+
   return (
     <>
       <SideBar props={props} />
@@ -23,8 +61,11 @@ export default function ListServices(props) {
               <span>Cadastrar</span>
             </a>
           </div>
-          <div id="container-list-services" className="container-list-services">
-            <ServiceCard />
+          <div className="content-service-list">
+            <div id="container-list-services" className="container-list-services">
+              {services.map(service => <ServiceCard service={service} />)}
+            </div>
+            <BottomLoadMore text="Carregar mais produtos" onClick={() => handleLoadMoreProducts(actPage + 1)} />
           </div>
         </div>
       </div>
