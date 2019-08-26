@@ -84,7 +84,8 @@
 }
 
 .content-preview .box-main-information {
-  background: #fafafa;
+  /* background: #fafafa; */
+  background-image: linear-gradient(#fff 5%, #fafafa);
   max-width: 920px;
   width: 100%;
   border-radius: 10px;

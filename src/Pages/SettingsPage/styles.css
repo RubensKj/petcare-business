@@ -47,7 +47,7 @@
   margin-bottom: 15px;
 }
 
-.container-settings .forms-settings  .form-content-settings .input-area {
+.container-settings .forms-settings  .form-content-settings .input-area, .container-settings .forms-settings  .form-content-settings .text-area-area {
   padding: 0 30px;
 }
 

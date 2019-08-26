@@ -56,7 +56,7 @@ export default function ListServices(props) {
     <>
       <SideBar props={props} />
       <div className="container-page-sidebar">
-        <HeaderEditPage editPage={true} />
+        <HeaderEditPage services={true} />
         <div className="container-service">
           <SearchBox searchMethod={(e) => searchInList(e, "input-search-search-box", "container-list-services", "service-card", "title-service")} placeholder="Pesquise por um produto" />
           <div className="buttons-service">

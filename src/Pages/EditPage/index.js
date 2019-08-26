@@ -119,7 +119,7 @@ export default function EditPage(props) {
       data.append('file', product.file);
 
       await api.post(`/edit-product/${product.id}`, data).then(() => {
-        props.history.push('/produtos')
+        props.history.push('/produtos');
       }).catch(error => {
         switch (error.message) {
           case "Network Error":
