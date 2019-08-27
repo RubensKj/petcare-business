@@ -172,8 +172,13 @@
 /* Mobile */
 
 @media only screen and (max-width: 1024px) and (min-width: 480px) {
+  .icon-image {
+    display: none;
+  }
+
   .container-login {
     margin: 25px auto 25px !important;
+    justify-content: center;
     padding: 0 25px;
   }
 
@@ -183,10 +188,15 @@
 }
 
 @media only screen and (max-width: 479px) and (min-width: 0px) {
+  .icon-image {
+    display: none;
+  }
+
   .container-login  {
     margin: 0 auto 25px !important;
+    justify-content: center;
   }
-  
+
   .container-login .content-login-page  .box-login {
     border-top-left-radius: 0 !important;
     border-top-right-radius: 0 !important;
