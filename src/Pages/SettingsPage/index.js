@@ -115,7 +115,7 @@ export default function SettingsPage(props) {
         return;
       }
 
-      await api.post(`/edit-company/${company.id}`).then(() => {
+      await api.post(`/edit-company/${company.id}`, JSON.stringify(company)).then(() => {
         props.history.push('/dashboard');
       }).catch(error => {
         switch (error.message) {
