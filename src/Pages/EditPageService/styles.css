@@ -1,0 +1,25 @@
+.container-form-edit-service {
+  max-width: 520px;
+  width: 100%;
+  margin: 30px auto 25px;
+  padding: 0 20px;
+}
+
+.container-form-edit-service .product-info-edit-title {
+  font-size: 20px;
+  color: #2D2D2D;
+}
+
+.container-form-edit-service .service-edit-form {
+  margin-top: 15px;
+}
+
+.container-form-edit-service .errors-span {
+  display: block;
+  font-size: 18px;
+  color: #FB4A4D;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 10px;
+  transition: 0.2s all;
+}

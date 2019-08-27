@@ -6,6 +6,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import CreateService from './Pages/CreateService';
 import CreateProduct from './Pages/CreateProduct';
 import EditPage from './Pages/EditPage';
+import EditPageService from './Pages/EditPageService';
 
 import ListProducts from './Pages/ListProducts';
 import ListServices from './Pages/ListServices';
@@ -40,6 +41,7 @@ const Routes = () => (
           <Route path='/configuracoes' component={SettingsPage} />
           <Route path='/pedidos/id' component={Order} />
           <Route path='/produtos/:id/editar' component={EditPage} />
+          <Route path='/servicos/:id/editar' component={EditPageService} />
       </Switch>
   </BrowserRouter>
 );
