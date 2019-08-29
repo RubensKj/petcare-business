@@ -8,11 +8,11 @@ export default function HeaderEditPage({ requestsPage, editPage, services, evalu
       <div className="container-options">
         <div className="left-actions">
           <a href="/pedidos" className={`tabnav ` + (requestsPage ? ('selected') : (''))}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2f3136" strokeWidth="2" strokeLinecap="square" strokeLinejoin="arcs"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2f3136" strokeWidth="2" strokeLinecap="square" strokeLinejoin="arcs"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
             <span>Pedidos</span>
           </a>
           <a href="/servicos" className={`tabnav ` + (services ? ('selected') : (''))}>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2f3136" strokeWidth="2" strokeLinecap="square" strokeLinejoin="arcs"><circle cx="10" cy="20.5" r="1" /><circle cx="18" cy="20.5" r="1" /><path d="M2.5 2.5h3l2.7 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6l1.6-8.4H7.1" /></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2f3136" strokeWidth="2" strokeLinecap="square" strokeLinejoin="arcs"><circle cx="10" cy="20.5" r="1" /><circle cx="18" cy="20.5" r="1" /><path d="M2.5 2.5h3l2.7 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6l1.6-8.4H7.1" /></svg>
             <span>Serviços</span>
           </a>
           <a href="/produtos" className={`tabnav ` + (editPage ? ('selected') : (''))}>
