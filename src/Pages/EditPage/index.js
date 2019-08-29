@@ -52,7 +52,9 @@ export default function EditPage(props) {
           }
         });
       }
-      findProduct(props.match.params.id);
+      if(props.match.params.id !== ":id") {
+        findProduct(props.match.params.id);
+      }
     } else {
       props.history.push('/entrar');
     }

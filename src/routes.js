@@ -42,6 +42,7 @@ const Routes = () => (
           <Route path='/pedidos/id' component={Order} />
           <Route path='/produtos/:id/editar' component={EditPage} />
           <Route path='/servicos/:id/editar' component={EditPageService} />
+          <Route path='*' component={Preview} />
       </Switch>
   </BrowserRouter>
 );

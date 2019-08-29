@@ -15,14 +15,12 @@ export default function ProductCard({ product, handleDelete,actionThreeDots }) {
   window.onclick = function (event) {
     let matches = event.target.matches ? event.target.matches('.action-open-modal') || event.target.matches('.svg-action-open') || event.target.matches('.svg-action-open>circle') : event.target.msMatchesSelector('.action-open-modal') || event.target.msMatchesSelector('.svg-action-open') || event.target.msMatchesSelector('.svg-action-open>circle')
     if (!matches) {
-      let btn = document.querySelector(".action-open-modal");
       var dropdowns = document.getElementsByClassName("dropdown-menu-product");
       var i;
       for (i = 0; i < dropdowns.length; i++) {
         var openDropdown = dropdowns[i];
         if (openDropdown.classList.contains("openDropDownProduct")) {
           openDropdown.classList.remove("openDropDownProduct");
-          btn.classList.remove("buttonPressed");
         }
       }
     }

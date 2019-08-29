@@ -51,3 +51,86 @@
   max-height: 50px;
   height: 100%;
 }
+
+.service-card .service-information .price-service {
+  display: flex;
+  color: #394458;
+  font-size: 16px;
+}
+
+.service-card .service-information .price-service .unity {
+  margin-right: 5px;
+}
+
+
+.service-card .service-information .footer-service-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.service-card .service-information .footer-service-card .action-open-dropdown-service {
+  width: 32px;
+  height: 32px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background .3s;
+}
+
+.service-card .service-information .footer-service-card .action-open-dropdown-service svg {
+  margin: auto;
+  stroke: #4c5765;
+}
+
+.service-card .service-information .footer-service-card .action-open-dropdown-service:hover {
+  background: #ebeced;
+}
+
+.service-card .service-information .footer-service-card  .dropdown-menu-service {
+  display: none;
+  position: absolute;
+  background: #fff;
+  border: 1px solid #ebeced;
+  min-width: 139px;
+  margin-top: -61px;
+  margin-left: -140px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  padding: 5px 0;
+  z-index: 1;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.service-card .dropdown-menu-service ul {
+  margin-top: 5px;
+  list-style: none;
+}
+
+.service-card .dropdown-menu-service ul a {
+  text-decoration: none;
+  color: #394458;
+}
+
+.service-card .dropdown-menu-service ul li {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  margin-bottom: 5px;
+  height: 35px;
+  font-size: 16px;
+  color: #394458;
+  cursor: pointer;
+}
+
+.service-card .dropdown-menu-service ul li .delete-button svg, .service-card .dropdown-menu-service ul li .edit-button svg {
+  stroke: #394458;
+  position: relative;
+  top: 2px;
+  margin-right: 6px;
+}
+
+.service-card .dropdown-menu-service ul li:hover {
+  background: #ebeced;
+}

@@ -42,7 +42,7 @@ export default function CreateProduct(props) {
   async function handleSubmit(e) {
     e.preventDefault();
     const { name, description, price, indicationPet, porte, age, composition, quantityStore } = product;
-    if(!name || !price || !indicationPet || !porte || !age || !composition || !quantityStore) {
+    if(!name || !price || !indicationPet || !porte || !age || !quantityStore) {
       setErrors("Preencha todos os dados para cadastrar o produto");
     } else {
       if(name.length <= 0 || name.length > 65) {
