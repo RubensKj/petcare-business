@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-// import { PrivateRoute } from './Components/PrivateRoute';
+import { PrivateRoute } from './Components/PrivateRoute';
 
 import CreateService from './Pages/CreateService';
 import CreateProduct from './Pages/CreateProduct';
@@ -27,21 +27,23 @@ const Routes = () => (
   <BrowserRouter>
       <Switch>
           <Route exact path='/' component={Main} />
-          <Route path='/dashboard' component={Preview} />
+          <PrivateRoute path='/dashboard' component={Preview} />
+          
           <Route path='/entrar' component={LogIn} />
           <Route path='/cadastrar' component={SignUp} />
           <Route path='/create-petshop' component={SignUpCompany} />
           <Route path='/finalizar' component={SignUpOwner} />
-          <Route path='/cadastrar-servico' component={CreateService} />
-          <Route path='/cadastrar-produto' component={CreateProduct} />
-          <Route exact path='/produtos' component={ListProducts} />
-          <Route exact path='/servicos' component={ListServices} />
-          <Route exact path='/pedidos' component={ListRequests} />
-          <Route exact path='/avaliacoes' component={ListEvaluations} />
-          <Route path='/configuracoes' component={SettingsPage} />
-          <Route path='/pedidos/id' component={Order} />
-          <Route path='/produtos/:id/editar' component={EditPage} />
-          <Route path='/servicos/:id/editar' component={EditPageService} />
+
+          <PrivateRoute path='/cadastrar-servico' component={CreateService} />
+          <PrivateRoute path='/cadastrar-produto' component={CreateProduct} />
+          <PrivateRoute exact path='/produtos' component={ListProducts} />
+          <PrivateRoute exact path='/servicos' component={ListServices} />
+          <PrivateRoute exact path='/pedidos' component={ListRequests} />
+          <PrivateRoute exact path='/avaliacoes' component={ListEvaluations} />
+          <PrivateRoute path='/configuracoes' component={SettingsPage} />
+          <PrivateRoute path='/pedidos/id' component={Order} />
+          <PrivateRoute path='/produtos/:id/editar' component={EditPage} />
+          <PrivateRoute path='/servicos/:id/editar' component={EditPageService} />
       </Switch>
   </BrowserRouter>
 );

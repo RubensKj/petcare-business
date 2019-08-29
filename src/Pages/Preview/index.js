@@ -155,7 +155,7 @@ export default function Preview(props) {
             <div className="address-status">
               <div className="address-area">
                 <h3>Endereço</h3>
-                {isLoading ? (<Loading boxShadow="none" />) : (company.address ? <AddressInfo key={company.address.id} text={company.address.street + ', ' + company.address.placeNumber + ' - ' + (company.address.complement ? (company.address.complement + ' ') : ('')) + company.address.neighborhood + ', ' + company.address.city + ' - ' + company.address.state + ', ' + company.address.cep} /> : (<AddressInfo text="Esta empresa não possui nenhum endereço." />))}
+                {isLoading ? (<Loading boxShadow="none" />) : (company.address ? <AddressInfo key={company.address.id} text={company.address.street + ', ' + company.address.placeNumber + (company.address.complement ? (', ' + company.address.complement + ' - ') : (' - ')) + company.address.neighborhood + ', ' + company.address.city + ' - ' + company.address.state + ', ' + company.address.cep} /> : (<AddressInfo text="Esta empresa não possui nenhum endereço." />))}
               </div>
               <div className="status-area">
                 <h3>Horário</h3>
