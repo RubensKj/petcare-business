@@ -97,3 +97,9 @@
   grid-template-columns: repeat(1, 1fr);
   margin-bottom: 50px;
 }
+
+@media only screen and (max-width: 768px) and (min-width: 0px) {
+  .container-evaluation {
+    padding: 0;
+  }
+}

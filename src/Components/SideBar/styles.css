@@ -141,3 +141,12 @@
   background: #333333;
   color: #fff;
 }
+
+@media only screen and (max-width: 768px) and (min-width: 0px) {
+  .sidebar {
+    width: 0;
+    left: 0;
+    margin-top: 65px;
+    z-index: 9999;
+  }
+}

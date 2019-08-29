@@ -44,6 +44,7 @@ const Routes = () => (
           <PrivateRoute path='/pedidos/id' component={Order} />
           <PrivateRoute path='/produtos/:id/editar' component={EditPage} />
           <PrivateRoute path='/servicos/:id/editar' component={EditPageService} />
+          <Route path='*' component={Preview} />
       </Switch>
   </BrowserRouter>
 );

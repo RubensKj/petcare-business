@@ -110,3 +110,15 @@
   align-items: center;
   padding: 0 30px;
 }
+
+@media only screen and (max-width: 768px) and (min-width: 0px) {
+  .container-settings .forms-settings {
+    padding: 0 15px;
+  }
+}
+
+@media only screen and (max-width: 375px) and (min-width: 0px) {
+  .container-settings .form-content-settings .city-states .states {
+    width: 40%;
+  }
+}

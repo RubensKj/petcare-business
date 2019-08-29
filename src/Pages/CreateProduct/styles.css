@@ -1,0 +1,31 @@
+.container-create-product {
+  display: block;
+  justify-content: center;
+  width: 100%;
+  padding: 0 15px;
+  padding-bottom: 25px;
+  margin-top: 30px;
+}
+
+.container-create-product .create-form-product {
+  max-width: 920px;
+  width: 100%;
+  margin: 20px auto 20px;
+  padding: 0 40px;
+}
+
+.container-create-product .create-form-product .inputs {
+  margin: 20px auto 20px;
+  padding: 0 40px;
+}
+
+.container-create-product .create-form-product .bottom-border-settings {
+  border-bottom: 1px solid #ebeced;
+}
+
+
+@media only screen and (max-width: 768px) and (min-width: 0px) {
+  .container-create-product .create-form-product {
+    padding: 0 15px;
+  }
+}

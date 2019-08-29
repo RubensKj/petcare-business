@@ -52,6 +52,12 @@ export default function ListServices(props) {
     }
   }
 
+  async function deleteService(id) {
+    await api.delete(`/delete-service/${id}`).then(() => {
+      setServices(services.filter(service => service.id !== id));
+    });
+  }
+
   return (
     <>
       <SideBar props={props} />
@@ -69,7 +75,7 @@ export default function ListServices(props) {
             {isLoading ? (<Loading />) : (
               <>
                 <div id="container-list-services" className="container-list-services">
-                  {services.map(service => <ServiceCard key={service.id} service={service} />)}
+                  {services.map(service => <ServiceCard key={service.id} service={service} handleDelete={deleteService} actionThreeDots={true} />)}
                 </div>
                 <BottomLoadMore text="Carregar mais produtos" onClick={() => handleLoadMoreProducts(actPage + 1)} />
               </>

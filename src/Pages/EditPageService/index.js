@@ -12,7 +12,6 @@ export default function EditPageService(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("Boa tarde pessoal do Entra21");
   }
 
   return (

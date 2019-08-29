@@ -41,6 +41,26 @@ a {
   transition: margin-left .9s;
 }
 
+/* RESPONSIVE */
+
+@media only screen and (max-width: 768px) and (min-width: 0px) {
+  .closedSidebar {
+    width: 310px;
+    max-width: 310px;
+    transition: width .6s;
+  }
+
+  .container-page-sidebar-space {
+    margin-left: 0;
+    margin-top: 65px;
+  }
+
+  .container-page-sidebar {
+    margin-left: 0;
+    margin-top: 65px;
+  }
+}
+
 
 /* ANIMATION */
 

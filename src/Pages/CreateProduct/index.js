@@ -42,7 +42,7 @@ export default function CreateProduct(props) {
   async function handleSubmit(e) {
     e.preventDefault();
     const { name, description, price, indicationPet, porte, age, composition, quantityStore } = product;
-    if(!name || !price || !indicationPet || !porte || !age || !composition || !quantityStore) {
+    if(!name || !price || !indicationPet || !porte || !age || !quantityStore) {
       setErrors("Preencha todos os dados para cadastrar o produto");
     } else {
       if(name.length <= 0 || name.length > 65) {
@@ -118,9 +118,9 @@ export default function CreateProduct(props) {
       <SideBar props={props} />
       <div className="container-page-sidebar">
         <HeaderEditPage editPage={true} />
-        <div className="container-create-service">
+        <div className="container-create-product">
           <TitlePages text="Cadastro de produto" />
-          <form className="create-form-service" onSubmit={handleSubmit} encType="multipart/form-data">
+          <form className="create-form-product" onSubmit={handleSubmit} encType="multipart/form-data">
             <TransitionOfSetting title="Imagem do produto" description="Uma imagem do produto deve ser inserida aqui. Basta clicar e selecionar a imagem desejada." />
             <InputFileImage onChangeText={textImage} onChange={handleImage} />
             <TransitionOfSetting errors={errors} title="Informações do produto" description="Cadastro de produto, esse produto será visível para o usuário na página de perfil da empresa para compra." />
