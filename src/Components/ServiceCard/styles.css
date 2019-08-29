@@ -7,13 +7,12 @@
   border: 1px solid #ebeced;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.16);
   user-select: none;
-  max-height: 109px;
   transition: height 0.8s;
 }
 
 .service-card .service-information {
   display: grid;
-  padding: 10px 2px;
+  padding: 10px 2px 5px;
 }
 
 .service-card .service-information .title-service {
