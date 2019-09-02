@@ -38,7 +38,6 @@ export default function EditPage(props) {
         await api.get(`/products-list/${id}`).then(res => {
           setProduct(res.data);
           setImageShow(res.data.avatar);
-          console.log(res.data);
         }).catch(error => {
           switch (error.message) {
             case "Network Error":
