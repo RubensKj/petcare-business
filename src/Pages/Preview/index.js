@@ -162,6 +162,18 @@ export default function Preview(props) {
                 {isLoading ? (<Loading boxShadow="none" />) : (<StatusInfo text={company.status} />)}
               </div>
             </div>
+            {company.description ? (
+              <>
+                <div className="description-area-company-profile">
+                  <div className="content-description-company-profile">
+                    <div className="title-description-company">
+                      <h3>Descrição</h3>
+                    </div>
+                    <p>{company.description}</p>
+                  </div>
+                </div>
+              </>
+            ) : ('')}
           </div>
         </div>
         <div className="content-company">
