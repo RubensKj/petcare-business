@@ -4,7 +4,6 @@
   border-radius: 10px;
   box-shadow: 0 8px 16px rgba(0,0,0,.1);
   border: 1px solid #ebeced;
-  cursor: pointer;
   user-select: none;
 }
 
@@ -47,10 +46,4 @@
 
 .service .service-information .price-service .unity {
   margin-right: 5px;
-}
-
-.selectedItem {
-  border: 1px solid #ec910a !important;
-  background: #fafafa;
-  /* background: #f3f4f7; */
 }

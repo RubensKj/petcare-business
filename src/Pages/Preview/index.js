@@ -97,23 +97,6 @@ export default function Preview(props) {
     }
   }
 
-  function selectItem(event, service) {
-    let selectedDiv = event.currentTarget;
-    if (!selectedDiv.classList.className === "selectedItem") {
-      if (localStorage.getItem('cart') !== null) {
-        let cart = localStorage.getItem('cart');
-        cart.push(service);
-        localStorage.setItem('cart', JSON.stringify(cart));
-      } else {
-        let cart = [];
-        cart.push(service);
-        localStorage.setItem('cart', JSON.stringify(cart));
-      }
-    }
-    selectedDiv.classList.toggle("selectedItem");
-  }
-
-
   const company = state.data;
   const isLoading = state.isLoading;
 
@@ -162,6 +145,18 @@ export default function Preview(props) {
                 {isLoading ? (<Loading boxShadow="none" />) : (<StatusInfo text={company.status} />)}
               </div>
             </div>
+            {company.description ? (
+                <>
+                  <div className="description-area-company-profile">
+                    <div className="content-description-company-profile">
+                      <div className="title-description-company">
+                        <h3>Descrição</h3>
+                      </div>
+                      <p>{company.description}</p>
+                    </div>
+                  </div>
+                </>
+              ) : ('')}
           </div>
         </div>
         <div className="content-company">
@@ -173,7 +168,7 @@ export default function Preview(props) {
             {isLoadingService ? (<Loading />) : (
               <>
                 <div className="grid-services">
-                  {services.map(service => <ServiceCardToUser key={service.id} service={service} onClick={event => selectItem(event, service)} />)}
+                  {services.map(service => <ServiceCardToUser key={service.id} service={service} />)}
                 </div>
                 <BottomLoadMore setClassName="btn-loadServices" text="Carregar mais produtos" onClick={() => handleLoadMoreServices(actPageService + 1)} />
               </>

@@ -18,7 +18,6 @@ export default function Order(props) {
           <div className="request-item">
             <div className="header-request">
               <div className="person-information">
-                <img src="https://www.altoastral.com.br/wp-content/uploads/2016/11/pessoa-assexuada.jpg" alt="User Logo" />
                 <h3 className="name-person">Rubens Kleinschmidt Júnior</h3>
               </div>
               <SelectRequest />

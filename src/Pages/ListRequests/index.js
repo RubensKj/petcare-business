@@ -20,7 +20,6 @@ export default function ListRequests(props) {
             <div className="request" role="button">
               <div className="header-person-from-request">
                 <div className="request-person-information">
-                  <img src="https://www.altoastral.com.br/wp-content/uploads/2016/11/pessoa-assexuada.jpg" alt="User Logo" />
                   <h3 className="name-person">Rubens Kleinschmidt Júnior</h3>
                 </div>
               </div>
