@@ -70,7 +70,7 @@ export default function SettingsPage(props) {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    const { cnpj, companyName } = company;
+    const { cnpj, companyName, description } = company;
     const { street, placeNumber, complement, neighborhood, cep, city, state } = company.address;
     if (!cnpj || !companyName || !street || !placeNumber || !neighborhood || !cep || !city || !state) {
       setErrors("Preencha todos os dados para continuar o cadastro");
@@ -82,6 +82,11 @@ export default function SettingsPage(props) {
 
       if (companyName.length <= 0 || companyName.length > 250) {
         setErrors("Digite um nome válido");
+        return;
+      }
+
+      if (description.length <= 0 || description.length >= 350) {
+        setErrors("Descrição muito extensa.");
         return;
       }
 

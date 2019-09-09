@@ -32,7 +32,7 @@ export default function SignUpPhaseTwo(props) {
       dispatch(addErrors("Preencha todos os dados para continuar o cadastro"));
       addAnimationToInput();
     } else {
-      if (cnpj < 0 || cnpj.length > 18) {
+      if (cnpj < 14 || cnpj.length > 18) {
         dispatch(addErrors("CNPJ é inválido, favor inserir um correto."));
         addAnimationToInput();
         return;

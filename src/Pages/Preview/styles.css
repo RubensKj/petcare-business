@@ -116,6 +116,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding: 0 10px;
 }
 
 .content-preview .box-main-information .title-joinedDate h1 {
@@ -436,6 +437,7 @@
   .content-preview .box-main-information .address-status .address-area, .content-preview .box-main-information .status-area {
     max-width: none !important;
   }
+  
 }
 
 @media only screen and (max-width: 500px) and (min-width: 0px) {
@@ -447,5 +449,8 @@
   .content-preview .box-main-information .address-status {
     padding: 0 25px !important;
   }
-  
+
+  .content-preview .box-main-information .description-area-company-profile {
+    padding: 0 25px !important;
+  }
 }
