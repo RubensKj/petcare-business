@@ -28,4 +28,8 @@
   .container-create-product .create-form-product {
     padding: 0 15px;
   }
+
+  .container-create-product .create-form-product .inputs {
+    padding: 0 25px !important;
+  }
 }

@@ -26,17 +26,17 @@
 
 .container-service .buttons-service .delete-button, .container-service .buttons-service .signup-product {
   width: 140px;
-    height: 35px;
-    border-radius: 5px;
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: 100ms;
-    box-shadow: 0 8px 16px rgba(0,0,0,.1);
-    border: 1px solid #ebeced;
-    text-decoration: none;
+  height: 35px;
+  border-radius: 5px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 100ms;
+  box-shadow: 0 8px 16px rgba(0,0,0,.1);
+  border: 1px solid #ebeced;
+  text-decoration: none;
 }
 
 .container-service .buttons-service .delete-button svg, .container-service .buttons-service .signup-product svg {
@@ -117,5 +117,10 @@
   .container-service .container-list-services {
     padding: 30px 15px 0 !important;
     grid-template-columns: repeat(1, 1fr) !important;
+  }
+
+  .container-service .buttons-service {
+    justify-content: center;
+    padding: 0 15px 25px !important;
   }
 }

@@ -118,4 +118,8 @@
     padding: 30px 15px 0 !important;
     grid-template-columns: repeat(1, 1fr);
   }
+
+  .container-product .buttons {
+    padding: 0 15px 25px !important;
+  }
 }

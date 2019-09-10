@@ -149,4 +149,8 @@
     margin-top: 65px;
     z-index: 9999;
   }
+
+  .sidebar .container-sidebar-left .company-list-menu {
+    margin-bottom: 25px;
+  }
 }

@@ -28,4 +28,8 @@
   .container-create-service .create-form-service {
     padding: 0 15px;
   }
+
+  .container-create-service .create-form-service .inputs {
+    padding: 0 25px !important;
+  }
 }
