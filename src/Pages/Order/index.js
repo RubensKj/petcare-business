@@ -13,15 +13,26 @@ import './styles.css';
 
 export default function Order(props) {
 
+  // LOAD DIVS
+  const btnLoadServices = '.btn-loadServices';
+  const btnLoadProduct = '.btn-loadProducts';
+  const hideButtons = 'hide-buttons-load-more';
+
   // INFORMATION FROM ORDER
   const [order, setOrder] = useState({});
   const [date, setDate] = useState('');
   const [statusWord, setStatusWord] = useState('');
   const [status, setStatus] = useState(0);
 
-  // ITEMS FROM ORDER
+  // SERVICES
   const [services, setServices] = useState([]);
+  const [totalPagesService, setTotalPagesService] = useState(0);
+  const [actPageService, setActPageService] = useState(0);
+  
+  // PRODUCTS
   const [products, setProducts] = useState([]);
+  const [totalPagesProduct, setTotalPagesProduct] = useState(0);
+  const [actPageProduct, setActPageProduct] = useState(0);
 
   async function loadOrderById(id) {
     await api.get(`/orders-to-company/${id}`).then(res => {
@@ -51,12 +62,16 @@ export default function Order(props) {
   async function loadServicesFromOrder(id, page) {
     await api.get(`/order-services/${id}/${page}`).then(res => {
       setServices(res.data.content);
+      setTotalPagesService(res.data.totalPages);
+      setActPageService(res.data.number);
     });
   }
 
   async function loadProductsFromOrder(id, page) {
     await api.get(`/order-products/${id}/${page}`).then(res => {
       setProducts(res.data.content);
+      setTotalPagesProduct(res.data.totalPages);
+      setActPageProduct(res.data.number);
     });
   }
 
@@ -86,8 +101,44 @@ export default function Order(props) {
   }, [status])
 
   async function handleNextProcess(id, numberProcess) {
-    await api.put(`/orders-process/${id}/${(numberProcess + 1)}`);
-    setStatus(numberProcess + 1);
+    if ((numberProcess + 1) >= 5) {
+      props.history.push('/pedidos');
+    } else {
+      await api.put(`/orders-process/${id}/${(numberProcess + 1)}`);
+      setStatus(numberProcess + 1);
+    }
+  }
+
+  useEffect(() => {
+    if((actPageService + 1) >= totalPagesService) {
+      let btn = document.querySelector(btnLoadServices);
+      if (btn !== null) {
+        btn.classList.add(hideButtons);
+      }
+    }
+  }, [actPageService, totalPagesService]);
+
+  async function loadMoreServices(id, page) {
+    await api.get(`/order-services/${id}/${page}`).then(res => {
+      setServices(services.concat(res.data.content));
+      setActPageService(res.data.number);
+    });
+  }
+
+  useEffect(() => {
+    if((actPageProduct + 1) >= totalPagesProduct) {
+      let btn = document.querySelector(btnLoadProduct);
+      if (btn !== null) {
+        btn.classList.add(hideButtons);
+      }
+    }
+  }, [actPageProduct, totalPagesProduct]);
+
+  async function loadMoreProducts(id, page) {
+    await api.get(`/order-products/${id}/${page}`).then(res => {
+      setProducts(products.concat(res.data.content));
+      setActPageProduct(res.data.number);
+    });
   }
 
   return (
@@ -99,7 +150,7 @@ export default function Order(props) {
           <div className="request-item">
             <div className="header-request">
               <div className="person-information">
-                <h3 className="name-person">{order.userCompleteName}</h3>
+                <h3 className="name-person">{order.userCompleteName === undefined ? ('Carregando..') : (order.userCompleteName)}</h3>
               </div>
               <SelectRequest status={status} onClick={() => handleNextProcess(order.id, status)} />
             </div>
@@ -108,7 +159,15 @@ export default function Order(props) {
                 <div className="number-status">
                   <div className="header-request-number">
                     <h3>Pedido: </h3>
-                    <span>{'#' + order.id}</span>
+                    <span>{'#' + (order.id === undefined ? (' Carregando..') : (order.id))}</span>
+                  </div>
+                  <div className="area-info">
+                    <h3>Subtotal: </h3>
+                    <span>{'R$ ' + (order.subTotal === undefined ? (' Carregando..') : (order.subTotal))}</span>
+                  </div>
+                  <div className="area-info">
+                    <h3>Total: </h3>
+                    <span>{'R$ ' + (order.total === undefined ? (' Carregando..') : (order.total))}</span>
                   </div>
                   <div className="status">
                     <h3>Status:</h3>
@@ -142,7 +201,7 @@ export default function Order(props) {
                       <div className="list-services">
                         {services.map(service => <ServiceCard key={service.id} service={service} />)}
                       </div>
-                      <BottomLoadMore text="Carregar mais serviços" />
+                      <BottomLoadMore onClick={() => loadMoreServices(order.id, (actPageService + 1))} setClassName="btn-loadServices" text="Carregar mais serviços" />
                     </div>
                   </>
                 ) : ('')}
@@ -155,6 +214,7 @@ export default function Order(props) {
                       <div className="list-products">
                         {products.map(product => <ProductCard key={product.id} product={product} actionThreeDots={false} />)}
                       </div>
+                      <BottomLoadMore onClick={() => loadMoreProducts(order.id, (actPageProduct + 1))} setClassName="btn-loadProducts" text="Carregar mais produtos" />
                     </div>
                   </>
                 ) : ('')}

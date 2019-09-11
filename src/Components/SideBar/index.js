@@ -30,7 +30,7 @@ export default function SideBar({ props }) {
             paws[i].classList.add('faw-rating');
           }
         }).catch(error => {
-          console.log(error);
+          props.history.push('/entrar');
         });
       }
       loadCompany();

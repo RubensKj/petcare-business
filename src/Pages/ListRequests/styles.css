@@ -1,3 +1,7 @@
+.hide-button-load-more-orders {
+  display: none !important;
+}
+
 .container-requests {
   display: block;
   justify-content: center;
@@ -9,6 +13,13 @@
 .container-requests .container-list-requests {
   max-width: 920px;
   width: 100%;
+}
+
+.container-requests .button-load-more-to-pages {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 55px;
 }
 
 .container-requests .container-list-requests {

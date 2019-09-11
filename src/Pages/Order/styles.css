@@ -1,3 +1,7 @@
+.hide-buttons-load-more {
+  display: none !important;
+}
+
 .container-request {
   display: block;
   justify-content: center;
@@ -16,6 +20,7 @@
   border-radius: 10px;
   border: 1px solid #ebeced;
   margin-top: 25px;
+  margin-bottom: 55px;
 }
 
 .container-request .request-item .header-request {
@@ -66,20 +71,20 @@
   margin-bottom: 5px;
 }
 
-.container-request .request-item .request-information .header-request-information .number-status .header-request-number, .container-request .request-item .request-information .header-request-information .number-status .status {
+.container-request .request-item .request-information .header-request-information .number-status .header-request-number, .container-request .request-item .request-information .header-request-information .number-status .status, .container-request .request-item .request-information .header-request-information .number-status .area-info {
   display: flex;
   justify-content: left;
   align-items: center;
   margin-top: 10px;
 }
 
-.container-request .request-item .request-information .header-request-information .number-status .header-request-number h3, .container-request .request-item .request-information .header-request-information .number-status .status h3 {
+.container-request .request-item .request-information .header-request-information .number-status .header-request-number h3, .container-request .request-item .request-information .header-request-information .number-status .status h3, .container-request .request-item .request-information .header-request-information .number-status .area-info h3 {
   font-size: 17px;
   color: #ec910a;
   margin-right: 5px;
 }
 
-.container-request .request-item .request-information .header-request-information .number-status .header-request-number span, .container-request .request-item .request-information .header-request-information .number-status .status span {
+.container-request .request-item .request-information .header-request-information .number-status .header-request-number span, .container-request .request-item .request-information .header-request-information .number-status .status span, .container-request .request-item .request-information .header-request-information .number-status .area-info span {
   font-size: 16px;
   color: #4c5765;
 }
@@ -93,6 +98,7 @@
 .container-request .request-item .request-information .header-request-information .realized svg {
   stroke: #ec910a;
   margin-right: 5px;
+  margin-top: 5px;
 }
 
 .container-request .request-item .request-information .header-request-information .realized span {
