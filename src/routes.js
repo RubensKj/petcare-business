@@ -41,7 +41,7 @@ const Routes = () => (
           <PrivateRoute exact path='/pedidos' component={ListRequests} />
           <PrivateRoute exact path='/avaliacoes' component={ListEvaluations} />
           <PrivateRoute path='/configuracoes' component={SettingsPage} />
-          <PrivateRoute path='/pedidos/id' component={Order} />
+          <PrivateRoute path='/pedidos/:id' component={Order} />
           <PrivateRoute path='/produtos/:id/editar' component={EditPage} />
           <PrivateRoute path='/servicos/:id/editar' component={EditPageService} />
           <Route path='*' component={Preview} />

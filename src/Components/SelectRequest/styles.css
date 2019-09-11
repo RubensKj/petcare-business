@@ -25,6 +25,7 @@
 .status .process .gerado {
   width: 25%;
   background: #ffb822;
+  opacity: 0.3;
 }
 
 .status .process .andamento {
