@@ -1,10 +1,13 @@
+.qtyPaws {
+  color: #dabb72 !important;
+}
+
 .evaluation {
   width: 100%;
-  min-height: 150px;
   height: 100%;
   border-top: 1px solid #ebeced;
   border-bottom: 1px solid #ebeced;
-  padding: 15px 30px;
+  padding: 15px 30px !important;
   margin-bottom: 10px;
 }
 
@@ -17,21 +20,6 @@
 .evaluation .header-information .user-content {
   display: flex;
   justify-content: left;
-}
-
-.evaluation .header-information .user-content .avatar-product-area {
-  max-width: 70px;
-  min-width: 50px;
-  width: 100%;
-  max-height: 85px;
-  height: 100%;
-  margin-right: 15px;
-}
-
-.evaluation .header-information .user-content .avatar-product-area img {
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 50%;
 }
 
 .evaluation .header-information .user-content .info-header h1 {
@@ -63,7 +51,7 @@
   position: relative;
   margin-left: 3px;
   margin-top: 3px;
-  color: #B3B6CB;
+  color: #dabb72;
   font-weight: 600;
 }
 
@@ -86,7 +74,7 @@
   text-overflow: ellipsis;
   color: #4c5765;
   overflow: hidden;
-  transition: 0.2s all;
+  transition: 0.2s;
 }
 
 .evaluation .content-evalution:hover, .evaluation .content-evalution p:hover {

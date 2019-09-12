@@ -1,25 +1,36 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import PawLogo from '../../Assets/PawLogo';
 
 import './styles.css';
 
 export default function EvaluationCard({ evaluation }) {
+
+  const ratePaws = Math.floor(3.6);
+
+  useEffect(() => {
+    console.log(ratePaws)
+    let paws = document.querySelectorAll('.paw-evaluation-on');
+    for (var i = 0; i < ratePaws; i++) {
+      paws[i].classList.add('qtyPaws');
+    }
+  }, [ratePaws]);
+
+  // Replace date of '29-02' to like this '29/02'
+  //const date = evaluation.createdEvaluationAt.split("-").join("/");
+
   return (
     <div className="evaluation">
       <div className="header-information">
         <div className="user-content">
-          <div className="avatar-product-area">
-            <img src="https://www.midlandsderm.com/wp-content/uploads/2019/04/Rachel-R.-Person-760x760.jpg" alt="Product Logo" />
-          </div>
           <div className="info-header">
             <h1>Rubens Kleinschmidt Júnior</h1>
             <div className="paws">
-              <PawLogo />
-              <PawLogo />
-              <PawLogo />
-              <PawLogo />
-              <PawLogo />
+              <PawLogo className="paw-evaluation-on" />
+              <PawLogo className="paw-evaluation-on" />
+              <PawLogo className="paw-evaluation-on" />
+              <PawLogo className="paw-evaluation-on" />
+              <PawLogo className="paw-evaluation-on" />
               <span>4.2</span>
             </div>
           </div>

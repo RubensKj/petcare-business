@@ -29,7 +29,7 @@ export default function ListRequests(props) {
       setTotalPages(res.data.totalPages);
       setActPage(res.data.number);
       setIsLoading(false);
-      if (res.data.totalPages <= 0) {
+      if (res.data.totalPages <= 1) {
         let btn = document.querySelector(btnLoadMore);
         if (btn !== null) {
           btn.classList.add(hideClass);

@@ -14,6 +14,23 @@
   border-bottom: 1px solid #d1d5da;
 }
 
+#left-actions-mini-menu::-webkit-scrollbar {
+  height: 8px;
+}
+
+#left-actions-mini-menu::-webkit-scrollbar-track {
+  background: #ebeced; 
+}
+
+#left-actions-mini-menu::-webkit-scrollbar-thumb {
+  background: #c5c5c5;
+  transition: background 0.2s;
+}
+
+#left-actions-mini-menu::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3; 
+}
+
 .header-edit .container-options {
   max-width: 920px;
   width: 100%;
@@ -26,6 +43,7 @@
 .header-edit .container-options .left-actions {
   display: flex;
   align-items: center;
+  overflow-x: auto;
   width: 100%;
 }
 
