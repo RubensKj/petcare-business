@@ -49,7 +49,6 @@
   justify-content: center;
   align-items: center;
   padding: 0 15px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .sidebar .container-sidebar-left .information-company .information-company-area {
@@ -97,6 +96,30 @@
   margin-left: 5px;
   margin-top: 3px;
 }
+
+/* Bottom status area */
+.sidebar .container-sidebar-left .bottom-company-status {
+  display: flex;
+  background: #1c1b20;
+  height: 60px;
+  padding: 5px 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar .container-sidebar-left .bottom-company-status .cart-set-status {
+  width: 100%;
+  background: #ec910a;
+  color: #fff;
+  height: 40px;
+  border-radius: 5px;
+  padding: 5px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+
 
 .sidebar .container-sidebar-left .company-list-menu {
   position: relative;

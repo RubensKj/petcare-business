@@ -67,6 +67,11 @@ export default function SideBar({ props }) {
               </div>
             )}
           </div>
+          <div className="bottom-company-status">
+            <div className="cart-set-status">
+              <h3>{company.status}</h3>
+            </div>
+          </div>
           <div className="company-list-menu">
             <div className="transition">
               <h1>Home</h1>
