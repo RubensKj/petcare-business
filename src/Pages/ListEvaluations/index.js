@@ -1,19 +1,76 @@
-import React, { useEffect } from 'react';
-// import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
 
 
 import HeaderEditPage from '../../Components/HeaderEditPage';
 import SideBar from '../../Components/SideBar';
+import Loading from '../../Components/Loading';
 import EvaluationCard from '../../Components/EvaluationCard';
+import BottomLoadMore from '../../Components/BottomLoadMore';
+
+import api from '../../Services/api';
 
 import './styles.css';
 
 export default function ListEvaluations(props) {
-  // const state = useSelector(state => state.Company);
-  // const [evaluations, setEvaluations] = useState([]);
+
+  const btnLoadMore = '.btn-loadMore-evaluation';
+  const hideClass = 'hide-button-load-more-evaluations';
+
+  const [isLoading, setIsLoading] = useState(true);
+  const [evaluations, setEvaluations] = useState([]);
+  const [totalPages, setTotalPages] = useState(0);
+  const [actPage, setActPage] = useState(0);
+
+  const [numberOfElements, setNumberOfElements] = useState(0);
+  const [statusApproved, setStatusApproved] = useState(0);
+
+  async function loadEvaluations(page) {
+    await api.get(`/evaluations/${page}`).then(res => {
+      setEvaluations(res.data.content);
+      setTotalPages(res.data.totalPages);
+      setActPage(res.data.number);
+      setNumberOfElements(res.data.numberOfElements);
+      setIsLoading(false);
+      if (res.data.totalPages <= 1) {
+        let btn = document.querySelector(btnLoadMore);
+        if (btn !== null) {
+          btn.classList.add(hideClass);
+        }
+      }
+    });
+  }
 
   useEffect(() => {
-  }, [])
+    loadEvaluations(0);
+  }, []);
+
+  useEffect(() => {
+    if ((actPage + 1) >= totalPages && isLoading === false) {
+      let btn = document.querySelector(btnLoadMore);
+      if (btn !== null) {
+        btn.classList.add(hideClass);
+      }
+    }
+  }, [actPage, totalPages, isLoading]);
+
+  async function loadMoreEvaluations(page) {
+    await api.get(`/evaluations/${page}`).then(res => {
+      setEvaluations(evaluations.concat(res.data.content));
+      setNumberOfElements((numberOfElements + res.data.numberOfElements));
+      setActPage(res.data.number);
+    });
+  }
+
+  useEffect(() => {
+    if (evaluations.length > 0) {
+      let maxNote = (numberOfElements * 5);
+      let totalRateByPage = 0;
+      evaluations.forEach(evaluation => { totalRateByPage += evaluation.rate; });
+
+      let totalRateX100 = totalRateByPage * 100;
+      setStatusApproved((totalRateX100 / maxNote));
+    }
+  }, [evaluations, numberOfElements]);
 
   return (
     <>
@@ -28,9 +85,13 @@ export default function ListEvaluations(props) {
                 <div className="little-box-transition" />
               </div>
               <div className="status-bar-evalution">
-                <div style={{ marginLeft: '24%' }} className="percent"><span>30% aprovação</span></div>
+                <div /*style={{ marginLeft: (statusApproved ? ((statusApproved >= 90 ? (statusApproved - 18) : (statusApproved - 10))) : (0)) + '%' }} */ className="percent"><span>{statusApproved ? (statusApproved.toFixed(1)) : ('0')}% aprovação</span></div>
                 <div className="bar-status-evaluation">
-                  <div style={{ width: '30%' }} className="bar-status" />
+                  <div style={{ width: statusApproved + '%' }} className="bar-status" />
+                </div>
+                <div className="explanation">
+                  <span className="icon">*</span>
+                  <span className="text-explanation">Esse é o percentual sobre a nota máxima que poderia ter se todos os usuários desta página tivessem dado uma nota 5.0!</span>
                 </div>
               </div>
             </div>
@@ -39,18 +100,14 @@ export default function ListEvaluations(props) {
               <div className="little-box-transition" />
             </div>
           </div>
-          <div className="container-list-evaluation">
-            <EvaluationCard evaluation={null} />
-            <EvaluationCard evaluation={null} />
-            <EvaluationCard evaluation={null} />
-            <EvaluationCard evaluation={null} />
-            <EvaluationCard evaluation={null} />
-            <EvaluationCard evaluation={null} />
-            <EvaluationCard evaluation={null} />
-            <EvaluationCard evaluation={null} />
-            <EvaluationCard evaluation={null} />
-            <EvaluationCard evaluation={null} />
-          </div>
+          {isLoading ? (<Loading />) : (
+            <>
+              <div className="container-list-evaluation">
+                {evaluations.map(evaluation => <EvaluationCard key={evaluation.id} evaluation={evaluation} />)}
+              </div>
+              <BottomLoadMore onClick={() => loadMoreEvaluations(actPage + 1)} text="Carregar mais avaliações" setClassName="btn-loadMore-evaluation" />
+            </>
+          )}
         </div>
       </div>
     </>
