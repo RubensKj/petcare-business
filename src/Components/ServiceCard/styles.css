@@ -1,5 +1,6 @@
 .service-card {
   display: flex;
+  height: fit-content;
   flex-direction: column;
   background: #fff;
   border-radius: 10px;
