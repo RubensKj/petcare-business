@@ -48,7 +48,7 @@ export default function SignUp(props) {
         return;
       }
 
-      if (phoneNumber < 0 || phoneNumber.length > 20 || phoneNumber.length < 11) {
+      if (phoneNumber < 0 || phoneNumber.length > 20 || phoneNumber.length < 8) {
         dispatch(addErrors("Este número de telefone não é válido"));
         addAnimationToInput();
         return;

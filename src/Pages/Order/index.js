@@ -104,8 +104,10 @@ export default function Order(props) {
     if ((numberProcess + 1) >= 5) {
       props.history.push('/pedidos');
     } else {
-      await api.put(`/orders-process/${id}/${(numberProcess + 1)}`);
-      setStatus(numberProcess + 1);
+      if(id !== undefined) {
+        await api.put(`/orders-process/${id}/${(numberProcess + 1)}`);
+        setStatus(numberProcess + 1);
+      } 
     }
   }
 
