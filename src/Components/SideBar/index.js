@@ -6,7 +6,7 @@ import Loading from '../../Components/Loading';
 import PawLogo from '../../Assets/PawLogo';
 import PetShopDogLogo from '../../Assets/PetShopDogLogo.svg';
 
-import { isAuthenticated } from '../../Services/auth';
+import { isAuthenticated, logout } from '../../Services/auth';
 import api from '../../Services/api';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCompany, setIsLoading } from '../../Store/Actions/Company';
@@ -30,7 +30,10 @@ export default function SideBar({ props }) {
             paws[i].classList.add('faw-rating');
           }
         }).catch(error => {
-          props.history.push('/entrar');
+          if(error.message === "Request failed with status code 401" && isAuthenticated()) {
+            logout();
+            props.history.push('/entrar');
+          }
         });
       }
       loadCompany();

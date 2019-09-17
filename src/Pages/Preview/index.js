@@ -43,7 +43,9 @@ export default function Preview(props) {
       setIsLoadingService(false)
       if (res.data.totalPages <= 1) {
         let btn = document.querySelector(".btn-loadServices");
-        btn.classList.add("button-load-more-no-content");
+        if (btn !== null) {
+          btn.classList.add("button-load-more-no-content");
+        }
       }
     });
   }
@@ -56,7 +58,9 @@ export default function Preview(props) {
       setIsLoadingProduct(false);
       if (res.data.totalPages <= 1) {
         let btn = document.querySelector(".btn-loadProducts");
-        btn.classList.add("button-load-more-no-content");
+        if (btn !== null) {
+          btn.classList.add("button-load-more-no-content");
+        }
       }
     });
   }
@@ -146,17 +150,17 @@ export default function Preview(props) {
               </div>
             </div>
             {company.description ? (
-                <>
-                  <div className="description-area-company-profile">
-                    <div className="content-description-company-profile">
-                      <div className="title-description-company">
-                        <h3>Descrição</h3>
-                      </div>
-                      <p>{company.description}</p>
+              <>
+                <div className="description-area-company-profile">
+                  <div className="content-description-company-profile">
+                    <div className="title-description-company">
+                      <h3>Descrição</h3>
                     </div>
+                    <p>{company.description}</p>
                   </div>
-                </>
-              ) : ('')}
+                </div>
+              </>
+            ) : ('')}
           </div>
         </div>
         <div className="content-company">
