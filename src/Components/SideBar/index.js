@@ -30,7 +30,7 @@ export default function SideBar({ props }) {
             paws[i].classList.add('faw-rating');
           }
         }).catch(error => {
-          if(error.message === "Request failed with status code 401" && isAuthenticated()) {
+          if((error.message === "Request failed with status code 401" || error.message === "Request failed with status code 500") && isAuthenticated()) {
             logout();
             props.history.push('/entrar');
           }

@@ -55,7 +55,7 @@ export default function SettingsPage(props) {
 
   async function handleImage(e) {
     e.preventDefault();
-    if(e.target.files[0].name !== null && (e.target.files[0].name.includes(".jpeg") || e.target.files[0].name.includes(".jpg") || e.target.files[0].name.includes(".png"))) {
+    if(e.target.files[0] !== undefined && e.target.files[0].name !== null  && (e.target.files[0].name.includes(".jpeg") || e.target.files[0].name.includes(".jpg") || e.target.files[0].name.includes(".png"))) {
       let data = new FormData();
       data.append('file', e.target.files[0]);
       await api.post(`/change-company-image/${company.id}`, data).then(() => {
@@ -85,7 +85,7 @@ export default function SettingsPage(props) {
         return;
       }
 
-      if (description.length <= 0 || description.length >= 350) {
+      if (description === null || description === undefined || description.length >= 350) {
         setErrors("Descrição muito extensa.");
         return;
       }
@@ -160,7 +160,7 @@ export default function SettingsPage(props) {
                 <TextArea value={company.description} placeholder="Descrição" onChange={e => setCompany({ ...company, description: e.target.value })} />
               </div>
               <Input type="text" value={company.address.street} placeholder="Endereço" onChange={e => setCompany({ ...company, address: { ...company.address, street: e.target.value } })} messageBottom="Endereço em que a empresa foi cadastrada" autoComplete="off" />
-              <Input type="number" value={company.address.placeNumber} placeholder="Número" onChange={e => setCompany({ ...company, address: { ...company.address, placeNumber: e.target.value } })} messageBottom="Número do estabelecimento" autoComplete="off" />
+              <Input type="number" value={company.address.placeNumber} placeholder="Número" onChange={e => setCompany({ ...company, address: { ...company.address, placeNumber: e.target.value } })} messageBottom="Número do estabelecimento" autoComplete="off" max="20000" />
               <Input type="text" value={company.address.complement} placeholder="Complemento" onChange={e => setCompany({ ...company, address: { ...company.address, complement: e.target.value } })} messageBottom="Complemento do estabelecimento" autoComplete="off" />
               <Input type="text" value={company.address.neighborhood} placeholder="Bairro" onChange={e => setCompany({ ...company, address: { ...company.address, neighborhood: e.target.value } })} autoComplete="off" />
               <Input type="text" value={company.address.cep} placeholder="CEP" onChange={e => setCompany({ ...company, address: { ...company.address, cep: e.target.value } })} autoComplete="off" />
