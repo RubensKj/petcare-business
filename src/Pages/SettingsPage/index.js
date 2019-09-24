@@ -90,32 +90,32 @@ export default function SettingsPage(props) {
         return;
       }
 
-      if (street.length > 250) {
+      if (street === null || street === undefined || street.length > 250) {
         setErrors("Rua inválida");
         return;
       }
 
-      if (placeNumber < 0 || placeNumber > 20000) {
+      if (placeNumber === null || placeNumber === undefined || placeNumber < 0 || placeNumber > 20000) {
         setErrors("Número inválido");
         return;
       }
 
-      if (complement.length >= 100) {
+      if (complement === null || complement === undefined || complement.length >= 100) {
         setErrors("Complemento muito extenso");
         return;
       }
 
-      if (neighborhood.length > 250) {
+      if (neighborhood === null || neighborhood === undefined || neighborhood.length > 250) {
         setErrors("Bairro inválido");
         return;
       }
 
-      if (cep.length > 9) {
+      if (cep === null || cep === undefined || cep.length > 9) {
         setErrors("CEP inválido");
         return;
       }
 
-      if (state.length > 4) {
+      if (state === null || state === undefined || state.length > 4) {
         setErrors("Estado inválido");
         return;
       }

@@ -41,7 +41,6 @@ export default function LogIn(props) {
       login(res.data.accessToken);
       props.history.push('/dashboard');
     }).catch(error => {
-      console.log(JSON.stringify(error))
       switch (error.message) {
         case "Network Error":
           return setError("O servidor está temporariamente desligado");

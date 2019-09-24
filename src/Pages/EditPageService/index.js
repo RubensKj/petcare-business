@@ -53,17 +53,17 @@ export default function EditPageService(props) {
     if (!name || !price) {
       setErrors("Preencha todos os campos necessário para alterar o serviço");
     } else {
-      if (name.length <= 0 || name.length > 65) {
+      if (name === null || name === undefined || name.length > 65) {
         setErrors("Nome do produto muito extenso");
         return;
       }
 
-      if (description.length < 0 || description.length >= 650) {
+      if (description === null || description === undefined || description.length >= 650) {
         setErrors("Descrição só pode ter no máximo 650 caracteres");
         return;
       }
 
-      if (price <= 0 || price === 20000.00) {
+      if (price === null || price === undefined || price === 20000.00) {
         setErrors("Preço é não válido");
         return;
       }
