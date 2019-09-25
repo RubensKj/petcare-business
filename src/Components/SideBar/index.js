@@ -9,7 +9,7 @@ import PetShopDogLogo from '../../Assets/PetShopDogLogo.svg';
 import { isAuthenticated, logout } from '../../Services/auth';
 import api from '../../Services/api';
 import { useSelector, useDispatch } from 'react-redux';
-import { setCompany, setIsLoading } from '../../Store/Actions/Company';
+import { setCompany, setIsLoading, setCompanyStatus } from '../../Store/Actions/Company';
 
 import './styles.css';
 
@@ -40,7 +40,19 @@ export default function SideBar({ props }) {
     } else {
       props.history.push('/entrar');
     }
-  }, [dispatch, props.history, state.rate])
+  }, [dispatch, props.history, state.rate]);
+
+  async function handleChangeStatus(e) {
+    e.preventDefault();
+
+    await api.put('/change-company-status').then(res => {
+      if (state.data.status === 'Aberto') {
+        dispatch(setCompanyStatus('Fechado'));
+      } else {
+        dispatch(setCompanyStatus('Aberto'));
+      }
+    });
+  }
 
   const company = state.data;
   const isLoading = state.isLoading;
@@ -71,7 +83,7 @@ export default function SideBar({ props }) {
             )}
           </div>
           <div className="bottom-company-status">
-            <div className="cart-set-status">
+            <div className="cart-set-status" role="button" onClick={e => handleChangeStatus(e)}>
               <h3>{company.status}</h3>
             </div>
           </div>
