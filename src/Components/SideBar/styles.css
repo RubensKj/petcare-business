@@ -118,6 +118,11 @@
   align-items: center;
   overflow: hidden;
   cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.sidebar .container-sidebar-left .bottom-company-status .cart-set-status:hover {
+  transform: translateY(1px);
 }
 
 
