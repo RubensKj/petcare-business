@@ -74,8 +74,8 @@ export default function SignUpOwner(props) {
         return;
       }
 
-      if (password.length > 50) {
-        dispatch(addErrors("Senha é muito extensa"));
+      if (password.length > 5 || password.length > 50) {
+        dispatch(addErrors("Senha inválida"));
         addAnimationToInput();
         return;
       }
