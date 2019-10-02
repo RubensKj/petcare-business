@@ -36,13 +36,22 @@ export default function SignUpOwner(props) {
       dispatch(addErrors("Preencha todos os dados para continuar o cadastro"));
       addAnimationToInput();
     } else {
+      dispatch(addErrors(""));
       if (completeNameState.length <= 0 || completeNameState.length > 1000) {
         dispatch(addErrors("Nome completo inválido " + completeNameState));
         addAnimationToInput();
         return;
       }
 
-      if (cpf.length <= 9 || cpf.length >= 12) {
+      let cpfWithoutPonto = cpf;
+      if (cpfWithoutPonto.includes(".")) {
+        cpfWithoutPonto = cpfWithoutPonto.split(".").join("");
+      }
+      if (cpfWithoutPonto.includes("-")) {
+        cpfWithoutPonto = cpfWithoutPonto.split("-").join("");
+      }
+
+      if (cpfWithoutPonto.length > 11) {
         dispatch(addErrors("Este CPF é inválido, favor inserir um válido"));
         addAnimationToInput();
         return;
@@ -51,30 +60,34 @@ export default function SignUpOwner(props) {
       var Soma;
       var Resto;
       Soma = 0;
-      if (cpf === "00000000000") {
+      if (cpfWithoutPonto === "00000000000") {
         dispatch(addErrors("Este CPF é inválido, favor inserir um válido"));
         addAnimationToInput();
         return;
       }
 
-      for (var i = 1; i <= 9; i++) Soma = Soma + parseInt(cpf.substring(i - 1, i)) * (11 - i);
+      for (var i = 1; i <= 9; i++) Soma = Soma + parseInt(cpfWithoutPonto.substring(i - 1, i)) * (11 - i);
       Resto = (Soma * 10) % 11;
 
       if ((Resto === 10) || (Resto === 11)) Resto = 0;
-      if (Resto !== parseInt(cpf.substring(9, 10))) return false;
+      if (Resto !== parseInt(cpfWithoutPonto.substring(9, 10))) {
+        dispatch(addErrors("Este CPF é inválido, favor inserir um válido"));
+        addAnimationToInput();
+        return;
+      };
 
       Soma = 0;
-      for (i = 1; i <= 10; i++) Soma = Soma + parseInt(cpf.substring(i - 1, i)) * (12 - i);
+      for (i = 1; i <= 10; i++) Soma = Soma + parseInt(cpfWithoutPonto.substring(i - 1, i)) * (12 - i);
       Resto = (Soma * 10) % 11;
 
       if ((Resto === 10) || (Resto === 11)) Resto = 0;
-      if (Resto !== parseInt(cpf.substring(10, 11))) {
+      if (Resto !== parseInt(cpfWithoutPonto.substring(10, 11))) {
         dispatch(addErrors("Este CPF é inválido, favor inserir um válido"));
         addAnimationToInput();
         return;
       }
 
-      if (password.length > 5 || password.length > 50) {
+      if (password.length <= 5 || password.length > 50) {
         dispatch(addErrors("Senha inválida"));
         addAnimationToInput();
         return;
@@ -117,6 +130,16 @@ export default function SignUpOwner(props) {
     localStorage.setItem('state', JSON.stringify(newStateWithNewName));
   }
 
+  // VALIDATE CPF
+  function handleChangeCPFAndMask(cpf) {
+    cpf = cpf.replace(/\D/g, '') // substitui qualquer caracter que nao seja numero por nada
+      .replace(/(\d{3})(\d)/, '$1.$2') // captura 2 grupos de numero o primeiro de 3 e o segundo de 1, apos capturar o primeiro grupo ele adiciona um ponto antes do segundo grupo de numero
+      .replace(/(\d{3})(\d)/, '$1.$2')
+      .replace(/(\d{3})(\d{1,2})/, '$1-$2')
+      .replace(/(-\d{2})\d+?$/, '$1') // captura 2 numeros seguidos de um traço e não deixa ser digitado mais nada
+    dispatch(addInput('ADD_CPF', cpf));
+  }
+
   return (
     <>
       <HeaderMainPage hideBtns={true} />
@@ -127,7 +150,7 @@ export default function SignUpOwner(props) {
             <h3 className="error-signup">{stateSignUp.error}</h3>
           </div>
           <Input type="text" value={completeNameState} onChange={handleCompleteName} messageBottom="Nome completo do dono da empresa" />
-          <Input type="text" placeholder="CPF" onChange={e => dispatch(addInput('ADD_CPF', e.target.value))} messageBottom="O CPF deve ser o do dono da empresa" />
+          <Input type="text" placeholder="CPF" value={stateSignUp.registerUser.cpf} onChange={e => handleChangeCPFAndMask(e.target.value)} messageBottom="O CPF deve ser o do dono da empresa" />
           <Input type="password" placeholder="Senha" onChange={e => dispatch(addInput('ADD_PASSWORD', e.target.value))} messageBottom="Senha que será utilizada para entrar no sistema da empresa" autoComplete="on" />
           <ButtonForm text="Finalizar" />
         </form>
