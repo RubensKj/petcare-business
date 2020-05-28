@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 
 import HeaderMainPage from '../../Components/HeaderMainPage';
-import Footer from '../../Components/Footer';
 
 import dog from "../../Assets/dog-main.png";
 import cat from "../../Assets/cat-main.jpg";
@@ -47,7 +46,6 @@ export default function Main(props) {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }
