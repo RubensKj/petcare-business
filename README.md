@@ -14,9 +14,11 @@
 
 <p>PetCare business is a website where you can create your services, and products to consumers. PetCare makes everything close to your petshop and to consumer (Easy way to B2C).</p>
 
-<p align="center"><img src="https://raw.githubusercontent.com/RubensKj/petcare-business/master/.github/main_page.gif"/></p>
-<p align="center"><img src="https://raw.githubusercontent.com/RubensKj/petcare-business/master/.github/company_page.gif"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/RubensKj/petcare-business/master/.github/main_page_company.gif"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/RubensKj/petcare-business/master/.github/pedidos_page.gif"/></p>
 <br/>
+
+- [:camera_flash: More Images](https://raw.githubusercontent.com/RubensKj/petcare-business/master/.github/IMAGES.md)
 
 # 🐦 Direct Links
  * 🏗 [Dependencies](#building_construction-dependencies)
