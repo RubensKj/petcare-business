@@ -58,6 +58,8 @@
 
 ### Evaluation Page
 
+ps: The evaluations are fake just for the printscreen
+
 <p align="center"><img src="https://raw.githubusercontent.com/RubensKj/petcare-business/master/.github/evaluations_page.png"/></p>
 
 ---
