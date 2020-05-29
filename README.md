@@ -18,7 +18,7 @@
 <p align="center"><img src="https://raw.githubusercontent.com/RubensKj/petcare-business/master/.github/pedidos_page.gif"/></p>
 <br/>
 
-- [:camera_flash: More Images](https://raw.githubusercontent.com/RubensKj/petcare-business/master/.github/IMAGES.md)
+- [:camera_flash: More Images](https://raw.githubusercontent.com/RubensKj/petcare-business/master/IMAGES.md)
 
 # 🐦 Direct Links
  * 🏗 [Dependencies](#building_construction-dependencies)
